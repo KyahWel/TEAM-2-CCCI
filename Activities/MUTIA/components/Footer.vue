@@ -1,4 +1,5 @@
 <template>
+  <a-layout id="footer">
   <a-layout-footer :style="footerStyle">
     <h1>Contact Me</h1>
     <div class="social-media-container">
@@ -14,6 +15,7 @@
     </div>
     <p>&copy;2024 Created by Clarisse</p>
   </a-layout-footer>
+</a-layout>
 </template>
 
 <style scoped>

@@ -1,6 +1,7 @@
 <template>
     <a-layout id="home">
       <Carousel/>
+      
     </a-layout>
   </template>
   

@@ -2,6 +2,7 @@
 
   <div>
     <Home/>
+    <ContactBtn/>
   
    <div class="container">
     <About/>

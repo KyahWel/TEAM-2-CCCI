@@ -6,7 +6,7 @@
       <p style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); color: #fff;">This is some text about the image.</p>
     </div>
     <div>
-      <img src="img/banner1.jpg" alt="Image"/>
+      <img src="img/banner2.png" alt="Image"/>
     </div>
   </a-carousel>
 </template>
