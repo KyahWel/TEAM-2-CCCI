@@ -5,19 +5,19 @@
         <a-layout-card>
             <a-row :gutter="16">
               <a-col :span="8">
-                <a-card title="Project 1" :bordered="false">
+                <a-card title="Website" :bordered="false">
                   <img slot="cover" src="img/project1.png" alt="project-image">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                 </a-card>
               </a-col>
               <a-col :span="8">
-                <a-card title="Project 2" :bordered="false">
+                <a-card title="System" :bordered="false">
                   <img slot="cover" src="img/project2.png" alt="project-image">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
                 </a-card>
               </a-col>
               <a-col :span="8">
-                <a-card title="Project 3" :bordered="false">
+                <a-card title="Others" :bordered="false">
                   <img slot="cover" src="img/project3.png" alt="project-image">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                 </a-card>

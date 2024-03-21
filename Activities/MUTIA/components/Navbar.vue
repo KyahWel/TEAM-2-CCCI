@@ -1,6 +1,6 @@
 <template>
   <a-layout>
-    <a-layout-header :style="{ position: 'fixed',  width: '100%' }">
+    <a-layout-header>
       
       <a-menu
         theme="dark"
@@ -35,11 +35,14 @@
 
 <style scoped>
 .ant-layout-header{
+  position:fixed;
+  width: 100%;
   height: 64px;
   line-height: 64px;
   background: #39203f;
   z-index: 1000;
   display:flex;
+  padding: 0px;
 
 }
 .ant-menu {

@@ -1,24 +1,21 @@
+
 <template>
   <a-carousel v-if="isCarouselLoaded" autoplay>
-    <div><h3>Hello!</h3></div>
-    <div><h3>2</h3></div>
-    <div>
-      <p style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); color: #fff;">This is some text about the image.</p>
-    </div>
-    <div>
-      <img src="img/banner2.png" alt="Image"/>
-    </div>
+    <div class="slide-1"><h3>Hello!</h3></div>
+    <div class="slide-2"></div>
+    <div class="slide-3"></div>
+    <div class="slide-4"></div>
   </a-carousel>
 </template>
 
 <style scoped>
 .ant-carousel {
   width: 100%;
-  height: 500px;
+  height: 600px;
   margin-top: 16px;
 }
 
-:deep(.slick-slide) {
+.ant-carousel >>> .slick-slide {
   text-align: center;
   height: 600px;
   line-height: 500px;
@@ -26,16 +23,43 @@
   overflow: hidden;
 }
 
-:deep(.slick-slide h3) {
+.ant-carousel >>> .slick-slide h3 {
   color: #fff;
   font-size: 200px;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: right;
+  margin-top: 2%;
+  margin-right: 5%;
+
 }
 
-:deep(.slick-slide img) {
-  width: 100%;
-  height: 600px;
-  display: block;
-  margin: 0 auto;
+.slide-1 {
+  background-image: url("/img/banner2.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 600px;
+  
+}
+
+.slide-2 {
+  background-image: url("/img/banner1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 600px;
+}
+
+.slide-3 {
+  background-image: url("/img/banner3.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 600px;
+}
+
+.slide-4 {
+  background-image: url("/img/banner4.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 600px;
 }
 
 @media screen and (max-width: 768px) {
@@ -43,20 +67,27 @@
     height: 300px;
   }
 
-  :deep(.slick-slide) {
+  .ant-carousel >>> .slick-slide {
     height: 300px;
     line-height: 300px;
   }
 
-  :deep(.slick-slide h3) {
-    font-size: 120px;
+  .ant-carousel >>> .slick-slide h3 {
+    color: #fff;
+    font-size: 80px;
   }
 
-  :deep(.slick-slide img) {
-    height: 300px;
- }
+  .slide-1,
+  .slide-2,
+  .slide-3,
+  .slide-4 {
+    min-height: 300px;
+    min-width: 100%;
+  }
 }
 </style>
+
+
 
 <script>
 export default {

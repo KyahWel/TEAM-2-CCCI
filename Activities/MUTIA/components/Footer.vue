@@ -13,22 +13,23 @@
         <img src="img/instagram.svg" alt="Instagram" />
       </a>
     </div>
-    <p>&copy;2024 Created by Clarisse</p>
+    <p>&copy;2024 by Clarisse Mutia</p>
   </a-layout-footer>
 </a-layout>
 </template>
 
 <style scoped>
 .ant-layout-footer {
-  background-color: #e9d8f1;
+  background-color: #39203f;
   padding: 24px;
-  color: rgba(0, 0, 0, 0.65);
+  color: rgba(255, 255, 255, 0.65);
   text-align: center;
   margin-top: auto;
 }
 
 .ant-layout-footer h1 {
-  font-size: 15px;
+  font-size: 20px;
+  color: rgb(255, 248, 248);
 }
 
 .social-media-container {
@@ -40,7 +41,7 @@
 }
 
 .social-media-container img {
-  width: 20px;
+  width: 25px;
 }
 </style>
 

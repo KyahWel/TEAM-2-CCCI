@@ -1,6 +1,6 @@
 
 <template>
-  <a-space direction="vertical" :style="{ width: '100%' }" :size="[0, 48]">  
+<a-space direction="vertical" :style="{ width: '100%' }" :size="[0, 48]">  
   <a-layout :style="{ background: '#e9d8f1' }">
     
     <a-layout-header :style="headerStyle"> <Navbar/> </a-layout-header>
@@ -24,9 +24,8 @@
 
 }
 .ant-layout-footer {
-  background-color: #e9d8f1;
+  background-color: #39203f;
   padding: 24px;
-  color: rgba(0, 0, 0, 0.65);
   text-align: center;
   margin-top: auto;
   
@@ -42,11 +41,18 @@
 
 
   export default {
-    components: {
-      Navbar,
-      Carousel,
-      Footer,
-      index,
-    },
-  };
+  components: {
+    Navbar,
+    Carousel,
+    Footer,
+    index,
+  },
+  data() {
+    return {
+      headerStyle: {
+        // Add your styles here
+      }
+    }
+  }
+}
 </script>
