@@ -1,13 +1,13 @@
 <template>
 
   <div>
-    <Home/>
+    <home/>
     <ContactBtn/>
   
    <div class="container">
-    <About/>
-    <Academic/>
-    <Projects/>
+    <about/>
+    <academic/>
+    <projects/>
    </div>
    
 </div>
@@ -26,18 +26,18 @@
 
 <script>
 
-import Home from '/components/Home.vue'
-import About from '/components/About.vue'
-import Academic from '/components/Academic.vue'
-import Projects from '/components/Projects.vue'
+import home from '/pages/home.vue'
+import about from '/pages/about.vue'
+import academic from '/pages/academic.vue'
+import projects from '/pages/projects.vue'
 
 export default {
   components: {
     
-    Home,
-    About,
-    Academic,
-    Projects
+    home,
+    about,
+    academic,
+    projects,
   }
 }
 </script>

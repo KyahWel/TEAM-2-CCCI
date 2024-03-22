@@ -36,17 +36,15 @@
 <script>
   import Navbar from '/components/Navbar.vue';
   import Footer from '/components/Footer.vue';
-  import Carousel from '/components/Carousel.vue';
-  import index from '/pages/index.vue';
 
 
   export default {
   components: {
     Navbar,
-    Carousel,
     Footer,
-    index,
+    
   },
+
   data() {
     return {
       headerStyle: {
