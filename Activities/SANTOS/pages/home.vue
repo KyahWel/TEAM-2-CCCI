@@ -2,7 +2,7 @@
     <div>
         <!-- Logo -->
         <div type="flex" justify="center" align="middle">
-            <img src="/joseLogoLight.png" alt="Jose Santos Logo" class="headerLogo">
+            <a href="splash"><img src="/joseLogoLight.png" alt="Jose Santos Logo" class="headerLogo"></a>
         </div>
         <!-- Navigation Bar -->
       
@@ -96,7 +96,7 @@
                 <h1 type="flex" justify="center" align="middle" class="headers"><b>EDUCATIONAL ATTAINMENT</b></h1>
 
                 <a-row  type="flex" justify="center" align="middle">
-                    <a-col :xs="17" :sm="12" :md="5.5" :lg="4" justify="center" align="middle" class="classColumn">
+                    <a-col :xs="10" :sm="10" :md="8" :lg="4" justify="center" align="middle" class="classColumn">
                         <a href="https://www.ayalafoundation.org/program/centex/" target="_blank"><img src="centex.png" height="100px" class="schoolImage"/></a>
                         <h3 class="headers" justify="center" align="middle">
                             <b>
@@ -104,7 +104,7 @@
                             </b>
                         </h3>
                     </a-col>
-                    <a-col :xs="17" :sm="12" :md="5.5" :lg="4" justify="center" align="middle" class="classColumn">
+                    <a-col :xs="10" :sm="10" :md="8" :lg="4" justify="center" align="middle" class="classColumn">
                         <a href="https://www.smcl.edu.ph/" target="_blank"><img src="smcl.png" height="100px" class="schoolImage"/></a>
                         <h3 class="headers">
                             <b>
@@ -112,7 +112,8 @@
                             </b>
                         </h3>
                     </a-col>
-                    <a-col :xs="17" :sm="12" :md="5.5" :lg="4" justify="center" align="middle" class="classColumn">
+                    <a-col :xs="10" :sm="10" :md="8" :lg="4" justify="center" align="middle" class="classColumn">
+
                         <a href="https://www.ama.edu.ph/" target="_blank"><img src="ama.png" height="100px" class="schoolImage"/></a>
                         <h3 class="headers">
                             <b>
@@ -120,7 +121,8 @@
                             </b>
                         </h3>
                     </a-col>
-                    <a-col :xs="17" :sm="12" :md="5.5" :lg="4" justify="center" align="middle" class="classColumn">
+                    <a-col :xs="10" :sm="10" :md="8" :lg="4" justify="center" align="middle" class="classColumn">
+
                         <a href="https://www.tup.edu.ph/" target="_blank"><img src="tup.png" height="100px" class="schoolImage" /></a>
                         <h3 class="headers">
                             <b>
@@ -132,46 +134,46 @@
             </div>
         </div>
 
-        <div id="skills" class="skills">
+        <div id="skills" class="skills" style="height: 100vh;">
             <h1 type="flex" justify="center" align="middle" class="headers"><b>SKILLS</b></h1>
             <a-row  type="flex" justify="center" align="middle">
-                    <a-col :xs="11" :sm="8" :md="3" :lg="2" justify="center" align="middle" class="skillImage">
+                    <a-col :xs="6" :sm="5" :md="5" :lg="2" justify="center" align="middle" class="skillImage">
                         <img src="html.png" alt="" height="100px">
                     </a-col>
-                    <a-col :xs="11" :sm="8" :md="3" :lg="2" justify="center" align="middle" class="skillImage">
+                    <a-col :xs="6" :sm="5" :md="5" :lg="2" justify="center" align="middle" class="skillImage">
                         <img src="css.png" alt="" height="100px">
                     </a-col>
-                    <a-col :xs="11" :sm="8" :md="3" :lg="2" justify="center" align="middle" class="skillImage">
+                    <a-col :xs="6" :sm="5" :md="5" :lg="2" justify="center" align="middle" class="skillImage">
                         <img src="js.png" alt="" height="100px">
                     </a-col>
-                    <a-col :xs="11" :sm="8" :md="3" :lg="2" justify="center" align="middle" class="skillImage">
+                    <a-col :xs="6" :sm="5" :md="5" :lg="2" justify="center" align="middle" class="skillImage">
                         <img src="mysql.png" alt="" height="100px">
                     </a-col>
-                    <a-col :xs="11" :sm="8" :md="3" :lg="2" justify="center" align="middle" class="skillImage">
+                    <a-col :xs="6" :sm="5" :md="5" :lg="2" justify="center" align="middle" class="skillImage">
                         <img src="bootstrap.png" alt="" height="100px">
                     </a-col>
-                    <a-col :xs="11" :sm="8" :md="3" :lg="2" justify="center" align="middle" class="skillImage">
+                    <a-col :xs="6" :sm="5" :md="5" :lg="2" justify="center" align="middle" class="skillImage">
                         <img src="swift.png" alt="" height="100px">
                     </a-col>
             </a-row>
 
             <a-row  type="flex" justify="center" align="middle">
-                    <a-col :xs="11" :sm="8" :md="3" :lg="2" justify="center" align="middle" class="skillImage">
+                    <a-col :xs="6" :sm="5" :md="5" :lg="2" justify="center" align="middle" class="skillImage">
                         <img src="figma.png" alt="" height="100px">
                     </a-col>
-                    <a-col :xs="11" :sm="8" :md="3" :lg="2" justify="center" align="middle" class="skillImage">
+                    <a-col :xs="6" :sm="5" :md="5" :lg="2" justify="center" align="middle" class="skillImage">
                         <img src="photoshop.png" alt="" height="100px">
                     </a-col>
-                    <a-col :xs="11" :sm="8" :md="3" :lg="2" justify="center" align="middle" class="skillImage">
+                    <a-col :xs="6" :sm="5" :md="5" :lg="2" justify="center" align="middle" class="skillImage">
                         <img src="illustrator.png" alt="" height="100px">
                     </a-col>
-                    <a-col :xs="11" :sm="8" :md="3" :lg="2" justify="center" align="middle" class="skillImage">
+                    <a-col :xs="6" :sm="5" :md="5" :lg="2" justify="center" align="middle" class="skillImage">
                         <img src="animate.png" alt="" height="100px">
                     </a-col>
-                    <a-col :xs="11" :sm="8" :md="3" :lg="2" justify="center" align="middle" class="skillImage">
+                    <a-col :xs="6" :sm="5" :md="5" :lg="2" justify="center" align="middle" class="skillImage">
                         <img src="premiere.png" alt="" height="100px">
                     </a-col>
-                    <a-col :xs="11" :sm="8" :md="3" :lg="2" justify="center" align="middle" class="skillImage">
+                    <a-col :xs="6" :sm="5" :md="5" :lg="2" justify="center" align="middle" class="skillImage">
                         <img src="canva.png" alt="" height="100px">
                     </a-col>
             </a-row>
