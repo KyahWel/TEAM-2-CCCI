@@ -69,6 +69,20 @@
     .about-text {
       margin: 0 0 20px;
       justify-content: center;
+
+    }
+
+    h1{
+      text-align: center;
+      font-size: 35px;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    p{
+      font-size: 15px;
+      font-family:cursive;
+      text-align: justify;
+
     }
   
     .about-image {
@@ -77,12 +91,7 @@
   }
   </style>
   
-  <script>
-  export default {
-    head() {
-      return {
-        title: 'About Me',
-      };
-    },
-  };
+<script >
+
   </script>
+

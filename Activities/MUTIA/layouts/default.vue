@@ -44,13 +44,5 @@
     Footer,
     
   },
-
-  data() {
-    return {
-      headerStyle: {
-        // Add your styles here
-      }
-    }
-  }
 }
 </script>

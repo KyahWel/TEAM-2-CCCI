@@ -1,7 +1,7 @@
 <template>
   <a-layout id="academic">
     <a-layout-content>
-        <h1>Achievements</h1>
+        <a-divider><h1>Achievements</h1></a-divider>
         <p>This is where I will list my academic achievements.</p>
       
     </a-layout-content>
@@ -19,14 +19,13 @@
 .ant-layout{
   background-color: #e9d8f1;
 }
+h1{
+  text-align: center;
+  font-size: 50px;
+  font-family: 'Times New Roman', Times, serif;
+}
 </style>
 
-  <script>
-export default {
-  head() {
-    return {
-      title: 'Achievements',
-    };
-  },
-};
-  </script>./Academic.vue
+<script >
+
+</script>

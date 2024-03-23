@@ -16,6 +16,9 @@
         <a-menu-item key="/academic">
           <router-link to="#academic">Achievements</router-link>
         </a-menu-item>
+        <a-menu-item key="/skills">
+          <router-link to="#skills">Skills</router-link>
+        </a-menu-item>
         <a-menu-item key="/projects">
           <router-link to="#projects">Projects</router-link>
         </a-menu-item>

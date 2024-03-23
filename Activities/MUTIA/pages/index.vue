@@ -7,6 +7,7 @@
    <div class="container">
     <about/>
     <academic/>
+    <skills/>
     <projects/>
    </div>
    
@@ -29,6 +30,7 @@
 import home from '/pages/home.vue'
 import about from '/pages/about.vue'
 import academic from '/pages/academic.vue'
+import skills from '/pages/skills.vue'
 import projects from '/pages/projects.vue'
 
 export default {
@@ -37,6 +39,7 @@ export default {
     home,
     about,
     academic,
+    skills,
     projects,
   }
 }

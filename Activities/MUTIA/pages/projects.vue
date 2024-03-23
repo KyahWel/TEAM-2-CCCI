@@ -42,11 +42,16 @@
   }
   .ant-card {
     background-color: #e0b5eb;
-    padding: 5%;
+    padding: 1%;
     display: flex;
     flex-direction: column;
   }
-  
+  .ant-card img{
+    padding: 3%;
+  }
+  .ant-card title{
+    font-size: 10px;
+  }
   
   h1{
     margin-bottom: 3%;
@@ -58,12 +63,8 @@
   
   
   </style>
-    <script>
-  export default {
-    head() {
-      return {
-        title: 'Projects',
-      };
-    },
-  };
-    </script>
+    
+
+<script>
+
+</script>

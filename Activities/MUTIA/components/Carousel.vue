@@ -34,7 +34,7 @@
 }
 
 .slide-1 {
-  background-image: url("/img/banner2.png");
+  background-image: url("/img/banner2.1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 600px;
