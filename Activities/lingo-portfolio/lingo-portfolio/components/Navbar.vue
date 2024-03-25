@@ -15,11 +15,11 @@
 
     <div class="hidden md:flex md:items-center md:w-auto w-full" id="menu">
         <nav>
-            <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
-                <li><a class="md:p-4 py-3 px-0 block" href="#Home">Home</a></li>
-                <li><a class="md:p-4 py-3 px-0 block" href="#About">About</a></li>
-                <li><a class="md:p-4 py-3 px-0 block" href="#Project">Project</a></li>
-                <li><a class="md:p-4 py-3 px-0 block md:mb-0 mb-2" href="#Contact">Contact Us</a></li>
+            <ul class="md:flex items-center justify-between text-base text-white pt-4 md:pt-0 text-xl gap-1 font-bold">
+                <li><a class="md:p-4 py-3 px-0 block" href="#Home">HOME</a></li>
+                <li><a class="md:p-4 py-3 px-0 block" href="#About">ABOUT</a></li>
+                <li><a class="md:p-4 py-3 px-0 block" href="#Project">PROJECTS</a></li>
+                <li><a class="md:p-4 py-3 px-0 block md:mb-0 mb-2" href="#Contact">CONTACT US</a></li>
             </ul>
         </nav>
     </div>

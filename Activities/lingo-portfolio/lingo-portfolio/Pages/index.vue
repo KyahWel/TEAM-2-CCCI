@@ -1,7 +1,7 @@
 <template>
     <Navbar />
     <Home />
-    <About />
+    <About/>
     <Project />
     <Contact />
     <Footer />

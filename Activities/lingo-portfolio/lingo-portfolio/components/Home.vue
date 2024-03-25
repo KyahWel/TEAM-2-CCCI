@@ -1,13 +1,13 @@
 <template>
-  <div class="bg-gradient-to-r from-pink-300 to-indigo-200 flex flex-col h-screen p-24" id="Home">
+  <div class="bg-gradient-to-r from-pink-300 via-indigo-200 to-violet-300 flex flex-col h-screen p-24" id="Home">
     <div class="container mx-auto px-12 md:px-12">
         <div class="flex flex-col md:flex-row items-center">
             <div class="md:w-1/2 lg:w-2/3">
                 <h1 class="text-4xl md:text-6xl lg:text-7xl text-white font-bold mb-6">
-                    Hello!<br class="hidden md:block" /> I am
-                    <span class="text-indigo-500">JANINE</span>
+                    Hey it's me!<br class="hidden md:block" /> I am
+                    <span class="text-indigo-500">JANINE ROSE <br>DE LUNA LINGO</span>
                 </h1>
-                <p class="text-lg md:text-xl lg:text-2xl text-gray-400 mb-8">
+                <p class="text-lg md:text-xl lg:text-2xl text-indigo-400 mb-8">
                     Front End Developer.
                 </p>
                 <div class="flex gap-2">
