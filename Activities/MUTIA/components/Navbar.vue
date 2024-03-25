@@ -41,7 +41,6 @@
   position:fixed;
   width: 100%;
   height: 64px;
-  line-height: 64px;
   background: #39203f;
   z-index: 1000;
   display:flex;
@@ -51,6 +50,15 @@
 .ant-menu {
   padding: 0 10px;
   background: #39203f;
+}
+@media screen and (max-width: 768px) {
+
+.ant-menu {
+  padding: -0px;
+  font-size: small;
+  
+
+}
 }
 
 </style>

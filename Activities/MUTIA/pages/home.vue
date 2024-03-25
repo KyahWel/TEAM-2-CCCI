@@ -5,16 +5,12 @@
     </a-layout>
   </template>
   
-  <style scoped>
-
-  </style>
-
   
 <script>
 export default {
   head() {
     return {
-      title: 'Home',
+      title: 'Clarisse Website',
     };
   },
 };

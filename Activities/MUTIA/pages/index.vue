@@ -42,5 +42,6 @@ export default {
     skills,
     projects,
   }
+  
 }
 </script>

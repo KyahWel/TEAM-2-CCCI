@@ -7,19 +7,22 @@
                 <a-col :span="8">
                   <a-card title="Website" :bordered="false">
                     <img slot="cover" src="img/project1.png" alt="project-image">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p>Able to make a website for business or for personal use. In this picture, you can see the website for a certain business, which is an eye shop. Even though I used Joomla for this, I can also create website using HTML, CSS, JS, etc.</p>
                   </a-card>
                 </a-col>
                 <a-col :span="8">
                   <a-card title="System" :bordered="false">
                     <img slot="cover" src="img/project2.png" alt="project-image">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                    <p>Capable of developing database-based business systems. The goal of this project is to create a POS system specifically for veterinary clinics. Php and MySQL were used. I can also construct systems using of OOP, etc. 
+                    
+                    </p>
                   </a-card>
                 </a-col>
                 <a-col :span="8">
                   <a-card title="Others" :bordered="false">
                     <img slot="cover" src="img/project3.png" alt="project-image">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p>Capable of utilizing a software program, such as Canva or PowerPoint, to design logos, invitations, templates, infographics, and flyers. Depending on what the needs and wants of the client, I can make digital items.
+                    </p>
                   </a-card>
                 </a-col>
               </a-row>
@@ -46,19 +49,28 @@
     display: flex;
     flex-direction: column;
   }
+
+  p{
+    text-align: justify;
+
+  }
+
   .ant-card img{
     padding: 3%;
-  }
-  .ant-card title{
-    font-size: 10px;
   }
   
   h1{
     margin-bottom: 3%;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family:'Times New Roman', Times, serif;
     font-size: 40px;
   }
-  
+  @media screen and (max-width: 768px) {
+    p {
+      font-size: 8px;
+      text-align: center;
+    }
+
+  }
   
   
   
