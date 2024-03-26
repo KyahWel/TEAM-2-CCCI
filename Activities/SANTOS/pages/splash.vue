@@ -1,6 +1,6 @@
 <template>
     <div class="splashImageContainer">
-      <img src="/joseLogoLight.png" :class="{ 'fade-out': isFadeOut }" class="splashImage" width="15%">
+      <img src="/joseLogoLight.png" :class="{ 'fade-out': isFadeOut }" class="splashImage" width="300px" />
     </div>
   </template>
   
@@ -15,10 +15,10 @@
       // Start the fade-out effect
       this.isFadeOut = true;
       
-      // Redirect to another page after the fade-out effect completes
+      // Reroute to homepage
       setTimeout(() => {
-        this.$router.push('/home'); // Replace '/your-new-page' with the desired path
-      }, 3000); // Adjust the delay according to your fade-out transition duration
+        this.$router.push('/home');
+      }, 3000); // Delay
     }
   };
   </script>
