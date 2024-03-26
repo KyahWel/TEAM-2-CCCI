@@ -1,5 +1,5 @@
 <template>
-   
+<div>
 <div class="py-16 " >  
   <div class="container m-auto px-6  md:px-12 xl:px-6">
       <div class="mb-12 space-y-2 text-center">
@@ -130,5 +130,5 @@ meaningful impact within the company.</p>
             </div>
         </div>
     </div>
-    
+</div>  
 </template>
