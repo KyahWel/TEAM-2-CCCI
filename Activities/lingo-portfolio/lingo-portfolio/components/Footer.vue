@@ -21,6 +21,11 @@
         <img src="https://img.icons8.com/fluent/30/000000/twitter.png" />
     </a>
 </div>
-<p class="text-center text-gray-700 font-medium">&copy; 2024 Created by Janine Lingo. All rights reservered.</p>
+<p class="text-center text-gray-700 font-medium">
+    This portfolio is created and maintained for personal use only, 
+    showcasing my professional accomplishments, projects, and skills.<br>
+    </br>Thank you for visiting Janine's portfolio</p>
+    <p class="text-center text-gray-700 font-medium">
+    © Janine Rose Lingo. 2023. All rights reserved</p>
 </footer>
 </template>

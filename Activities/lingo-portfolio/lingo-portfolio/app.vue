@@ -9,6 +9,14 @@ html {
 }
 .logonav{
   height: 50px;
-  width: 200px;
+  width: 80px;
 }
+
+.ImgEvent{
+  height: 400px;
+  width: 400px;
+  place-items: center;
+}
+
+
 </style>

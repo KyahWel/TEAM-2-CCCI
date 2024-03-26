@@ -1,7 +1,8 @@
 <template>
-    <nav class="flex items-center justify-between flex-wrap bg-indigo-300 p-3 fixed w-full z-10 top-0">
-    <div class="flex items-center flex-shrink-0 text-white ml-6">
-        <img class="logonav"src="public/Jrdl-Logo.png">
+    <nav class="flex items-center justify-between flex-wrap bg-indigo-950 opacity-80  p-3 fixed w-full z-10 top-0 shadow-lg backdrop-blur-xl backdrop-filter">
+    <div class="flex items-center flex-shrink-0 text-white ml-12 text-lg">
+        <img class="logonav"src="public/JyLogo-White.png">
+        <p>CREATIVES</p>
     </div>
 
     <label for="menu-toggle" class="pointer-cursor md:hidden block">
