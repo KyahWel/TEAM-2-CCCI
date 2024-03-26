@@ -14,7 +14,12 @@ export default defineNuxtConfig({
       link: [
         {rel: "stylesheet", href:"https://afeld.github.io/emoji-css/emoji.css"},
         {rel: "stylesheet", href:"https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/motion-tailwind/motion-tailwind.css"},
-      
+        {rel: "preconnect", href:"https://fonts.googleapis.com"},
+        {rel: "preconnect", href:"https://fonts.gstatic.com" },
+        {rel: "stylesheet", href:"https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swapm"},
+        
+        
+            
       ],
     },
 

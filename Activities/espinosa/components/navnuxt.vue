@@ -5,7 +5,7 @@
     
     <div class="flex items-center flex-shrink-0 text-white mr-6" >
         <a class="text-white no-underline hover:text-white hover:no-underline" href="#">
-            <span class="text-2xl pl-2 text-yellow-300"><i class="em em-grinning"></i> John Rollyver Espinosa</span>
+            <span class="text-2xl pl-2 text-yellow-300 font-tilt_prism"><i class="em em-grinning"></i> John Rollyver Espinosa</span>
             
         </a>
     </div>
@@ -23,7 +23,7 @@
                 <a class="inline-block text-yellow-300 no-underline hover:text-yellow-100 hover:text-underline py-2 px-4" href="#about">About Me</a>
             </li>
             <li class="mr-3">
-                <a class="inline-block text-yellow-300 no-underline hover:text-yellow-100 hover:text-underline py-2 px-4" href="#achievements">Achievements</a>
+                <a class="inline-block text-yellow-300 no-underline hover:text-yellow-100 hover:text-underline py-2 px-4" href="#project">Projects</a>
             </li>
             <li class="mr-3">
                 <a class="inline-block text-yellow-300 no-underline hover:text-yellow-100 hover:text-underline py-2 px-4" href="#contact">Contact Me</a>

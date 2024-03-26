@@ -5,29 +5,44 @@
       <div class="mb-12 space-y-2 text-center">
     
         <h4 class='text-yellow-400 text-center text-lg md:text-2xl lg:text-5xl ease-in-out duration-1000 uppercase font-bold' >About Me</h4>
-        <p class="lg:w-6/12 lg:mx-auto">"Diskarte bago Diploma"</p>
+        <p class="lg:w-6/12 lg:mx-auto font-semibold text-lg  ">Hey there! I'm a student originally from Caloocan, now studying at TUP Manila, pursuing my BS in Information Technology. I've got a knack for coding too, always tinkering with programs and learning new languages. When I'm not buried in code, you can catch me cracking puzzles, conquering video game levels, or chilling with some Netflix. Always up for a challenge and a good time!</p>
       </div>
 
-      <div class="grid gap-12 lg:grid-cols-2">
-        <div class="p-1 rounded-xl group sm:flex space-x-6 bg-white bg-opacity-50 shadow-xl hover:rounded-2xl">
-          <img src="../public/diskarte.jpg" alt="art cover" loading="lazy" width="1000" height="667" class="h-56 sm:h-full w-full sm:w-5/12 object-cover object-top rounded-lg transition duration-500 group-hover:rounded-xl">
-          <div class="sm:w-7/12 pl-0 p-5">
+      <div class="grid gap-12 lg:grid-cols-2 	">
+       
+         
+        <div class=" flex p-1 rounded-xl group sm:flex space-x-6 bg-white bg-opacity-50 shadow-xl  hover:rounded-2xl ">
+         
+          <img src="../public/favorite.jpg" alt="art cover" loading="lazy" width="1000" height="667" class="h-56 sm:h-full w-full sm:w-5/12 object-cover object-top rounded-lg transition duration-500 group-hover:rounded-xl">
+          <div class="sm:w-7/12 pl-0 p-5 z-">
             <div class="space-y-2">
-              <div class="space-y-4">
-                <h4 class="text-2xl font-semibold text-cyan-900">Ikaw ano pipiliin mo Diploma o Diskarte?</h4>
-                <p class="text-gray-600">"Kung ako papipiliin uunahin ko siyempre diskarte"</p>
+              <div class="space-y-4 ">
+                
+                <h4 class="text-2xl font-semibold text-cyan-900">Lists</h4>
+                <p class="text-gray-600"><span class="text-yellow-600">Food:</span> Adobo <br> 
+                                         <span class="text-yellow-600">Color:</span> Red <br> 
+                                         <span class="text-yellow-600">Music:</span> Clint Eastwood by Gorillaz <br> 
+                                         <span class="text-yellow-600">Movie:</span> Lord of the Rings <br>
+                                         <span class="text-yellow-600">Videogame:</span> Sea of Thieves <br> 
+                                         <span class="text-yellow-600">Genre:</span> Pop-rock <br> 
+                                         
+                                    </p>
               </div>
               
             </div>
           </div>
         </div>
+    
         <div class="p-1 rounded-xl group sm:flex space-x-6 bg-white bg-opacity-50 shadow-xl hover:rounded-2xl">
-          <img src="../public/kangkong.jpg" alt="art cover" loading="lazy" width="1000" height="667" class="h-56 sm:h-full w-full sm:w-5/12 object-cover object-top rounded-lg transition duration-500 group-hover:rounded-xl">
+          <img src="../public/quote.jpg" alt="art cover" loading="lazy" width="1000" height="667" class="h-56 sm:h-full w-full sm:w-5/12 object-cover object-top rounded-lg transition duration-500 group-hover:rounded-xl">
           <div class="sm:w-7/12 pl-0 p-5">
             <div class="space-y-2">
               <div class="space-y-4">
-                <h4 class="text-2xl font-semibold text-cyan-900">Kangkong o Diskarte</h4>
-                <p class="text-gray-600">"Para sakin mahalaga din ang diskarte dun ko napalago aking kangkong"</p>
+                <h4 class="text-2xl font-semibold text-cyan-900 font-serif">Quote </h4>
+                <p class="text-amber-500 font-semibold">
+        "Web programming is like playing Jenga with code – 
+        just when you think everything's stable, one misplaced 
+        semicolon brings the whole tower crashing down...and your sanity along with it!"</p>
               </div>
               
             </div>
@@ -108,7 +123,7 @@ meaningful impact within the company.</p>
                         <li>Programming Languages: C, HTML, CSS, VBasic, Java Script</li>
                         <li>Frameworks & Libraries: Spring Boot, React, Angular, Tailwind, Bootstrap, Nuxt, Vue</li>
                         <li>Database Systems: MySQL, PostgreSQL, MongoDB</li>
-                        <li id="achievements">Agile Methodologies: Scrum, Kanban</li>
+                        <li id="project">Agile Methodologies: Scrum, Kanban</li>
                         
                     </ul>
                 </div>
