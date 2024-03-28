@@ -27,10 +27,19 @@
           <a-col :xs="46" :sm="22" :md="14" :lg="10" justify="center" align="middle" class="title">
            <a-carousel autoplay class="carousel" justify="center" align="middle" type="flex">
             <a-carousel-slide>
-            <img src="/pic2.jpg" height="500px" width="350px"/>
+            <img src="/mypic1.jpg" height="500px" width="350px"/>
             </a-carousel-slide>
             <a-carousel-slide>
-            <img src="/pic3.jpeg" height="500px" width="350px"/>
+            <img src="/mypic2.jpg" height="500px" width="350px"/>
+            </a-carousel-slide>
+            <a-carousel-slide>
+            <img src="/mypic3.jpg" height="500px" width="350px"/>
+            </a-carousel-slide>
+            <a-carousel-slide>
+            <img src="/mypic4.jpg" height="500px" width="350px"/>
+            </a-carousel-slide>
+            <a-carousel-slide>
+            <img src="/mypic5.jpg" height="500px" width="350px"/>
             </a-carousel-slide>
            </a-carousel>
           </a-col>
@@ -56,103 +65,126 @@
                         </li>
                     </ul>
                 </div>
-      <p class="maintext">Welcome to my portfolio Im a 22 year old student of TUP Manila taking BS Information Technology residing in Las Pinas City.</p>
+      <p class="maintext">Welcome to my portfolio! Im a 22 year old student of TUP Manila taking BS Information Technology residing in Las Pinas City.<br> 
+        My goal in life To obtain a Job that will utilize my interpersonal,organizational and computer skills. <br> And to apply the knowledge that I have accumulated from the experience offered in our school. </p>
+        <br> <br>
 
     </div>
  
    <div class="about" id="about"  justify="center" align="middle" style="height: 35vh;">
-    <a-dropdown >
-    <a class="ant-dropdown-link" @click.prevent >
-      <a-button type="primary" class="aboutbtn">Education</a-button>
-      <DownOutlined />
-    </a>
-    <template #overlay>
-      <a-menu>
-        <a-menu-item>
-          <a href="javascript:;">Tertiary: Technological University of the Philippines S.Y 2024</a>
-        </a-menu-item>
-        <a-menu-item>
-          <a href="javascript:;">Secondary- SHS: St Francis of Assisi College S.Y 2020</a>
-        </a-menu-item>
-        <a-menu-item>
-          <a href="javascript:;">Secondary- JHS: CAA National High School S.Y 2018 </a>
-        </a-menu-item>
-      </a-menu> 
-    </template>
-  </a-dropdown> 
-
-  <a-dropdown>
-    <a class="ant-dropdown-link" @click.prevent>
-      <a-button type="primary" class="aboutbtn">Work Experience</a-button>
-      <DownOutlined />
-    </a>
-    <template #overlay>
-      <a-menu>
-        <a-menu-item>
-          <a href="javascript:;">PSR II - Conifer Health Solutions <br> Taguig, 2023 - Present</a>
-        </a-menu-item>
-        <a-menu-item>
-          <a href="javascript:;">Client Partner - Access Healthcare <br> Taguig, 2022 - 2023</a>
-        </a-menu-item>
-        <a-menu-item>
-          <a href="javascript:;">Scheduler - SIPMD <br> Paranaque, 2021 - 2021</a>
-        </a-menu-item>
-      </a-menu>
-    </template>
-  </a-dropdown>
-
-  <a-dropdown>
-    <a class="ant-dropdown-link" @click.prevent>
-      <a-button type="primary" class="aboutbtn">Reference</a-button>
-      <DownOutlined />
-    </a>
-    <template #overlay>
-      <a-menu>
-        <a-menu-item>
-          <a href="javascript:;">Kensley Magallanes (Lead - Access Healthcare) <br> Contact: +63 998 556 9778</a>
-        </a-menu-item>
-        <a-menu-item>
-          <a href="javascript:;">Tim Torre (Lead - Access Healthcare) <br> Contact: +63 915 476 4673</a>
-        </a-menu-item>
-        <a-menu-item>
-          <a href="javascript:;">Karl Robinson Gonzales (Trainer - Conifer Health Solutions) <br> Contact: +63 915 826 9940</a>
-        </a-menu-item>
-      </a-menu>
-    </template>
-  </a-dropdown>
-
+      <div style="background-color: #ececec; padding: 20px">
+    <a-row :gutter="16">
+      <a-col :span="8">
+        <a-card :bordered="false">
+          <img src="/educ.png" width="50px">
+          <h3>EDUCATION</h3> <br>
+          <ul>
+            <li >
+            Technological University of the Philippines - Manila <br>
+            BS Information Technology 2024 <br><br>
+           </li> 
+           <li>
+            Saint Francis of Assisi College - Main <br>
+            SHS: TVL - ICT 2020 <br><br>
+           </li>
+           <li>
+            CAA National High School - Main <br>
+            Junior High School 2018 <br><br>
+           </li>
+           <li>
+            CAA Elementary School <br>
+            Primary 2014 <br><br>
+           </li>
+        </ul>
+        </a-card>
+      </a-col>
+      <a-col :span="8">
+        <a-card :bordered="false">
+          <img src="/exp.png" width="50px">
+          <h3>WORK EXPERIENCE</h3> <br> 
+          <ul>
+            <li >
+            Conifer Global Business Center, Taguig <br>
+            Patient Services Rep II <br>
+            2023 - Present <br> <br>
+           </li> 
+           <li >
+            Access Healthcare, Taguig <br>
+            Client Partner <br>
+            2021 - 2023 <br> <br>
+           </li>
+           <li >
+            E - Teleconnect, Paranaque <br>
+            Patient Scheduler <br>
+            Aug 2021 - Nov 2022 <br> <br>
+           </li> 
+          </ul>
+        </a-card>
+      </a-col>
+      <a-col :span="8">
+        
+        <a-card :bordered="false">
+          <img src="/ref.png" width="50px">
+          <h3>REFERENCE</h3> <br>
+          <ul>
+           <li >
+            Kensley Magallanes, Team Leader <br>
+            +63 998 556 9778<br> <br>
+           </li>
+           <li >
+            Tim Torre, Team Leader <br>
+            +63 915 476 4673<br> <br>
+           </li>
+           <li >
+            Robinson Gonzales, Trainer <br>
+            +63 915 826 9940 <br> <br>
+           </li>
+           <li >
+            Mohammad Emam, SME <br>
+            +63 961 774 1209 <br> <br>
+           </li>
+          </ul>
+        </a-card>
+      </a-col>
+    </a-row>
+  </div>
    </div>
 
-  <div class="skills">  
-    <h2 class="skillstitle" >SKILLS</h2>
+  <div class="skills">
+    <h2 class="skillstitle" >
+      <div class="cv" justify="center" align="middle">
+      <br> <a-button type="primary" class="cvbutton"> <a href="Resume - Jairlyn Empleo.pdf"> Download CV</a></a-button>
+      </div> <br>
+      SKILLS
+    </h2>
     <p class="skillsdesc"> while hard skills are essential for performing specific job tasks, soft skills are equally vital for effective collaboration, communication, and overall success in the workplace. Combining both sets of skills can lead to well-rounded professionals who are adaptable, communicative, and capable of navigating various challenges in their careers.</p>
     
     <a-row  type="flex" justify="center" align="middle">
                     <a-col :xs="6" :sm="5" :md="5" :lg="2" justify="center" align="middle" class="skillImage">
-                        <img src="canvalogo.jfif" alt="" height="100px">
+                        <img src="canvalogo.jfif" alt="" height="150px">
                     </a-col>
                     <a-col :xs="6" :sm="5" :md="5" :lg="2" justify="center" align="middle" class="skillImage">
-                        <img src="figmalogo.png" alt="" height="100px">
+                        <img src="figmalogo.png" alt="" height="150px">
                     </a-col>
                     <a-col :xs="6" :sm="5" :md="5" :lg="2" justify="center" align="middle" class="skillImage">
-                        <img src="filmoralogo.png" alt="" height="100px">
+                        <img src="filmoralogo.png" alt="" height="150px">
                     </a-col>
                     <a-col :xs="6" :sm="5" :md="5" :lg="2" justify="center" align="middle" class="skillImage">
-                        <img src="csslogo.png" alt="" height="100px">
+                        <img src="csslogo.png" alt="" height="150px">
                     </a-col>
                     <a-col :xs="6" :sm="5" :md="5" :lg="2" justify="center" align="middle" class="skillImage">
-                        <img src="bootstraplogo.png" alt="" height="100px">
+                        <img src="bootstraplogo.png" alt="" height="150px">
                     </a-col>
                     <a-col :xs="6" :sm="5" :md="5" :lg="2" justify="center" align="middle" class="skillImage">
-                        <img src="mysqllogo.png" alt="" height="100px">
+                        <img src="mysqllogo.png" alt="" height="150px">
                     </a-col>
             </a-row>
   </div>
 
    <div class="contact" align="middle" justify="center">
-    <img src="headerlogo.png" width="20%" >
-    <h3> Jairlyn Empleo | 2024 </h3>
-    <p> Contact Me </p>
+    <img src="footerlogo.png" width="20%" >
+    <h3> Jairlyn Empleo © <br>2024 </h3>
+    <p> jairlyn.empleo@tup.edu.ph | +63 960 318 0924 </p> <br> <br>
 
 
    </div>
@@ -168,6 +200,16 @@ export default {
 </script>
 
 <style>
+.cvbutton {
+  background-color: #D4B22C;
+  font-size: 25px;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 5%;
+}
+.contact {
+  background-color: #ececec;
+}
 .skillImage {
   margin: 10%;
 }
@@ -295,7 +337,7 @@ export default {
 }
 
 .navbar ul li a:hover {
-  background-color: aquamarine;
+  background-color: #E4C7ED;
   color:black;
 }
 
