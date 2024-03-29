@@ -6,7 +6,7 @@
       <a-layout-content>
         <slot/>
       </a-layout-content>
-      <AppFooter/>
+      <AppFooter></AppFooter>
     </a-layout>
     
   </a-layout>

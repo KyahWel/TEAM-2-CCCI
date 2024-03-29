@@ -1,5 +1,5 @@
 <template>
-    <a-layout-footer style="text-align: center">
-      All rights reserved © Created by Janine Lingo
-    </a-layout-footer>
+  <a-layout-footer :style="{ textAlign: 'center' }">
+    Ant Design ©2018 Created by Ant UED
+  </a-layout-footer>
 </template>
