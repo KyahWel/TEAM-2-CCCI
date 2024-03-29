@@ -1,9 +1,9 @@
 <template>
-    <a-layout-sider v-model:collapsed="collapsed" collapsible>
+    <a-layout-sider :style="sidebarstyle"  >
         <AppSidebarHeader></AppSidebarHeader>
 
        
-        <ul ">
+        <ul >
             <li class="text-white m-10 cursor-pointer" @click="router.push('/app/dashboard')" > <pie-chart-outlined /> <span>Dashboard</span></li>
             <li class="text-white m-10 cursor-pointer" @click="router.push('/app/users')" ><desktop-outlined /> <span>Users</span></li>
             <li class="text-white m-10 cursor-pointer" @click="router.push('/')" ><PoweroffOutlined /> <span>Logout</span></li>
@@ -17,7 +17,9 @@
 
   const router = useRouter()
 
-
+  const sidebarstyle: CSSProperties = { //para po ito sa kulay ng aking malupit na sidebar
+    backgroundColor:' #b45309',
+  }
   
   </script>
   
