@@ -6,6 +6,7 @@
             <span class="text-white font-bold">Welcome to my app</span>
            </a-row>
         </a-layout-header>
+        
     </div>
   </template>
   

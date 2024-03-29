@@ -14,3 +14,14 @@ export default {
     },
     plugins: [],
 }
+
+module.exports = {
+    theme: {
+      extend: {
+        backgroundImage: {
+          'background': "url('/assets/images/background.png')",
+          
+        }
+      }
+    }
+  }

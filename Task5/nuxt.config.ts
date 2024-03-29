@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     '@ant-design-vue/nuxt',
     '@pinia/nuxt',
     '@pinia-plugin-persistedstate/nuxt',
+    '@nuxtjs/tailwindcss',
   ],
   build: {
     transpile: ['pinia-plugin-persistedstate'],
