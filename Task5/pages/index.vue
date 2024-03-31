@@ -9,7 +9,9 @@
         src="~/assets/images/1.png"
       /></div>
    
-      <h1 class="font-black text-4xl p-3 text-center text-amber-300">Hi John Rollyver Espinosa Welcome back!</h1>
+      <h1 class="font-black text-4xl p-3 text-center text-amber-300">Hi  <a-avatar :size="96">
+        <template #icon><img  src="~/assets/images/pictureko.png" /></template>
+      </a-avatar> John Rollyver Espinosa Welcome back!</h1>
       
       <div class="flex justify-center"><a-button type="primary" style="width: 200px; height:75px;" class="mx-auto  bg-amber-500 absolute bottom-5 " @click="$router.push('/app/dashboard')" >Login  </a-button>
         {{ route }}
