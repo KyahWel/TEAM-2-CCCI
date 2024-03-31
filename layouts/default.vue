@@ -8,10 +8,7 @@
       </a-layout-content>
       <AppFooter></AppFooter>
     </a-layout>
-    
   </a-layout>
- 
-
 </template>
 
 <script lang="ts" setup>

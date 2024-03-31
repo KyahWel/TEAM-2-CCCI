@@ -16,6 +16,7 @@
   </a-row>
     </div>
   </div>
+  <Chart/>
 </template>
 
 <script lang="ts" setup>
@@ -23,7 +24,6 @@ import Calender from '../../components/calender.vue';
 definePageMeta({
     layout: 'default'
 })
-
 </script>
 
 <style>

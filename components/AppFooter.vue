@@ -1,5 +1,5 @@
 <template>
   <a-layout-footer :style="{ textAlign: 'center' }">
-    Ant Design ©2018 Created by Ant UED
+     All rights reserved © Created by Janine Lingo
   </a-layout-footer>
 </template>
