@@ -4,7 +4,6 @@
         <div class="about-container">
           <div class="about-text">
             <h1>About Me</h1>
-             
             <p>Greetings and welcome to my corner of the internet! Hi! I'm Clarisse, and I'm 22 years old. I've been immersing myself in the wonderful world of technology at TUP Manila, where I'm pursuing a Bachelor of Science in Information Technology. With a passion for front-end development, I specialize in crafting visually appealing and user-friendly websites. Beyond coding, I indulge my creative side through digital arts, bringing ideas to life in the digital realm. I love exploring into the many creative and entertainment domains outside of the area of code and algorithms. When I need to relax, you may find me engaging in a Netflix binge, where I explore new shows and movies. I find great excitement in crocheting intricate patterns out of yarn when I'm not engaged in digital world. In the middle of all the stress of school, I escape into books every once in a while and let myself be swept away in fantastical realms.  Thank you for visiting, and I can't wait to connect with you.  </p>
           </div>
           <div class="about-image">
@@ -93,5 +92,5 @@
   
 <script >
 
-  </script>
+</script>
 

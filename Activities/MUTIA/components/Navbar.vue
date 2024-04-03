@@ -31,8 +31,6 @@
 
 <script setup>
 
-
-
 </script>
 
 
@@ -56,9 +54,7 @@
 .ant-menu {
   padding: -0px;
   font-size: small;
-  
-
-}
+  }
 }
 
 </style>

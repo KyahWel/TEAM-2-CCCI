@@ -6,44 +6,44 @@
           <a-row :gutter="16">
             <a-col :span="6">
               <a-card>
-                <img src="img/html.png" alt="project-image" />
+                <img src="img/html.png" alt="skill-image" />
               </a-card>
             </a-col>
             <a-col :span="6">
               <a-card>
-                <img src="img/css.png" alt="project-image" />
+                <img src="img/css.png" alt="skill-image" />
              </a-card>
             </a-col>
             <a-col :span="6">
               <a-card>
-                <img src="img/js.png" alt="project-image" />
+                <img src="img/js.png" alt="skill-image" />
               </a-card>
             </a-col>
             <a-col :span="6">
               <a-card>
-                <img src="img/vue.png" alt="project-image" />
+                <img src="img/vue.png" alt="skill-image" />
               </a-card>
             </a-col>
           </a-row>
           <a-row :gutter="16">
             <a-col :span="6">
               <a-card>
-                <img src="img/php.png" alt="project-image" />
+                <img src="img/php.png" alt="skill-image" />
               </a-card>
             </a-col>
             <a-col :span="6">
               <a-card>
-                <img src="img/antd.png" alt="project-image" />
+                <img src="img/antd.png" alt="skill-image" />
               </a-card>
             </a-col>
             <a-col :span="6">
               <a-card>
-                <img src="img/mysql.png" alt="project-image" />
+                <img src="img/mysql.png" alt="skill-image" />
               </a-card>
             </a-col>
             <a-col :span="6">
               <a-card>
-                <img src="img/bootstrap.png" alt="project-image" />
+                <img src="img/bootstrap.png" alt="skill-image" />
               </a-card>
             </a-col>
           </a-row>

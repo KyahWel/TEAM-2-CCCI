@@ -6,22 +6,22 @@
         <a-row :gutter="16">
           <a-col :span="6">
             <a-card>
-              <img src="img/ach1.png" alt="project-image" />
+              <img src="img/ach1.png" alt="acad-image" />
             </a-card>
           </a-col>
           <a-col :span="6">
             <a-card>
-              <img src="img/ach2.png" alt="project-image" />
+              <img src="img/ach2.png" alt="acad-image" />
            </a-card>
           </a-col>
           <a-col :span="6">
             <a-card>
-              <img src="img/ach3.png" alt="project-image" />
+              <img src="img/ach3.png" alt="acad-image" />
             </a-card>
           </a-col>
           <a-col :span="6">
             <a-card>
-              <img src="img/ach4.png" alt="project-image" />
+              <img src="img/ach4.png" alt="acad-image" />
             </a-card>
           </a-col>
         </a-row>
@@ -29,6 +29,7 @@
     </a-layout-content>
   </a-layout>
 </template>
+
 
 <style scoped>
   .ant-layout-content {

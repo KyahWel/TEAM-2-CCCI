@@ -1,9 +1,8 @@
 <template>
-
   <div>
     <home/>
     <ContactBtn/>
-  
+    
    <div class="container">
     <about/>
     <academic/>

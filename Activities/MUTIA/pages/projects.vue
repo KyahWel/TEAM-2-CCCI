@@ -52,7 +52,6 @@
 
   p{
     text-align: justify;
-
   }
 
   .ant-card img{
@@ -64,6 +63,7 @@
     font-family:'Times New Roman', Times, serif;
     font-size: 40px;
   }
+
   @media screen and (max-width: 768px) {
     p {
       font-size: 8px;
@@ -71,10 +71,7 @@
     }
 
   }
-  
-  
-  
-  </style>
+</style>
     
 
 <script>
