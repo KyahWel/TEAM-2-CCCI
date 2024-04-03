@@ -2,16 +2,20 @@
     <div class="p-10">
        <Dashboardcard />
     </div>
-    <div class="p-10">
+    <div class="p-10 flex justify-between">
         <ClientOnly >
             <Pieapexchart />
         </ClientOnly>
-     
+       
+        <Calendar />
+    
+         
     </div>
+    <tabledash />
   </template>
   
   <script lang="ts" setup>
-  const { data, pending, error, status, refresh } = await useFetch('https://dummyjson.com/users')
+ 
   definePageMeta({
       layout: 'default'
   })

@@ -1,7 +1,7 @@
 <template>
-   <div>
-     <apexchart :options="chartOptions" :series="series" type="donut" :width="chartWidth" />
-   </div>
+   <a-card class="bg-amber-100">
+     <apexchart :options="chartOptions" :series="ApplicantBatch" type="donut" :width="chartWidth" />
+    </a-card>
  </template>
  
  <script>
@@ -13,12 +13,12 @@
      apexchart: VueApexCharts,
    },
    setup() {
-     const series = ref([44, 55, 41, 17, 15])
-     const chartWidth = ref(380) // Initial width of the chart
+     const ApplicantBatch = ref([119, 68])
+     const chartWidth = ref(500) // Initial width of the chart
  
      // Watch for window resize and adjust chart width accordingly
      watch(() => window.innerWidth, (newWidth) => {
-       chartWidth.value = newWidth < 480 ? 200 : 380
+       chartWidth.value = newWidth < 500 ? 200 : 380
      })
  
      const chartOptions = {
@@ -32,34 +32,35 @@
          }
        },
        dataLabels: {
-         enabled: false
+         enabled: true
        },
        fill: {
          type: 'gradient',
        },
        legend: {
          formatter: function(val, opts) {
-           return val + " - " + opts.w.globals.series[opts.seriesIndex]
+           return  val + " - " + opts.w.globals.series[opts.seriesIndex]
          }
        },
        title: {
-         text: 'Gradient Donut with custom Start-angle'
+         text: 'Applicants'
        },
        responsive: [{
-         breakpoint: 480,
+         breakpoint: 1000,
          options: {
            chart: {
-             width: 200
+             width: 400
            },
            legend: {
              position: 'bottom'
            }
          }
-       }]
+       }],
+       labels: ['Existing', 'New Applicants'],
      }
  
      return {
-       series,
+      ApplicantBatch,
        chartOptions,
        chartWidth
      }

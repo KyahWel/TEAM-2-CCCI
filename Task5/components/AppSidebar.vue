@@ -5,9 +5,9 @@
        
     <a-menu mode="vertical"  :style="menustyle" >
         
-    <a-menu-item :style="menuitemstyle" class="text-white m-10 cursor-pointer "><pie-chart-outlined /> <span ><nuxt-link to="/app/dashboard">Dashboard</nuxt-link></span></a-menu-item>
-    <a-menu-item :style="menuitemstyle" class="text-white m-10 cursor-pointer " ><desktop-outlined /> <span> <nuxt-link to="/app/users">Users</nuxt-link></span></a-menu-item>
-    <a-menu-item :style="menuitemstyle" class="text-white m-10 cursor-pointer  absolute bottom-0 left-0" > <LogoutOutlined /><span><nuxt-link to="/">Logout</nuxt-link></span></a-menu-item>
+    <a-menu-item :style="menuitemstyle" class="text-white m-10 cursor-pointer "><pie-chart-outlined /> <span class="absolute p-1" ><nuxt-link to="/app/dashboard">Dashboard</nuxt-link></span></a-menu-item>
+    <a-menu-item :style="menuitemstyle" class="text-white m-10 cursor-pointer " ><desktop-outlined /> <span class="absolute p-1" > <nuxt-link to="/app/applicant">Applicants</nuxt-link></span></a-menu-item>
+    <a-menu-item :style="menuitemstyle" class="text-white m-10 cursor-pointer  absolute bottom-0 left-0" > <LogoutOutlined /><span class="absolute p-1" ><nuxt-link to="/">Logout</nuxt-link></span></a-menu-item>
  
   </a-menu>
 
