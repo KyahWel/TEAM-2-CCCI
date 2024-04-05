@@ -1,0 +1,25 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "apexcharts": "^3.48.0",
+    "nuxt": "^3.11.1",
+    "tailwindcss-animated": "^1.0.1",
+    "vue": "^3.4.21",
+    "vue-apexcharts": "^1.6.2",
+    "vue-router": "^4.3.0",
+    "vue3-apexcharts": "^1.5.2"
+  },
+  "devDependencies": {
+    "@ant-design-vue/nuxt": "^1.4.1",
+    "@nuxtjs/tailwindcss": "^6.11.4"
+  }
+}
