@@ -21,8 +21,9 @@
   "
 >
   <!-- container for the user profile picture -->
+  <!-- Run npm serve -p 8080 to appear the img -->
   <template #avatar>
-      <a-avatar :size="84" src="http://localhost:8080/assets/images/profile.png" />
+      <a-avatar :size="84" src="http://localhost:8080/assets/images/profile.png" /> 
       </template>
     </a-card-meta>
   </a-card>

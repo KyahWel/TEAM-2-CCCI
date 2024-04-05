@@ -4,11 +4,12 @@
     v-bind:visible="visible"
     :title="title"
     :footer="null"
+    centered
     @update:visible="$emit('update:visible', $event)">
-    <template #title>
-      <!-- Modal title  -->
+
+    <template #title>                 <!-- Modal title  -->
       <div :style="{ marginTop: '12px', fontWeight:'bold' }">
-        User Information
+        Applicant Information
       </div>
       <a-divider type="horizontal" style="border-color: #616364; border-width: 1px;"></a-divider>
     </template>

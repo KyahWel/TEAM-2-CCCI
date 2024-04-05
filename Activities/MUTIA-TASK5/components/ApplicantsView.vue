@@ -1,17 +1,11 @@
 <template>
-  <!-- Add the search bar here -->
-  <a-input-search
-  placeholder="Search by name"
-  :style="{ marginBottom: '20px', width: '280px', marginLeft: '40px' }"
-  @search="searchUser"
-/>
 
   <div :style="{ display: 'flex', justifyContent: 'center', marginLeft: '30px' }">
 
     <!-- Container for the user cards -->
     <a-row 
       :gutter="16" 
-      :style="{ margin: '0px' }">
+      :style="{ margin: '0px', marginTop: '20px' }">
 
     <!-- Container for each user card -->
       <a-col v-for="user in paginatedUsers" :key="user.id" :span="6">
@@ -43,28 +37,17 @@ const users = ref([]);              // Define the list of users
 const modalVisible = ref(false);    // Define the modal visibility
 const selectedUser = ref({});       // Define the selected user object
 let currentPage = ref(1);
-const pageSize = 8; // Number of users per page
+const pageSize = 8;                 // Number of users per page
 
 const handlePageChange = (page) => {
       currentPage.value = page;
     };
 
-    const showModal = (user) => {       // Define the selected user object
+  // Define the selected user object
+const showModal = (user) => {   
   selectedUser.value = user;        // Set the selected user object to the user passed in as an argument
   modalVisible.value = true;        // Set the modal visibility to true
 };
-// const searchQuery = ref('');        // Define the search query
-
-// const filteredUsers = computed(() => {  // Define a computed property for the filtered users
-//   return users.value.filter(user => {
-//     return user.firstName.toLowerCase().includes(searchQuery.value.toLowerCase()) || user.lastName.toLowerCase().includes(searchQuery.value.toLowerCase());
-//   });
-// });
-
-// const onSearch = (query) => {       // Define the function to handle the search
-//   searchQuery.value = query;
-// };
-
 
 
 // Define the function to fetch the user data from the API
@@ -81,6 +64,7 @@ const updatePaginatedUsers = () => {
       const endIndex = startIndex + pageSize;
       paginatedUsers.value = users.value.slice(startIndex, endIndex);
     };
+    
 // Watch currentPage and users, and update paginatedUsers accordingly
 watch([currentPage, users], () => {
       updatePaginatedUsers();
@@ -102,9 +86,6 @@ watch([currentPage, users], () => {
     };
   }
   }
-
-
-
 
 </script>
 

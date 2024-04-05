@@ -8,7 +8,7 @@
         :pagination="pagination" 
         :loading="loading" 
         @change="handleTableChange" 
-        @click="showModal"> // The event emitted when a row is clicked
+        @click="showModal"> 
         
           
           <template #bodyCell="{ column, record}">
@@ -97,10 +97,10 @@ const showModal = (user) => {
 // Use computed properties to filter and sort the data
 const filteredData = computed(() => {
   let filtered = data.value.users;
-  if (pagination.filteredInfo && Object.keys(pagination.filteredInfo).length) {
+  if (pagination.filters) {
     filtered = filtered.filter((item) => {
-      for (const key in pagination.filteredInfo) {
-        if (pagination.filteredInfo[key] && item[key]!== pagination.filteredInfo[key]) {
+      for (const key in pagination.filters) {
+        if (pagination.filters[key] && item[key]!== pagination.filters[key]) {
           return false;
         }
       }
@@ -140,16 +140,35 @@ const pagination = {
   sortedInfo: {},
 };
 
-// Define the function to handle table changes
-const handleTableChange = (pagination, filters, sorter) => {
-  const newPagination = {...pagination};
+const handleTableChange = (newPagination, filters, sorter) => {
+  const newFilteredData = filteredData.value.slice();
+
   if (filters) {
-    newPagination.filteredInfo = filters;
+    newFilteredData.filter((item) => {
+      for (const key in filters) {
+        if (filters[key] && item[key]!== filters[key]) {
+          return false;
+        }
+      }
+      return true;
+    });
   }
-  if (sorter) {
-    newPagination.sortedInfo = sorter;
+
+  if (sorter && sorter.field) {
+    newFilteredData.sort((a, b) => {
+      if (sorter.order === 'ascend') {
+        return a[sorter.field] > b[sorter.field]? 1 : -1;
+      } else {
+        return a[sorter.field] < b[sorter.field]? 1 : -1;
+      }
+    });
   }
-  pagination = newPagination;
+
+  data.value.users = newFilteredData;
+  pagination.current = newPagination.current;
+  pagination.pageSize = newPagination.pageSize;
+  pagination.filteredInfo = filters;
+  pagination.sortedInfo = sorter;
 };
 
 </script>
