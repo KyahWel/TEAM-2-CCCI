@@ -3,7 +3,7 @@
     <AppSidebar/>
     <a-layout>
       <AppMainHeader></AppMainHeader>
-      <a-layout-content>
+      <a-layout-content class="bg-gradient-to-r from-lime-50 to-teal-200">
         <slot/>
       </a-layout-content>
       <AppFooter></AppFooter>

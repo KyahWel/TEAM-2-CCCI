@@ -1,59 +1,61 @@
 <template>
   <!-- container -->
   <div>
-    <div style="background-color: #ececec; padding: 20px">
-      <a-row :gutter="16">
-        <a-col :span="9">
-          <a-card bordered="false" style="height: 100px;">
+    <div style=" padding:15px; padding-right: 50px">
+      <a-row :gutter="8">
+        <a-col :span="9">         <!-- User Avatar and Name Card -->
+          <a-card class="bg-gradient-to-br from-teal-300 to-lime-100 shadow-md" 
+          bordered="false" style="height: 100px; margin-left: 10px;">
             <div style="display: flex; align-items: center;">
-              <a-avatar :size="64">
+              <a-avatar :size="80" style="margin-top: -15px;">
                 <template #icon>
-                  <img src="assets/images/myavatar.jpg" alt="Avatar Image" style="width: auto; height: auto; object-fit: cover; border-radius: 50%;" />
+                  <img src="assets/images/myavatar.jpg" alt="Avatar Image" 
+                  style="width:auto; height:auto; object-fit:cover;"/>
                 </template>
               </a-avatar>
                 <div style="margin-left: 20px;">
-                  <div style="font-weight: bold;">
+                  <div class="font-bold text-base text-teal-950">
                     <p>WELCOME,</p>
                   </div>
-                  <div style="font-size: large; font-weight: bolder;">
-                    <p>Janine Rose D. Lingo</p>
+                  <div class="font-bold text-2xl text-teal-700 mb-3">
+                    <p>JANINE DE LUNA LINGO</p>
                   </div>
                 </div>
           </div>
           </a-card>
-        </a-col>
+        </a-col>          <!-- Statistic Cards -->
         <a-col :span="5">
-          <a-card bordered="false" style="height: 100px;">
+          <a-card class="bg-lime-100 shadow-md" bordered="false" style="height: 100px;">
             <div style="margin-left: 20px;">
                   <div style="font-weight: bold;">
-                    <p>TOTAL APPLICANTS</p>
+                    <p class="text-teal-950">TOTAL APPLICANTS</p>
                   </div>
-                  <div style="font-size: large; font-weight: bolder;">
-                    <p>168</p>
+                  <div>
+                    <p class="text-2xl text-teal-700">168</p>
                   </div>
             </div>
           </a-card>
         </a-col>
         <a-col :span="5">
-          <a-card bordered="false" style="height: 100px;">
+          <a-card class="bg-lime-100 shadow-md" bordered="false" style="height: 100px;">
             <div style="margin-left: 20px;">
                   <div style="font-weight: bold;">
-                    <p>NEW APPLICANTS</p>
+                    <p class="text-teal-950">NEW APPLICANTS</p>
                   </div>
-                  <div style="font-size: large; font-weight: bolder;">
-                    <p>50</p>
+                  <div>
+                    <p class=" text-2xl text-teal-700">50</p>
                   </div>
             </div>
           </a-card>
         </a-col>
         <a-col :span="5">
-          <a-card bordered="false" style="height: 100px;">
+          <a-card class="bg-lime-100 shadow-md" bordered="false" style="height: 100px;">
             <div style="margin-left: 20px;">
                   <div style="font-weight: bold;">
-                    <p>PENDING APPLICANTS</p>
+                    <p class="text-teal-950">PENDING APPLICANTS</p>
                   </div>
-                  <div style="font-size: large; font-weight: bolder;">
-                    <p>50</p>
+                  <div>
+                    <p class="text-2xl text-teal-700">50</p>
                   </div>
             </div>
           </a-card>
@@ -61,40 +63,38 @@
       </a-row>
     </div>
 <!-- container -->
-<!-- CHARTS STARTS HERE -->
+<!-- CHARTS SECTION -->
 
-    <div style="margin-top: 20px">
-      <a-row :gutter="16">
-        <a-card style="margin-left: 30px; width: 1270px; height: 325px;">
-            <a-row :gutter ="16">
-              <a-col :span="10" style="margin-top: 20px;">
+    <div>
+      <a-row>
+        <a-card class="bg-teal-50 shadow-md" style="margin-left: 25px; width: 1265px; height: 325px;">
+            <a-row :gutter ="2">
+              <a-col :span="10" style="margin-top: 20px;">  <!-- Pie Chart -->
                 <Piechart/>
               </a-col>
-              <a-col :span="14">
+              <a-col :span="14">                            <!-- Line Chart -->
                 <Linechart/>
               </a-col>
             </a-row>
         </a-card>
-<!-- CHARTS END  HERE -->
-        <a-col :span="5" style="margin-left: 1px;">
+  <!-- Calendar Section -->
+        <a-col style="margin-left: 10px;">
           <Calendar/>
         </a-col>
       </a-row>
     </div>
 
-<!-- TABLE AND RECENT ACTIVITY -->
-    <div class="p-8 flex justify-between">
+<!-- TABLE AND RECENT ACTIVITY SECTION-->
+<div style="padding: 20px; padding-left: 32px">
       <a-row :gutter="16">
-        <a-card bordered="false">
+        <a-card class="bg-gradient-to-l from-lime-100 to-teal-200 shadow-md" bordered="false">
           <a-col>
             <Tableusers/>
           </a-col>
         </a-card>
           <a-col>
-            <a-card bordered="false" style ="width: 350px; height: 100%">
-                <div style="font-weight: bold; margin-bottom: 20px; margin-top: 20px;">
-                    <p>RECENT ACTIVITIES</p>
-                </div>
+            <a-card title="RECENT ACTIVITIES" 
+            class="shadow-md" bordered="false" style ="width: 350px; height: 100%">
               <Timeline/>
             </a-card>
           </a-col>
@@ -116,7 +116,3 @@ definePageMeta({
     layout: 'default'
 })
 </script>
-
-<style scoped>
-/* Add your scoped styles here */
-</style>

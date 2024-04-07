@@ -1,6 +1,6 @@
 <template>
     <div>
-        <a-table 
+        <a-table
         :dataSource="data.users"
         :columns="columns"
         :loading="pending"
@@ -28,6 +28,11 @@ const columns = [
             title: 'Email',
             dataIndex: 'email',
             key: 'email',
+          },
+          {
+            title: 'Contact Number',
+            dataIndex: 'phone',
+            key: 'phone',
           }
         ]
     const { data, pending, error, status, refresh } = await useFetch('https://dummyjson.com/users')
