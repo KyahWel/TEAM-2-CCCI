@@ -1,7 +1,7 @@
 <template>
-    <div>
-        <a-row :gutter="16" class=" animate__animated animate__zoomIn">
-            <a-col v-for="applicant in paginatedUsers" :key="applicant.id" :span="6" class="mt-5">
+    <div class="flex flex-col items-center justify-center">
+        <a-row :gutter="[16,16]" class="justify-center animate__animated animate__zoomIn">
+            <a-col v-for="applicant in paginatedUsers" :key="applicant.id" :xs="24" :sm="12" :md="12" :lg="6" :xl="6" class="mt-5">
             <div class="w-full rounded-md bg-gradient-to-r from-fuchsia-500 to-cyan-500 p-1 border-4 rounded-xl shadow-xl">
                 <a-card class="h-56 flex flex-col justify-center items-center text-center shadow-md m-1">
                     <a-avatar :size="64" :src="applicant.image" />
@@ -17,7 +17,7 @@
             </a-col>
         </a-row>
         <div class="flex justify-end">
-            <a-pagination :current="currentPage" :total="users.length" :pageSize="pageSize" @change="handlePageChange"/>
+            <a-pagination :current="currentPage" :total="users.length" :pageSize="pageSize" @change="handlePageChange" class="mt-5"/>
         </div>
        
     </div>

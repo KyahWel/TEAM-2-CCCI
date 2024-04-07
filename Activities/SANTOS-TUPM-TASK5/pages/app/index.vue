@@ -1,44 +1,44 @@
 <template>
     <div class="animate__animated animate__zoomIn">
-        <a-row gutter="16">
-            <a-col :xs="8" :sm="8" :md="8" :lg="8" :xl="9">
+        <a-row :gutter="[16,16]">
+            <a-col :xs="24" :sm="24" :md="24" :lg="9" :xl="9">
                 <a-card class="bg-gradient-to-r from-fuchsia-500 to-cyan-500 border-4">
                     <p class="font-semibold text-white drop-shadow-md">Welcome to PathFinder Admin Dashboard</p>
                     <h1 class="text-3xl font-bold text-white drop-shadow-md">Jose Santos</h1>
 
                 </a-card>
             </a-col>
-            <a-col :xs="5" :sm="5" :md="5" :lg="5" :xl="5">
+            <a-col :xs="24" :sm="8" :md="8" :lg="5" :xl="5">
                 <a-card>
                     <a-statistic title="Total Applicants" :value="100" style="margin-right: 50px" />
                 </a-card>
             </a-col>
-            <a-col :xs="5" :sm="5" :md="5" :lg="5" :xl="5">
+            <a-col :xs="24" :sm="8" :md="8" :lg="5" :xl="5">
                 <a-card>
                     <a-statistic title="Hired Applicants" :value="32" style="margin-right: 50px" />
                 </a-card>
             </a-col>
-            <a-col :xs="5" :sm="5" :md="5" :lg="5" :xl="5">
+            <a-col :xs="24" :sm="8" :md="8" :lg="5" :xl="5">
                 <a-card>
                     <a-statistic title="Active Applications" :value="30" style="margin-right: 50px" />
                 </a-card>
             </a-col>
         </a-row>
 
-        <a-row gutter="16" class="mt-3">
-            <a-col :xs="8" :sm="8" :md="8" :lg="8" :xl="8">
-                <a-card title="Applicants Trend" class="flex flex-col justify-center">
+        <a-row :gutter="[16,16]" class="mt-3">
+            <a-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
+                <a-card title="Applicants Trend" class="flex flex-col justify-center h-full">
                     <lineChart />
                 </a-card>
             </a-col>
-            <a-col :xs="8" :sm="8" :md="8" :lg="8" :xl="8">
-                <a-card title="Applicants Status" class="flex flex-col justify-center">
+            <a-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
+                <a-card title="Applicants Status" class="flex flex-col justify-center h-full">
                     <donutChart />
                 </a-card>
             </a-col>
-            <a-col :xs="8" :sm="8" :md="8" :lg="8" :xl="8">
-                <div :style="{ width: '417px'}">
-                    <a-calendar v-model:value="value" :fullscreen="false" @panelChange="onPanelChange" />
+            <a-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
+                <div :style="{ width: '100%'}">
+                    <a-calendar v-model:value="value" :fullscreen="false" @panelChange="onPanelChange" class="flex flex-col items-center justify-center h-96"/>
                 </div>
             </a-col>
         </a-row>
@@ -47,12 +47,12 @@
 
     <!-- List of Applicants Table -->
     <a-row gutter="16" class="mt-3">
-        <a-col :xs="14" :sm="14" :md="14" :lg="14" :xl="14">
-            <a-table :dataSource="data.users" :columns="columns" :loading="pending" style="width: 100%" />
+        <a-col :xs="24" :sm="24" :md="24" :lg="24" :xl="14">
+            <a-table :dataSource="data.users" :columns="columns" :loading="pending" style="width: 100%; overflow: auto; " />
         </a-col>
         
-        <a-col :xs="10" :sm="10" :md="10" :lg="10" :xl="10">
-            <a-card title="Recent Activities">
+        <a-col :xs="24" :sm="24" :md="24" :lg="24" :xl="10">
+            <a-card title="Recent Activities" class="h-full">
                 <a-timeline pending="Fetching Recent Activities..." :reverse="reverse">
                     <a-timeline-item>[5:43:43 AM] Applicant #30 submitted application</a-timeline-item>
                     <a-timeline-item color="red">[5:45:32 AM] System Bug: Client Dashboard - Error 404</a-timeline-item>

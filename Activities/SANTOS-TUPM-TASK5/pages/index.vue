@@ -21,7 +21,7 @@
       // Start the fade-out effect
       this.isFadeOut = true;
       
-      // Reroute to homepage
+      // Re-route to homepage
       setTimeout(() => {
         this.$router.push('/landingPage');
       }, 2100); // Delay
