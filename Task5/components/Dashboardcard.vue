@@ -1,7 +1,7 @@
 <template>
  <a-row :gutter="16" class="justify-between ">
       <a-col :span="8" > <!-- Profile Card-->
-        <a-card title="Profile" :bordered="false"  class="bg-amber-100">
+        <a-card title="Admin" :bordered="false"  class="bg-amber-100  h-48">
         <div class="flex inline">  
           <a-avatar :size="80" >
         <template #icon><img  src="~/assets/images/pictureko.png" /></template>
@@ -11,7 +11,7 @@
         </a-card>
       </a-col>
       <a-col :span="8"><!-- Applicants Card-->
-        <a-card title="Total Applicants" :bordered="false" class="bg-amber-100">
+        <a-card title="Total Applicants" :bordered="false" class="bg-amber-100 h-48">
           <a-row>
     <a-col :span="12" class="flex">
       <div class="text-xl">
@@ -31,8 +31,8 @@
         </a-card>
       </a-col>
 
-      <a-col :span="7"> <!-- Time Card-->
-        <a-card title="Profile" :bordered="false" class="bg-amber-100">
+      <a-col :span="7" > <!-- Time Card-->
+        <a-card title="Profile" :bordered="false" class="bg-amber-100  h-48">
           <div>
     <label for="currentTime" class="text-2xl font-black">Current Time:</label>
     <div id="currentTime" class="text-xl">{{ formattedTime }}</div>

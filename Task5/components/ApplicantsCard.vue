@@ -1,8 +1,8 @@
 <template>
 <div class="p-8 flex">
     <a-row :gutter="16" :style="{ margin: '0px'}">
-      <a-col v-for="(user, index) in displayedUsers" :key="user.id" :span="6">
-        <a-card class="user-card" @click="openModal(user)">
+      <a-col v-for="(user, index) in displayedUsers" :key="user.id" :span="6" class="p-2">
+        <a-card class="user-card bg-amber-100 border-amber-600 " @click="openModal(user)">
           <a-avatar :size="64" :src="user.image" />
           <p class="user-name">{{ user.firstName }} {{ user.lastName }}</p>
           <p>{{ user.email }}</p>
@@ -11,7 +11,7 @@
     </a-row>
     <Modal :visible="modalVisible" @close="closeModal" :user="selectedUser" />
   </div>
-  <div class="p-10">
+  <div class="p-16 absolute bottom-1">
       <a-button @click="prevPage" :disabled="currentPage === 1">Previous</a-button>
       &nbsp;
       <span>Page {{ currentPage }} of {{ totalPages }} </span>
@@ -35,7 +35,7 @@
   import { ref, computed } from 'vue';
   import Modal from '~/components/Modal.vue';
 
-const usersPerPage = 10;
+const usersPerPage = 12;
 let currentPage = ref(1);
 let modalVisible = ref(false);
 let selectedUser = ref(null);
