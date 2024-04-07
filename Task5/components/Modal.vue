@@ -17,7 +17,7 @@
         <p><span class="font-semibold">Phone:</span> {{ user.phone }}</p>
         <p class="col-span-2"><span class="font-semibold">Address:</span> {{ user.address }}</p>
       </div>
-        <a-button @click.stop="closeModal" class="mt-6 bg-yellow-500 text-white py-2 px-4 rounded-md hover:bg-yellow-600">Close</a-button>
+        <a-button @click.stop="closeModal" class="mt-4 bg-yellow-500 text-white rounded-md hover:bg-yellow-600">Close</a-button>
       </div>
     </div>
   </template>

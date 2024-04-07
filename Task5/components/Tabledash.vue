@@ -5,7 +5,7 @@
         :dataSource="data.users"
         :columns="columns"
         :loading="pending"
-        style="width:100%; background:#fef3c7; header:#fef3c7"/>
+        style="width:100%; background:#fef3c7; header:#fef3c7;" />
     </div>
 </template>
 <script lang="ts" setup>
