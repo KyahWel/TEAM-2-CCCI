@@ -9,6 +9,7 @@ export default {
         "./app.vue",
     ],
     css: ['~/assets/css/tailwind.css'],
+    darkMode: 'class',
     theme: {
         extend: {},
     },
