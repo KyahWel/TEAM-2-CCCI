@@ -9,7 +9,7 @@
     </div>
 </template>
 <script lang="ts" setup>
-const columns = [
+const columns = [   //Datas that fetch
           {
             title: 'First Name',
             dataIndex: 'firstName',

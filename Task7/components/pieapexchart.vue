@@ -21,7 +21,7 @@
        chartWidth.value = newWidth < 500 ? 200 : 380
      })
  
-     const chartOptions = {
+     const chartOptions = {     //Configuration Apex Chart
        chart: {
          type: 'donut',
        },

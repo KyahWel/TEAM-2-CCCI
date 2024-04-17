@@ -6,13 +6,13 @@
         <div style="padding: 20px">
           <div style="margin-bottom: 10px; font-size:20px ">Today Date</div>
           <a-row type="flex" class="justify-evenly">
-            <a-col>
+            <a-col>  <!-- Date Header-->
               <a-radio-group size="large" :value="type" @change="e => onTypeChange(e.target.value)">
                 <a-radio-button value="month">Month</a-radio-button>
                 <a-radio-button value="year">Year</a-radio-button>
               </a-radio-group>
             </a-col>
-            <a-col>
+            <a-col> <!-- Date Info-->
               <a-select
                 size="large"
                 :dropdown-match-select-width="false"
@@ -35,7 +35,7 @@
                 </a-select-option>
               </a-select>
             </a-col>
-            <a-col>
+            <a-col> <!-- Current Date-->
               <a-select
                 size="large"
                 :dropdown-match-select-width="false"
@@ -70,7 +70,7 @@ const onPanelChange = (value: Dayjs, mode: string) => {
   console.log(value, mode);
 };
 
-const getMonths = (value: Dayjs) => {
+const getMonths = (value: Dayjs) => { //Getting the date months
   const localeData = value.localeData();
   const months = [];
   for (let i = 0; i < 12; i++) {
@@ -79,7 +79,7 @@ const getMonths = (value: Dayjs) => {
   return months;
 };
 
-const getYears = (value: Dayjs) => {
+const getYears = (value: Dayjs) => {  //Getting the date years
   const year = value.year();
   const years = [];
   for (let i = year - 10; i < year + 10; i += 1) {

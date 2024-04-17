@@ -21,7 +21,7 @@
 import { ref } from 'vue';  
 const collapsed = ref<boolean>(false);
 
-
+//
   const sidebarstyle: CSSProperties = { //para po ito sa kulay ng aking malupit na sidebar
     backgroundColor:' #b45309',
   }
@@ -39,17 +39,17 @@ const collapsed = ref<boolean>(false);
   
   <style>
   .ant-layout-sider-trigger {
-  background-color: #b45309; /* Change to your desired color */
+  background-color: #b45309; /* Change  color */
   color: #fff; /* Text color */
 }
 
 /* Hover styles for the collapsible button */
 .ant-layout-sider-trigger:hover {
-  background-color: #b45309; /* Change to your desired hover color */
+  background-color: #b45309; /* Change hover color */
 }
 
 /* Active/focused styles for the collapsible button */
 .ant-layout-sider-trigger:focus {
-  background-color:#b45309; /* Change to your desired active/focus color */
+  background-color:#b45309; /* Change active/focus color */
 }
   </style>

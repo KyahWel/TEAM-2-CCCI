@@ -14,8 +14,8 @@
     @finishFailed="onFinishFailed"
     style="color:white;"
   >
-  <div class="flex justify-center"> 
-    <a-form-item
+  <div class="flex justify-center">  
+    <a-form-item      <!-- Username-->
        style="color: white;"
       
       name="username"
@@ -23,14 +23,12 @@
     >
     <label style="color:white">Username</label>
       <a-input v-model:value="formState.username" />
-    </a-form-item>
+    </a-form-item> 
 
-    <a-form-item
-  
-      
+    <a-form-item          <!-- Password-->
       name="password"
       :rules="[{ required: true, message: 'Please input your password!' }]"
-    >
+    >    
     <label style="color:white">Password</label>
       <a-input-password v-model:value="formState.password" />
     </a-form-item>
@@ -39,7 +37,7 @@
 
 
     <a-form-item v-bind="aformtaillayout">
-        <a-button
+        <a-button     <!-- Login Button-->
           
           type="submit"
           class="text-white bg-purple-600 hover:bg-purple-700 focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm  px-5 w-full sm:w-auto"
@@ -48,7 +46,7 @@
           Login
         </a-button>
         {{ route }}
-        <div class="flex justify-center items-center text-sm w-64 p-2 text-white">
+        <div class="flex justify-center items-center text-sm w-64 p-2 text-white"> <!-- Register Button-->
           <p>New here?</p>
           <p class="underline cursor-pointer ml-1" @click="$router.push('/signin/signupuser')">Register</p>
           {{ route }}
@@ -57,7 +55,7 @@
     </a-form-item>
     </a-form>
   </div>
-  <div class="flex items-center">
+  <div class="flex items-center"> <!-- Back Button-->
    <span class="text-blue-500 underline cursor-pointer ml-1" @click="$router.push('/')">
                 Back
             </span>
