@@ -1,5 +1,5 @@
 <template>
-<body class="bg-[url('/assets/images/background.png')] flex justify-center w-screen">
+<body class="bg-[url('/assets/images/background.png')] flex justify-center w-screen text-white">
   
 
   <slot />
@@ -14,4 +14,6 @@
 body::-webkit-scrollbar{
   display: none;
 }
+
+
 </style>

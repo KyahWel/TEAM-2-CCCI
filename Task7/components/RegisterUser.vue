@@ -1,5 +1,5 @@
 <template>
-<div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+<div class=" bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
         <img class="mx-auto h-10 w-auto" src="~/assets/images/login.svg" alt="Workflow">
         <h2 class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
@@ -7,7 +7,7 @@
         </h2>
         <p class="mt-2 text-center text-sm leading-5 text-gray-500 max-w" >
             Or
-            <span class="text-blue-500 underline cursor-pointer ml-1" @click="$router.push('/')">
+            <span class="text-blue-500 underline cursor-pointer ml-1" @click="$router.push('/signin/signinuser')">
                 login to your account
             </span>
             {{ route }}
@@ -118,6 +118,10 @@
 
         </div>
     </div>
+     <span class="text-blue-500 underline cursor-pointer ml-1" @click="$router.push('/')">
+                Back
+            </span>
+            {{ route }}
 </div>
 </template>
 
