@@ -1,7 +1,7 @@
 <template>
-  <div class=" justify-center">
+  <div class="bg-gradient-to-r from-amber-500 via-yellow-300 to-orange-500 m-24 p-12 rounded-xl justify-center">
     <div>
-      <h1 class="text-amber-300 text-6xl font-black text-center p-12 ">Welcome</h1>
+      <h1 class="text-amber-700 text-4xl font-black text-center p-12  ">Welcome User</h1>
     </div>
   <div class="w-96 backdrop-blur-lg bg-opacity-80 rounded-lg shadow-lg p-5 bg-gray-900 text-white">
     <h2 class="text-2xl font-bold pb-5">Sign In</h2>
@@ -14,49 +14,42 @@
     @finishFailed="onFinishFailed"
     style="color:white;"
   >
-  <div class="flex justify-center">  
-    <a-form-item      <!-- Username-->
-       style="color: white;"
-      
-      name="username"
-      :rules="[{ required: true, message: 'Please input your username!' }]"
-    >
-    <label style="color:white">Username</label>
+  <div class="pl-16 text-center "> 
+   
+    <a-form-item   style="color: white;" name="username"  :rules="[{ required: true, message: 'Please input your username!' }]" ><!-- Username-->
+    <label style="color:white" >Username</label>
+  
       <a-input v-model:value="formState.username" />
+   
     </a-form-item> 
 
-    <a-form-item          <!-- Password-->
-      name="password"
-      :rules="[{ required: true, message: 'Please input your password!' }]"
-    >    
+    <a-form-item  name="password" :rules="[{ required: true, message: 'Please input your password!' }]" >      <!-- Password-->
     <label style="color:white">Password</label>
       <a-input-password v-model:value="formState.password" />
     </a-form-item>
 
-</div>
-
-
+</div> 
     <a-form-item v-bind="aformtaillayout">
-        <a-button     <!-- Login Button-->
+        <a-button    
           
           type="submit"
-          class="text-white bg-purple-600 hover:bg-purple-700 focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm  px-5 w-full sm:w-auto"
+          class="text-white bg-amber-500 hover:bg-amber-600 focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm  px-5 w-full sm:w-auto"
           @click="$router.push('/app/dashboard')"
-        >
+        >  <!-- Login Button-->
           Login
         </a-button>
         {{ route }}
-        <div class="flex justify-center items-center text-sm w-64 p-2 text-white"> <!-- Register Button-->
+        <div class=" flex justify-center items-center text-sm w-64 p-2 text-white"> <!-- Register Button-->
           <p>New here?</p>
-          <p class="underline cursor-pointer ml-1" @click="$router.push('/signin/signupuser')">Register</p>
+          <p class="text-amber-500 hover:text-amber-600 underline cursor-pointer ml-1" @click="$router.push('/signin/signupuser')">Register</p>
           {{ route }}
         </div>
       
     </a-form-item>
     </a-form>
   </div>
-  <div class="flex items-center"> <!-- Back Button-->
-   <span class="text-blue-500 underline cursor-pointer ml-1" @click="$router.push('/')">
+  <div class="flex items-center py-4"> <!-- Back Button-->
+    <RightOutlined class="text-orange-700  font-black cursor-pointer" /> <span class="text-orange-700 hover:text-orange-600 font-black underline cursor-pointer ml-1" @click="$router.push('/')">
                 Back
             </span>
             {{ route }}
