@@ -1,6 +1,6 @@
 <template>
   
- <div class="bg-gradient-to-r from-amber-500 via-yellow-300 to-orange-500 rounded-lg  p-16 m-64 " style="height: 300px; width:500px" >
+ <div class="bg-gradient-to-r from-amber-500 via-yellow-300 to-orange-500 rounded-lg  p-16 m-16 md:m-18 lg:m-36 customscreen laptophw" style="height: 300px; width:500px" >
   <div class="pr-2 mx-20 flex justify-self-center">
   <img class="w-48 " src="/assets/images/newlogo.png">
 </div>
@@ -16,7 +16,7 @@
   <a-button  
           type="submit"
           class="text-white bg-amber-700 hover:bg-amber-600 focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm  px-5 w-full sm:w-auto"
-          @click="$router.push('/signin/signinuser')"
+          @click="$router.push('/signin/signinadmin')"
         >
           Admin Sign-In
         </a-button>
@@ -36,5 +36,16 @@ const router = useRouter()
 </script>
 
 <style>
+@media (min-width: 768px) {
+  .laptophw {
+    height:200px;
+    width:400px;
+  } 
+}
 
+@media (max-width: 1025px) {
+    .customscreen {
+        margin: 16rem/* 144px */;
+    }
+}
 </style>

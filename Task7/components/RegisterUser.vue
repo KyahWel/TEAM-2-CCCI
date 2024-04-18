@@ -1,6 +1,6 @@
 <template>
-<div class=" bg-gradient-to-r from-amber-500 rounded-xl via-yellow-300 to-orange-500 flex flex-col justify-center m-8 py-4 sm:px-6 lg:px-8">
-    <div class="sm:mx-auto sm:w-full sm:max-w-md">
+<div class=" bg-gradient-to-r from-amber-500 rounded-xl via-yellow-300 to-orange-500 flex flex-col justify-center md:m-18 lg:m-2 customscreen py-4 sm:px-6 lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-md lg:mx-auto lg:w-full lg:max-w-md" >
         <img class="mx-auto h-10 w-auto" src="~/assets/images/login.svg" alt="Workflow">
         <h2 class="mt-6 text-center text-3xl leading-9 font-extrabold text-orange-700">
             Create a new account
@@ -14,7 +14,7 @@
         </p>
     </div>
 
-    <div class="mt-4 sm:mx-auto sm:w-full sm:max-w-md ">
+    <div class="mt-4 sm:mx-auto sm:w-full sm:max-w-md lg:mx-auto lg:w-full lg:max-w-md lg:flex-auto">
         <div class="bg-gray-900 backdrop-blur-lg bg-opacity-80 py-8 px-4 shadow sm:rounded-lg sm:px-10">
             <form method="POST" action="#">
                 <div>
@@ -109,9 +109,11 @@
 
                 <div class="mt-4">
                     <span class="block w-full rounded-md shadow-sm">
-            <a-button type="submit" class="w-full flex justify-center  border border-transparent text-sm font-medium rounded-md text-white bg-amber-500 hover:bg-orange-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+            <a-button type="submit" @click="$router.push('/success')"
+            class="w-full flex justify-center  border border-transparent text-sm font-medium rounded-md text-white bg-amber-500 hover:bg-orange-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
               Create account
             </a-button>
+            {{ route }}
           </span>
                 </div>
             </form>

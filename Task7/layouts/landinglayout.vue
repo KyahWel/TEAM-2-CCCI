@@ -1,8 +1,9 @@
 <template>
-<body class="bg-[url('/assets/images/background.png')] flex justify-center w-screen text-white">
+<body class="bg-[url('/assets/images/background.png')]  flex justify-center bg-cover h-screen w-screen"  >
   
 
   <slot />
+
 </body>
 </template>
 

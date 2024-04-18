@@ -1,10 +1,10 @@
 <template>
-  <div class="bg-gradient-to-r from-amber-500 via-yellow-300 to-orange-500 m-24 p-12 rounded-xl justify-center">
+  <div class="bg-gradient-to-r from-amber-500 via-yellow-300 to-orange-500 md:m-4 lg:m-12 customscreen px-6 rounded-xl justify-center">
     <div>
       <h1 class="text-amber-700 text-4xl font-black text-center p-12  ">Welcome User</h1>
     </div>
   <div class="w-96 backdrop-blur-lg bg-opacity-80 rounded-lg shadow-lg p-5 bg-gray-900 text-white">
-    <h2 class="text-2xl font-bold pb-5">Sign In</h2>
+    <h2 class="text-2xl font-bold pb-5 text-center">Sign In</h2>
     <a-form
     :model="formState"
     name="login" 
@@ -94,6 +94,13 @@ const aformtaillayout = {
 </script>
 
 <style >
+a-input {
+  background-color: red;
+}
 
-
+@media (max-width: 1025px) {
+    .customscreen {
+        margin: 9rem;
+    }
+}
 </style>

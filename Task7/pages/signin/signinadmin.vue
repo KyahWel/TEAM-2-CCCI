@@ -1,6 +1,6 @@
 <template>
 
-
+<LoginAdmin/>
 
   
 </template>
@@ -14,6 +14,6 @@ definePageMeta({
 
 </script>
 
-<style>
+<style scoped>
 
 </style>
