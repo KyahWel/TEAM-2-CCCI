@@ -43,7 +43,7 @@ const router = useRouter()
   } 
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 1900px) {
     .customscreen {
         margin: 20rem/* 144px */;
     }

@@ -18,9 +18,23 @@
         <div class="bg-gray-900 backdrop-blur-lg bg-opacity-80 py-8 px-4 shadow sm:rounded-lg sm:px-10">
             <form method="POST" action="#">
                 <div>
-                    <label for="email" class="block text-sm font-medium leading-5  text-white">First Name</label>
+    <label for="accountType" class="block text-sm font-medium leading-5 text-white">
+        Account Type
+    </label>
+    <div class="mt-1 relative rounded-md shadow-sm">
+        <select id="accountType" name="accountType" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+            <option value="">Select Account Type</option>
+            <option value="User">User</option>
+            <option value="Admin">Admin</option>
+        </select>
+    </div>
+</div>
+
+
+                <div class="mt-4">
+                    <label for="firstName" class="block text-sm font-medium leading-5  text-white">First Name</label>
                     <div class="mt-1 relative rounded-md shadow-sm">
-                        <input id="firstname" name="firstname" placeholder="First Name" type="text" required="" value="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                        <input id="firstName" name="firstName" placeholder="First Name" type="text" required="" value="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                         <div class="hidden absolute inset-y-0 right-0 pr-3  items-center pointer-events-none">
                             <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd"
@@ -33,9 +47,9 @@
                 </div>
 
                 <div class="mt-4">
-                    <label for="email" class="block text-sm font-medium leading-5  text-white">Last Name</label>
+                    <label for="lastName" class="block text-sm font-medium leading-5  text-white">Last Name</label>
                     <div class="mt-1 relative rounded-md shadow-sm">
-                        <input id="lastname" name="lastname" placeholder="Last Name" type="text" required="" value="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                        <input id="lastName" name="lastName" placeholder="Last Name" type="text" required="" value="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                         <div class="hidden absolute inset-y-0 right-0 pr-3  items-center pointer-events-none">
                             <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd"
@@ -47,9 +61,9 @@
                     </div>
                 </div>
                 <div class="mt-4">
-                    <label for="email" class="block text-sm font-medium leading-5  text-white">Middle Name</label>
+                    <label for="middleName" class="block text-sm font-medium leading-5  text-white">Middle Name</label>
                     <div class="mt-1 relative rounded-md shadow-sm">
-                        <input id="middlename" name="middlename" placeholder="Middle Name" type="text" required="" value="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                        <input id="middleName" name="middleName" placeholder="Middle Name" type="text" required="" value="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                         <div class="hidden absolute inset-y-0 right-0 pr-3  items-center pointer-events-none">
                             <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd"
@@ -108,14 +122,12 @@
                 </div>
 
                 <div class="mt-4">
-                    <span class="block w-full rounded-md shadow-sm">
-            <a-button type="submit" @click="$router.push('/success')"
-            class="w-full flex justify-center  border border-transparent text-sm font-medium rounded-md text-white bg-amber-500 hover:bg-orange-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
-              Create account
-            </a-button>
-            {{ route }}
-          </span>
-                </div>
+        <span class="block w-full rounded-md shadow-sm">
+            <button  class="w-full flex justify-center border border-transparent text-sm font-medium rounded-md text-white bg-amber-500 hover:bg-orange-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+                Create Account
+            </button>
+        </span>
+    </div>
             </form>
 
         </div>
@@ -125,7 +137,10 @@
 </template>
 
 <script lang="ts" setup>
+
 const router = useRouter()
+
+
 </script>
 
 <style>
