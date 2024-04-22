@@ -1,0 +1,101 @@
+<template>
+  <div class="bg-gradient-to-r from-fuchsia-500 to-cyan-500 h-screen flex items-center justify-center">
+    <div class="flex flex-col items-center justify-center animate__animated animate__flipInY">
+       <img src="/public/manPointingleft.webp" class="w-80 relative z-50 mt-36 ml-96" />
+   
+       <a-card class="card absolute border-0 border-white p-5" style="width: 450px; height: 373px">
+        <p class="text-2xl font-bold italic text-center">
+          Welcome Aboard Admin!
+         <NuxtLink to="/landingPage"><a-button type=link class="p-0" >< Back to Options</a-button></NuxtLink>
+        </p>
+    <a-form 
+         :model="formState"
+         name="normal_login"
+         class="mt-5 login-form"
+         @finish="onFinish"
+         @finishFailed="onFinishFailed"
+     >
+         <a-form-item
+         label="Username"
+         name="username"
+         :rules="[{ required: true, message: 'Please input your username!' }]"
+         >
+         <a-input v-model:value="formState.username">
+             <template #prefix>
+             <UserOutlined class="site-form-item-icon" />
+             </template>
+         </a-input>
+         </a-form-item>
+ 
+         <a-form-item
+         label="Password"
+         name="password"
+         :rules="[{ required: true, message: 'Please input your password!' }]"
+         >
+         <a-input-password v-model:value="formState.password">
+             <template #prefix>
+             <LockOutlined class="site-form-item-icon" />
+             </template>
+         </a-input-password>
+         </a-form-item>
+ 
+         <a-form-item>
+         <a-button :disabled="disabled" type="primary" html-type="submit" class="w-full login-form-button">
+             Log in
+         </a-button>     
+         </a-form-item>
+ 
+         <a-form-item>
+         <a-form-item name="remember" no-style>
+             <a-checkbox v-model:checked="formState.remember">Remember me</a-checkbox>
+         </a-form-item>
+         <NuxtLink to="/"><a-button type="link" class="p-0">Forgot Password</a-button></NuxtLink>
+         </a-form-item>
+     </a-form>
+ </a-card>
+  </div> 
+ </div> 
+ </template>
+ <script lang="ts" setup>
+ import { reactive, computed } from 'vue';
+ import { UserOutlined, LockOutlined } from '@ant-design/icons-vue';
+ interface FormState {
+   username: string;
+   password: string;
+   remember: boolean;
+ }
+ const formState = reactive<FormState>({
+   username: '',
+   password: '',
+   remember: true,
+ });
+ const onFinish = (values: any) => {
+   console.log('Success:', values);
+ };
+ 
+ const onFinishFailed = (errorInfo: any) => {
+   console.log('Failed:', errorInfo);
+ };
+ const disabled = computed(() => {
+   return !(formState.username && formState.password);
+ });
+ </script>
+ 
+ <style scoped>
+ /* Montserrat Font */
+ @import url('https://fonts.googleapis.com/css?family=Montserrat:400');
+ .card {
+   font-family: "Montserrat", sans-serif;
+ }
+ 
+ #components-form-demo-normal-login .login-form {
+   max-width: 300px;
+ }
+ #components-form-demo-normal-login .login-form-forgot {
+   float: right;
+ }
+ #components-form-demo-normal-login .login-form-button {
+   width: 100%;
+ }
+ </style>
+ 
