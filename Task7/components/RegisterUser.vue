@@ -7,7 +7,7 @@
         </h2>
         <p class="mt2 text-center text-sm leading-5 text-orange-700 max-w" >
             Or
-            <span class="text-orange-700 hover:text-orange-600 underline cursor-pointer ml-1" @click="$router.push('/signin/signinuser')">
+            <span class="text-orange-700 hover:text-orange-600 underline cursor-pointer ml-1" @click="$router.push('/')">
                 login to your account
             </span>
             {{ route }}
@@ -123,9 +123,9 @@
 
                 <div class="mt-4">
         <span class="block w-full rounded-md shadow-sm">
-            <button  class="w-full flex justify-center border border-transparent text-sm font-medium rounded-md text-white bg-amber-500 hover:bg-orange-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+            <a-button noStyle class="w-full flex justify-center border border-transparent text-sm font-medium rounded-md text-white bg-amber-500 hover:bg-orange-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
                 Create Account
-            </button>
+            </a-button>
         </span>
     </div>
             </form>
@@ -144,5 +144,9 @@ const router = useRouter()
 </script>
 
 <style>
-
+@media (max-width: 1900px) {
+    .customscreen {
+        margin: 2.5rem;
+    }
+}
 </style>

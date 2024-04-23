@@ -1,6 +1,6 @@
 <template>
   
- <div class="bg-gradient-to-r from-amber-500 via-yellow-300 to-orange-500 rounded-lg  p-16 m-16 md:m-18 lg:m-36 customscreen laptophw" style="height: 300px; width:500px" >
+ <div class="bg-gradient-to-r from-amber-500 via-yellow-300 to-orange-500 rounded-lg  p-16 m-16 md:m-18 lg:m-36 customscreen " style="height: 300px; width:500px" >
   <div class="pr-2 mx-20 flex justify-self-center">
   <img class="w-48 " src="/assets/images/newlogo.png">
 </div>
@@ -36,16 +36,12 @@ const router = useRouter()
 </script>
 
 <style>
-@media (min-width: 768px) {
-  .laptophw {
-    height:200px;
-    width:400px;
-  } 
-}
 
-@media (min-width: 1900px) {
+
+@media (max-width: 1900px) {
     .customscreen {
-        margin: 20rem/* 144px */;
+        margin: 20rem;
+        
     }
 }
 </style>
