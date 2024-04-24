@@ -123,9 +123,11 @@
 
                 <div class="mt-4">
         <span class="block w-full rounded-md shadow-sm">
-            <a-button noStyle class="w-full flex justify-center border border-transparent text-sm font-medium rounded-md text-white bg-amber-500 hover:bg-orange-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+            <a-button noStyle @click="router.push('/success')" class="w-full flex justify-center border border-transparent text-sm font-medium rounded-md text-white bg-amber-500 hover:bg-orange-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
                 Create Account
+            
             </a-button>
+            {{ route }}
         </span>
     </div>
             </form>

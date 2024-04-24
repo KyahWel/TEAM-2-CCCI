@@ -1,5 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  server: {
+    port: 8080 // Specify the port for the frontend server
+  },
   devtools: { enabled: true },
   modules: [
     '@ant-design-vue/nuxt',

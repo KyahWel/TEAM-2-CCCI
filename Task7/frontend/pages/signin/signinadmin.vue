@@ -1,7 +1,7 @@
 <template>
-
+<div>
 <LoginAdmin/>
-
+</div>
   
 </template>
 

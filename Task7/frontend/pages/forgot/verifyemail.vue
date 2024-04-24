@@ -1,8 +1,6 @@
 <template>
   <div>
-    oh asan email mo
-    <a-button @click="$router.push('/forgot/forgotpass')"> Confirm </a-button>
-    {{ route }}
+ <VerifyEmail />
   </div>
 </template>
 
