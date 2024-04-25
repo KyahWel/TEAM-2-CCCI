@@ -25,11 +25,11 @@
       <div :style="{ display: 'flex', flexDirection: 'column', alignItems: 'center' }">
         <!-- Display user avatar and detailed information -->
         <a-avatar :size="128" :src="selectedUser.image" />
-        <p :style="{ textAlign: 'center'}">{{ selectedUser.firstName }} {{ selectedUser.lastName }}</p>
-        <p :style="{ textAlign: 'center' }">{{ selectedUser.address.address }}, {{ selectedUser.address.country }}</p>
-        <p :style="{ textAlign: 'center' }">{{ selectedUser.height }} cm</p>
-        <p :style="{ textAlign: 'center' }">{{ selectedUser.weight }} kg</p>
-        <p :style="{ textAlign: 'center' }">{{ selectedUser.university }}</p>
+        <p :style="{ textAlign: 'center'}"> <span :style="{ fontWeight: 'bold'} ">Name:</span> {{ selectedUser.firstName }} {{ selectedUser.lastName }}</p>
+        <p :style="{ textAlign: 'center' }"> <span :style="{ fontWeight: 'bold'} ">Address:</span> {{ selectedUser.address.address }}, {{ selectedUser.address.country }}</p>
+        <p :style="{ textAlign: 'center' }"> <span :style="{ fontWeight: 'bold'} ">University:</span> {{ selectedUser.university }}</p>
+        <p :style="{ textAlign: 'center' }"> <span :style="{ fontWeight: 'bold'} ">Height:</span> {{ selectedUser.height }} cm</p>
+        <p :style="{ textAlign: 'center' }"> <span :style="{ fontWeight: 'bold'} ">Weight:</span> {{ selectedUser.weight }} kg</p>
       </div>
     </a-modal>
   </div>

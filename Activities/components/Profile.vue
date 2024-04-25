@@ -11,19 +11,19 @@
 </template>
 
 <style scoped>
-/* Add scoped styles for the welcome card */
+/* Scoped styles for the welcome card */
 .welcome-card {
-  background-color: #f0f2f5; /* Set background color */
-  width: 380px; /* Set width */
-  border-radius: 8px; /* Add border radius */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add box shadow */
-  padding: 5px; /* Add padding */
+  background-color: #f0f2f5;  
+  width: 380px;  
+  border-radius: 8px;  
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  
+  padding: 5px;  
 }
 
 /* Customize Ant Design card meta component */
 .card-meta {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Set font family */
-  color: #333; /* Set font color */
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
+  color: #333; /* Font color */
   font-size: 25px;
   margin-left: 10px;
 }
