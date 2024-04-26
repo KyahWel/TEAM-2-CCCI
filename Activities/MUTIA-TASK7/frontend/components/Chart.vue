@@ -1,6 +1,6 @@
 <template>
   <!-- Container for the chart component -->
-  <a-card style="padding: 10px; width: 450px; height: 302px">
+  <a-card style="padding: 10px; width: 480px; height: 302px; margin-left: 10px">
     <!-- Chart component -->  
     <apexchart 
         type="donut" 

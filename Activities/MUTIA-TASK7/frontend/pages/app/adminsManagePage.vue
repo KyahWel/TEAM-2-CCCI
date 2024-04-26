@@ -10,9 +10,9 @@
         bordered
         :style="{ 'min-height': '450px', 'overflow-y': 'auto' }"
         >
-            <template #bodyCell="{ column, record }">
-              <template v-if="column.key === 'action'">
-                <a-button @click="updateUser(record)"><EditOutlined /></a-button>
+        <template #bodyCell="{ column, record }">
+          <template v-if="column.key === 'action'">
+            <a-button @click="updateUser(record)"><EditOutlined /></a-button>
 
                 <a-popconfirm title="Sure to delete?" @confirm="deleteUser(record.id)">
                   <template #icon><question-circle-outlined style="color: red" /></template>
@@ -20,8 +20,43 @@
                 </a-popconfirm>
               </template>
             </template>
-            
           </a-table>
+
+          <!-- Modal Component -->
+          <a-modal
+  v-model:visible="updateModalVisible"
+  title="Update User"
+  ok-text="Save"
+  cancel-text="Cancel"
+  @ok="saveUserChanges"
+>
+  <template #footer>
+    <a-button key="submit" type="primary" :loading="saving" @click="saveUserChanges">
+      Save
+    </a-button>
+    <a-button key="back" @click="updateModalVisible = false">
+      Cancel
+    </a-button>
+  </template>
+  <a-form
+    :model="selectedUser"
+    :label-col="{ span: 6 }"
+    :wrapper-col="{ span: 18 }"
+  >
+    <a-form-item label="First Name">
+      <a-input v-model:value="selectedUser.firstName" />
+    </a-form-item>
+    <a-form-item label="Last Name">
+      <a-input v-model:value="selectedUser.lastName" />
+    </a-form-item>
+    <a-form-item label="Email">
+      <a-input v-model:value="selectedUser.email" />
+    </a-form-item>
+    <a-form-item label="Contact No.">
+      <a-input v-model:value="selectedUser.contactNo" />
+    </a-form-item>
+  </a-form>
+</a-modal>
       </a-tab-pane>
       
       <a-tab-pane key="2" tab="Manage Admin">
@@ -42,6 +77,7 @@
   
   <script>
   import axios from 'axios';
+  
 
   export default {
   setup() {
@@ -99,11 +135,31 @@
     //   // Open a modal or a form to update the user
     // };
 
-    const updateUser = async (id) => {
-      const response = await axios.put(`http://localhost:5005/admin/${id}`);
-      users.value = response.data;
+    const updateModalVisible = ref(false);
+    const selectedUser = ref({});
+    const saving = ref(false);
+
+    const updateUser = async (user) => {
+      selectedUser.value = user;
+      updateModalVisible.value = true;
     };
 
+    const saveUserChanges = async () => {
+      saving.value = true;
+      try {
+        const response = await axios.put(`http://localhost:5005/admin/${selectedUser.value.id}`, selectedUser.value);
+        users.value = response.data;
+        updateModalVisible.value = false;
+        await fetchUsers(); 
+        message.success('User updated successfully'); 
+      
+      } catch (error) {
+        console.error(error);
+        message.error('Failed to update user');
+      } finally {
+        saving.value = false;
+      }
+    };
 
     return {
       users,
@@ -111,7 +167,12 @@
       activeKey: '1',
       fetchUsers,
       deleteUser,
+      updateModalVisible,
+      selectedUser,
+      saving,
       updateUser,
+      saveUserChanges,
+
       
     };
   },

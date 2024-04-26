@@ -18,7 +18,7 @@
             <span>Dashboard</span> <!-- Dashboard navigation links -->
           </li>
 
-          <li class="nav-link" @click="router.push('/app/userHome')">
+          <li class="nav-link" @click="router.push('/app/userProfile')">
             <img class="logo-applicants" src="/assets/images/admin.png">
             <span>Profile</span><!-- Application navigation links -->
           </li>

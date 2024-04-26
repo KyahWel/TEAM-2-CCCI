@@ -1,6 +1,6 @@
 <template>
     <div class="chart2">
-      <a-card style="padding: 10px; width: 495px;">
+      <a-card style="padding: 10px; width: 560px;">
         <apexchart type="bar" width="350" :options="chartOptions" :series="series"></apexchart>
       </a-card>
     </div>

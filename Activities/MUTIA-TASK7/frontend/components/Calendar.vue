@@ -2,7 +2,7 @@
   <!-- Container for the calendar component -->
   <div 
   :style="{ 
-    width: '300px',
+    width: '340px',
     marginLeft:'12px', 
     border: '1px solid #d9d9d9', 
     borderRadius: '4px' }">
