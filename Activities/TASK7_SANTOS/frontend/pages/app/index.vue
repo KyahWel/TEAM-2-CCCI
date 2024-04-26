@@ -48,7 +48,7 @@
     <!-- List of Applicants Table -->
     <a-row gutter="16" class="mt-3">
         <a-col :xs="24" :sm="24" :md="24" :lg="24" :xl="14">
-            <a-table :dataSource="data" :columns="columns" style="width: 100%; overflow: auto; " />
+            <a-table :dataSource="data.users" :columns="columns" style="width: 100%; overflow: auto; " />
         </a-col>
         
         <a-col :xs="24" :sm="24" :md="24" :lg="24" :xl="10">
@@ -94,6 +94,7 @@ import donutChart from '~/components/donutChart.vue';
     };
 
 // Data Source
+const users = ref([]);
 const columns = [
           {
             title: '#',
@@ -128,10 +129,32 @@ const columns = [
     }
     })
       .then(response => response.json())
-      .then(data => {console.log(data)})
+      .then(data => {console.log(data),
+        users.value = data.users;})
       .catch(error => {
         console.error('Error fetching users:', error);
       });
+
+
+//  const data = async () => {
+//       const response = await axios.get('http://localhost:5005/users',);
+//       users.value = response.data;
+//     };
+
+
+
+// async fetch() {
+//   try {
+//     const data = await fetch('http://localhost:5005/users', {
+//       headers: {
+//         Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMTUsImRhdGUiOiIyMDI0LTA0LTAxVDIzOjE3OjA2LjA1OFoiLCJpYXQiOjE3MTIwMTM0MjYsImV4cCI6MTcxMjAxNTIyNn0.1fi4LqhYq3NQNk9Z0xj2L19FU0Ky3hEECjRcvNPFWeA',
+//       }
+//     });
+//     const data = await response.json();
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
 </script>
 
 <style lang="scss" scoped>

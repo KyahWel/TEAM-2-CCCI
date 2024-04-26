@@ -4,7 +4,7 @@
             <a-col v-for="applicant in paginatedUsers" :key="applicant.id" :xs="24" :sm="12" :md="12" :lg="6" :xl="6" class="mt-5">
             <div class="w-full rounded-md bg-gradient-to-r from-fuchsia-500 to-cyan-500 p-1 border-4 rounded-xl shadow-xl">
                 <a-card class="h-56 flex flex-col justify-center items-center text-center shadow-md m-1">
-                    <!-- <a-avatar :size="64" :src="applicant.avatar" /> -->
+                    <a-avatar :size="64" :src="applicant.avatar" />
                     <h1 class="font-bold mt-2">{{ applicant.firstName }} {{ applicant.lastName }}</h1>
                     <p>{{ applicant.email }}</p>
                     <NuxtLink :to="`/app/${applicant.id}`" class="button"><a-button type="primary" class="mt-5 transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-105 hover:bg-indigo-500 duration-300">
@@ -41,9 +41,6 @@ export default {
 
     // Fetch data and update users
     fetch('http://localhost:5005/users',{
-      headers: {
-    'Authorization': 'Bearer ' +  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMTUsImRhdGUiOiIyMDI0LTA0LTAxVDIzOjE3OjA2LjA1OFoiLCJpYXQiOjE3MTIwMTM0MjYsImV4cCI6MTcxMjAxNTIyNn0.1fi4LqhYq3NQNk9Z0xj2L19FU0Ky3hEECjRcvNPFWeA' 
-    }
     })
       .then(response => response.json())
       .then(data => {
