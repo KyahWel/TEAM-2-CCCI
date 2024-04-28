@@ -79,7 +79,7 @@
   <script setup>
   import axios from 'axios';
   
-  const router = useRouter();
+
   
   const form = reactive({
     firstName: '',
@@ -106,44 +106,49 @@
   
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const { firstName, lastName, username, contactNo, email, password } = form;
-  
-    try {
-      // Make a POST request to the backend server to register a new user
-      const response = await axios.post('http://localhost:5005/api/admins', {
-        firstName,
-        lastName,
-        username,
-        contactNo,
-        email,
-        password,
-      });
+  e.preventDefault();
+  const { firstName, lastName, contactNo, username, email, password } = form;
 
-      message.success('Account added successfully!');
+  try {
+    // Make a POST request to the backend server to register a new user
+    const response = await axios.post('http://localhost:5005/api/admins', {
+      firstName,
+      contactNo,
+      lastName,
+      username,
+      email,
+      password,
+    });
 
-      // Clear the form data
-      form.firstName = '';
-      form.lastName = '';
-      form.username = '';
-      form.contactNo = '';
-      form.email = '';
-      form.password = '';
-      
-    } catch (error) {
+    message.success('Account added successfully!');
+    // Redirect to home page after successful registration
+    router.push('/');
+    
+  } catch (error) {
+    if (error.response && error.response.status === 400) {
+      if (error.response.data.message === 'Username already taken') {
+        message.error('Username already taken');
+      } else if (error.response.data.message === 'Email already taken') {
+        message.error('Email already taken');
+      } else if (error.response.data.message === 'Contact Number already taken') {
+        message.error('Contact Number already taken');
+      } else {
+        message.error('Account Invalid');
+      }
+    } else {
       message.error('Account Invalid');
-      console.error(error);
     }
-  };
-
-  const clear = () => {
-  form.firstName = '';
-  form.lastName = '';
-  form.username = '';
-  form.contactNo = '';
-  form.email = '';
-  form.password = '';
+    form.firstName = '';
+    form.lastName = '';
+    form.username = '';
+    form.contactNo = '';
+    form.email = '';
+    form.password = '';
+    console.error(error);
+  }
 };
+
+  
   </script>
   
   <style scoped>

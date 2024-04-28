@@ -31,7 +31,7 @@
       :rules="[{ message: 'Please input your contact No.!' }]">
     <a-input v-model:value="form.contactNo"
       placeholder="Contact No.">
-
+    
       </a-input>
     </a-form-item>
 
@@ -68,7 +68,8 @@
         Register
       </a-button>
 
-      <a-button type="link" @click="router.push('/')">Already a member? Login</a-button>
+      <a-button class="member-btn" type="link" @click="router.push('/')">Already a member? Login</a-button>
+      
     </a-form-item>
 
     </a-form>
@@ -124,7 +125,25 @@ const handleSubmit = async (e) => {
     router.push('/');
     
   } catch (error) {
-    message.error('Account Invalid');
+    if (error.response && error.response.status === 400) {
+      if (error.response.data.message === 'Username already taken') {
+        message.error('Username already taken');
+      } else if (error.response.data.message === 'Email already taken') {
+        message.error('Email already taken');
+      } else if (error.response.data.message === 'Contact Number already taken') {
+        message.error('Contact Number already taken');
+      } else {
+        message.error('Account Invalid');
+      }
+    } else {
+      message.error('Account Invalid');
+    }
+    form.firstName = '';
+    form.lastName = '';
+    form.username = '';
+    form.contactNo = '';
+    form.email = '';
+    form.password = '';
     console.error(error);
   }
 };
@@ -149,5 +168,8 @@ const handleSubmit = async (e) => {
   margin-bottom: 30px;
   font-size: 25px;
   font-weight: bold;
+}
+.member-btn{
+  color:black;
 }
 </style>

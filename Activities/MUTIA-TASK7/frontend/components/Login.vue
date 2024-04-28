@@ -79,12 +79,39 @@ const login = async () => {
       message.success('Login successful!');
       router.push('/app/userHome');
     } else {
-      console.log('Invalid username or password');
-      message.error('Invalid username or password');
+      console.log('Unknown error');
+      message.error('Unknown error');
+      
     }
   } catch (error) {
-    console.error(error);
-    message.error('Invalid username or password');
+    if (error.response) {
+      if (error.response.status === 401) {
+        console.log('Invalid username or password');
+        message.error('Invalid username or password');
+        formState.username = '';
+        formState.password = '';
+      } else if (error.response.status === 403) {
+        console.log('You do not have permission to log in as a non-admin user');
+        message.error('You do not have permission to log in as a non-admin user');
+        formState.username = '';
+        formState.password = '';
+      } else if (error.response.status === 404) {
+        console.log('Username does not exist');
+        message.error('Username does not exist');
+        formState.username = '';
+        formState.password = '';
+      } else {
+        console.log('Unknown error');
+        message.error('Unknown error');
+        
+      }
+    } else if (error.request) {
+      console.log('No response received from server');
+      message.error('No response received from server');
+    } else {
+      console.log('Error making request', error.message);
+      message.error('Internal server error');
+    }
   }
 };
 </script>

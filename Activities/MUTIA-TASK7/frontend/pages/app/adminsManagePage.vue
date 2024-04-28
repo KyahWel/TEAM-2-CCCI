@@ -24,39 +24,39 @@
 
           <!-- Modal Component -->
           <a-modal
-  v-model:visible="updateModalVisible"
-  title="Update User"
-  ok-text="Save"
-  cancel-text="Cancel"
-  @ok="saveUserChanges"
->
-  <template #footer>
-    <a-button key="submit" type="primary" :loading="saving" @click="saveUserChanges">
-      Save
-    </a-button>
-    <a-button key="back" @click="updateModalVisible = false">
-      Cancel
-    </a-button>
-  </template>
-  <a-form
-    :model="selectedUser"
-    :label-col="{ span: 6 }"
-    :wrapper-col="{ span: 18 }"
-  >
-    <a-form-item label="First Name">
-      <a-input v-model:value="selectedUser.firstName" />
-    </a-form-item>
-    <a-form-item label="Last Name">
-      <a-input v-model:value="selectedUser.lastName" />
-    </a-form-item>
-    <a-form-item label="Email">
-      <a-input v-model:value="selectedUser.email" />
-    </a-form-item>
-    <a-form-item label="Contact No.">
-      <a-input v-model:value="selectedUser.contactNo" />
-    </a-form-item>
-  </a-form>
-</a-modal>
+            v-model:visible="updateModalVisible"
+            title="Update User"
+            ok-text="Save"
+            cancel-text="Cancel"
+            @ok="saveUserChanges"
+          >
+            <template #footer>
+              <a-button key="submit" type="primary" :loading="saving" @click="saveUserChanges" style="background-color: blue">
+                Save
+              </a-button>
+              <a-button key="back" @click="updateModalVisible = false">
+                Cancel
+              </a-button>
+            </template>
+            <a-form
+              :model="selectedUser"
+              :label-col="{ span: 6 }"
+              :wrapper-col="{ span: 18 }"
+            >
+              <a-form-item label="First Name">
+                <a-input v-model:value="selectedUser.firstName" />
+              </a-form-item>
+              <a-form-item label="Last Name">
+                <a-input v-model:value="selectedUser.lastName" />
+              </a-form-item>
+              <a-form-item label="Email">
+                <a-input v-model:value="selectedUser.email" />
+              </a-form-item>
+              <a-form-item label="Contact No.">
+                <a-input v-model:value="selectedUser.contactNo" />
+              </a-form-item>
+            </a-form>
+          </a-modal>
       </a-tab-pane>
       
       <a-tab-pane key="2" tab="Manage Admin">
@@ -127,7 +127,8 @@
     });
 
     const deleteUser = async (id) => {
-      await axios.delete(`http://localhost:5005/admin/${id}`)
+      await axios.delete(`http://localhost:5005/admin/${id}`);
+      message.success('Deleted successfully'); 
     };
 
     
@@ -151,7 +152,7 @@
         users.value = response.data;
         updateModalVisible.value = false;
         await fetchUsers(); 
-        message.success('User updated successfully'); 
+        message.success('Updated successfully'); 
       
       } catch (error) {
         console.error(error);

@@ -1,7 +1,7 @@
 <template>
       <a-layout-header>
           <span class="heading"> 
-            RECRUITMENT SYSTEM
+            
           </span>
       </a-layout-header>
   </template>
@@ -14,8 +14,8 @@
     color: #fff;
     font-size: 18px;
     font-weight: bold;
-    text-align: center;
-    margin-right: 200px;
+    
+    
   }
   
   .ant-layout-header {

@@ -23,9 +23,7 @@
         <p :style="{ textAlign: 'left', marginTop: '8px', fontWeight: 'bold' }">{{ selectedUser.firstName }} {{ selectedUser.lastName }}</p>
         <p :style="{ display: 'flex', textAlign: 'left' }"><img src="/assets/images/phone.png" :style="{ marginRight:'4px', height:'18px', marginTop:'2px' }">{{ selectedUser.contactNo }}</p>
         <p :style="{ display: 'flex', textAlign: 'left' }"><img src="/assets/images/email.png" :style="{ marginRight:'4px', height:'18px', marginTop:'2px' }"> {{ selectedUser.email }}</p>
-        <!-- <p :style="{ display: 'flex', textAlign: 'left' }"><img src="/assets/images/bday.png" :style="{ marginRight:'4px', height:'18px', marginTop:'2px' }">{{ selectedUser.birthDate }}  |  {{ selectedUser.age }} yrs old</p>
-        <p :style="{ display: 'flex', textAlign: 'left' }"><img src="/assets/images/email.png" :style="{ marginRight:'4px', height:'18px', marginTop:'2px' }">{{ selectedUser.email }}</p>
-        <p :style="{ display: 'flex', textAlign: 'left' }"><img src="/assets/images/address.png" :style="{ marginRight:'4px', height:'18px', marginTop:'2px' }">{{ selectedUser.address.address }}, {{ selectedUser.address.city }}</p> -->
+        
       </a-col>
     </div>
   </a-modal>

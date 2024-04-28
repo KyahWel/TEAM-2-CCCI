@@ -23,6 +23,9 @@ app.get("/", (req: Request, res: Response) => {
   }
 });
 
+// (ENDPOINT for USERS)
+
+//display all users
 app.get('/users', async (req, res) => {
   try {
     const users = await Users.findAll({
@@ -37,56 +40,46 @@ app.get('/users', async (req, res) => {
   }
 });
 
-// app.get("/users", async (req: Request, res: Response)=>{
-//   try {
-//       const response = await Users.findAll({
-//         where: {
-//           isAdmin: false
-//         }
-//       });
-//       res.status(200).json(response);
-//   } catch (error) {
-//       res.status(500).json(error);
-//   }
-// });
 
-
+// register new users
 app.post('/api/users', async (req: Request, res: Response) => {
-    try {
-      const { firstName, lastName, username,email, password, contactNo } = req.body;
-      const hashedPassword = await bcrypt.hash(password, 10);
-      const user = await Users.create({
-        firstName,
-        lastName,
-        username,
-        contactNo,
-        email,
-        password: hashedPassword,
-        isAdmin: false
-      });
-      res.status(201).json(user);
-    } catch (error) {
-      res.status(500).json(error);
+  try {
+    const { firstName, lastName, username, email, password, contactNo } = req.body;
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Check if contact number already exists
+    const existingUser = await Users.findOne({ where: { contactNo } });
+    if (existingUser) {
+      return res.status(400).json({ message: 'Contact Number already taken' });
     }
-  });
 
-// app.post('/api/login', async (req: Request, res: Response) => {
-//   try {
-//     const { username, password } = req.body;
-//     const user = await Users.findOne({ where: { username } });
-//     if (!user) {
-//       return res.status(401).json({ message: 'Invalid username or password' });
-//     }
-//     const isValid = await bcrypt.compare(password, user.password);
-//     if (!isValid) {
-//       return res.status(401).json({ message: 'Invalid username or password' });
-//     }
-//     res.status(200).json({ message: 'Login successful' });
-//   } catch (error) {
-//     res.status(500).json({ message: 'Internal server error' });
-//   }
-// });
+    // Check if username already exists
+    const existingUsername = await Users.findOne({ where: { username } });
+    if (existingUsername) {
+      return res.status(400).json({ message: 'Username already taken' });
+    }
 
+    // Check if email already exists
+    const existingEmail = await Users.findOne({ where: { email } });
+    if (existingEmail) {
+      return res.status(400).json({ message: 'Email already taken' });
+    }
+
+    const user = await Users.create({
+      firstName,
+      lastName,
+      username,
+      contactNo,
+      email,
+      password: hashedPassword,
+      isAdmin: false
+    });
+    res.status(201).json(user);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+// login users
 app.post('/api/login', async (req: Request, res: Response) => {
   try {
     const { username, password } = req.body;
@@ -95,7 +88,7 @@ app.post('/api/login', async (req: Request, res: Response) => {
     const user = await Users.findOne({ where: { username } });
     console.log('user:', user);
     if (!user) {
-      return res.status(401).json({ message: 'Invalid username or password' });
+      return res.status(404).json({ message: 'Username does not exist' });
     }
     if (user.isAdmin) {
       return res.status(403).json({ message: 'You do not have permission to log in as a non-admin user' });
@@ -113,8 +106,9 @@ app.post('/api/login', async (req: Request, res: Response) => {
   }
 });
 
-// Add other routes here (ADMIN)
+// (ENDPOINT for ADMIN)
 
+//display all users
 app.get("/admins", async (req: Request, res: Response)=>{
   try {
       const response = await Users.findAll({
@@ -128,6 +122,7 @@ app.get("/admins", async (req: Request, res: Response)=>{
   }
 });
 
+//register new admin
 app.post('/api/admins', async (req: Request, res: Response) => {
   try {
     const { firstName, lastName, username,email,contactNo, password } = req.body;
@@ -147,6 +142,7 @@ app.post('/api/admins', async (req: Request, res: Response) => {
   }
 });
 
+//login admin
 app.post('/api/login-admin', async (req: Request, res: Response) => {
   try {
     const { username, password } = req.body;
@@ -173,6 +169,8 @@ app.post('/api/login-admin', async (req: Request, res: Response) => {
   }
 });
 
+
+// delete admin
 app.delete("/admin/:id", async (req: Request, res: Response)=>{
   try {
       const {params: {id}} = req
@@ -183,6 +181,10 @@ app.delete("/admin/:id", async (req: Request, res: Response)=>{
   }
 });
 
+
+
+
+//update admin
 app.put("/admin/:id", async (req: Request, res: Response) => {
   try {
     const { id } = req.params;

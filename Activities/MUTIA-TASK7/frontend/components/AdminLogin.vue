@@ -78,10 +78,14 @@
     } else {
       console.log('Invalid username or password');
       message.error('Invalid username or password! Please Try Again');
+      formState.username = '';
+    formState.password = '';
     }
   } catch (error) {
     console.error(error);
-    message.error('Invalid username or password');
+    message.error('Invalid username or password! Please Try Again! ');
+    formState.username = '';
+    formState.password = '';
   }
 };
   </script>
