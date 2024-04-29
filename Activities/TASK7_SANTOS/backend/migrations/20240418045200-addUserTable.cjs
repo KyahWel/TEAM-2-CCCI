@@ -14,11 +14,11 @@ module.exports = {
       type: new Sequelize.STRING,
       allowNull: true,
     },
-    lastName: {
+    middleName: {
         type: new Sequelize.STRING,
         allowNull: true,
     },
-    middleName: {
+    lastName: {
         type: new Sequelize.STRING,
         allowNull: true,
     },
@@ -26,11 +26,16 @@ module.exports = {
         type: new Sequelize.STRING,
         allowNull: true,
     },
-    password: {
+    contactNo: {
         type: new Sequelize.STRING,
         allowNull: true,
     },
-    temporaryPassword: {
+    username: {
+        type: new Sequelize.STRING,
+        allowNull: true,
+        unique: true,
+    },
+    password: {
         type: new Sequelize.STRING,
         allowNull: true,
     },
@@ -38,21 +43,37 @@ module.exports = {
         type: new Sequelize.STRING,
         allowNull: true,
     },
-    token: {
+    city: {
         type: new Sequelize.STRING,
+        allowNull: true,
+    },
+    state: {
+        type: new Sequelize.STRING,
+        allowNull: true,
+    },
+    previousCompanyName: {
+        type: new Sequelize.STRING,
+        allowNull: true,
+    },
+    previousWorkTitle: {
+        type: new Sequelize.STRING,
+        allowNull: true,
+    },
+    previousWorkLocation: {
+        type: new Sequelize.STRING,
+        allowNull: true,
+    },
+    isHired: {
+        type: new Sequelize.STRING,
+        allowNull: true,
+    },
+    token: {
+        type: new Sequelize.BOOLEAN,
         allowNull: true,
     },
     lastLogin: {
         type: new Sequelize.DATE,
         allowNull: true,
-    },
-    contactNo: {
-        type: new Sequelize.STRING,
-        allowNull: true,
-    },
-    invalidAttempts: {
-        type: new Sequelize.INTEGER,
-        allowNull: true
     },
     iamAdmin: {
         type: new Sequelize.BOOLEAN,
@@ -73,7 +94,7 @@ module.exports = {
     updatedAt: {
         type: new Sequelize.DATE,
         allowNull: true
-    }
+    },
 
         });
     /**

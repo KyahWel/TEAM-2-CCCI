@@ -1,10 +1,10 @@
 <template>
     <div class="flex flex-col items-center justify-center">
         <a-row :gutter="[16,16]" class="justify-center animate__animated animate__zoomIn">
-            <a-col v-for="applicant in paginatedUsers" :key="applicant.id" :xs="24" :sm="12" :md="12" :lg="6" :xl="6" class="mt-5">
+            <a-col v-for="applicant in paginatedUsers" :key="applicant.id" :xs="24" :sm="12" :md="12" :lg="6" :xl="12" class="mt-5">
             <div class="w-full rounded-md bg-gradient-to-r from-fuchsia-500 to-cyan-500 p-1 border-4 rounded-xl shadow-xl">
                 <a-card class="h-56 flex flex-col justify-center items-center text-center shadow-md m-1">
-                    <a-avatar :size="64" :src="applicant.avatar" />
+                    <!-- <a-avatar :size="64" :src="applicant.avatar" /> -->
                     <h1 class="font-bold mt-2">{{ applicant.firstName }} {{ applicant.lastName }}</h1>
                     <p>{{ applicant.email }}</p>
                     <NuxtLink :to="`/app/${applicant.id}`" class="button"><a-button type="primary" class="mt-5 transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-105 hover:bg-indigo-500 duration-300">
@@ -39,17 +39,18 @@ export default {
       currentPage.value = page;
     };
 
-    // Fetch data and update users
-    fetch('http://localhost:5005/users',{
-    })
-      .then(response => response.json())
-      .then(data => {
-        users.value = data.users;
-      })
-      .catch(error => {
-        console.error('Error fetching users:', error);
-      });
+    async function fetchUsers() {
+      try {
+        const response = await fetch('http://localhost:5005/users');
+        const data = await response.json();
+        users.value = data;
+      } catch (error) {
+        console.error(error);
+      }
+    }
 
+    fetchUsers();
+    
     // Function to update paginatedUsers based on currentPage and users
     const updatePaginatedUsers = () => {
       const startIndex = (currentPage.value - 1) * pageSize;

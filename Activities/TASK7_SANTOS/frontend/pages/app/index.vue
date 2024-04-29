@@ -38,7 +38,7 @@
             </a-col>
             <a-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
                 <div :style="{ width: '100%'}">
-                    <a-calendar v-model:value="value" :fullscreen="false" @panelChange="onPanelChange" class="flex flex-col items-center justify-center h-96"/>
+                    <!-- <a-calendar v-model:value="value" :fullscreen="false" @panelChange="onPanelChange" class="flex flex-col items-center justify-center h-96"/> -->
                 </div>
             </a-col>
         </a-row>
@@ -48,7 +48,7 @@
     <!-- List of Applicants Table -->
     <a-row gutter="16" class="mt-3">
         <a-col :xs="24" :sm="24" :md="24" :lg="24" :xl="14">
-            <a-table :dataSource="data.users" :columns="columns" style="width: 100%; overflow: auto; " />
+            <a-table :dataSource="users" :columns="columns" style="width: 100%; overflow: auto; " />
         </a-col>
         
         <a-col :xs="24" :sm="24" :md="24" :lg="24" :xl="10">
@@ -73,67 +73,122 @@
     </div>
 </template>
 
-<script  setup lang="ts">
+<script>
 
 // Dashboard Layout
 definePageMeta({
     layout: 'dashboard'
 })
 
-// Chart Components
-import lineChart from '~/components/lineChart.vue';
-import donutChart from '~/components/donutChart.vue';
 
-// Calendar
-    import { ref } from 'vue';
-    import { Dayjs } from 'dayjs';
 
-    const value = ref<Dayjs>();
-    const onPanelChange = (value: Dayjs, mode: string) => {
-    console.log(value, mode);
+// // Calendar
+//     import { ref } from 'vue';
+//     import { Dayjs } from 'dayjs';
+
+//     const value = ref<Dayjs>();
+//     const onPanelChange = (value: Dayjs, mode: string) => {
+//     console.log(value, mode);
+//     };
+import axios from 'axios';
+    export default {
+  setup() {
+    const users = ref([]);
+
+    const columns = [
+      {
+        title: 'Applicant No.',
+        dataIndex: 'id',
+        key: 'id',
+      },
+      {
+        title: 'First Name',
+        dataIndex: 'firstName',
+        key: 'firstName',
+      },
+      {
+        title: 'Middle Name',
+        dataIndex: 'middleName',
+        key: 'middleName',
+      },
+      {
+        title: 'Last Name',
+        dataIndex: 'lastName',
+        key: 'lastName',
+      },
+      {
+        title: 'Username',
+        dataIndex: 'username',
+        key: 'username',
+      },
+      {
+        title: 'Contact',
+        dataIndex: 'contactNo',
+        key: 'contactNo',
+      },
+      {
+        title: 'Email',
+        dataIndex: 'email',
+        key: 'email',
+      },
+    ];
+
+    const fetchUsers = async () => {
+      const response = await axios.get('http://localhost:5005/users');
+      users.value = response.data;
+    }; 
+      
+    fetchUsers();
+    
+    
+    return {
+      users,
+      columns,
+      
     };
-
+  },
+};
 // Data Source
-const users = ref([]);
-const columns = [
-          {
-            title: '#',
-            dataIndex: 'id',
-            key: 'id',
-          },
-          {
-            title: 'First Name',
-            dataIndex: 'firstName',
-            key: 'firstName',
-          },
-          {
-            title: 'Last Name',
-            dataIndex: 'lastName',
-            key: 'lastName',
-          },
-          {
-            title: 'Middle Name',
-            dataIndex: 'middleName',
-            key: 'middleName',
-          },
-          {
-            title: 'Email Address',
-            dataIndex: 'email',
-            key: 'email',
-          }
-        ]
+// const users = ref([]);
+// const columns = [
+//           {
+//             title: '#',
+//             dataIndex: 'id',
+//             key: 'id',
+//           },
+//           {
+//             title: 'First Name',
+//             dataIndex: 'firstName',
+//             key: 'firstName',
+//           },
+//           {
+//             title: 'Last Name',
+//             dataIndex: 'lastName',
+//             key: 'lastName',
+//           },
+//           {
+//             title: 'Middle Name',
+//             dataIndex: 'middleName',
+//             key: 'middleName',
+//           },
+//           {
+//             title: 'Email Address',
+//             dataIndex: 'email',
+//             key: 'email',
+//           }
+//         ]
         
-    fetch('http://localhost:5005/users',{
-      headers: {
-    'Authorization': 'Bearer ' +  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMTUsImRhdGUiOiIyMDI0LTA0LTAxVDIzOjE3OjA2LjA1OFoiLCJpYXQiOjE3MTIwMTM0MjYsImV4cCI6MTcxMjAxNTIyNn0.1fi4LqhYq3NQNk9Z0xj2L19FU0Ky3hEECjRcvNPFWeA' 
-    }
-    })
-      .then(response => response.json())
-      .then(data => {console.log(data),
-        users.value = data.users;})
-      .catch(error => {
-        console.error('Error fetching users:', error);
-      });
+//     fetch('http://localhost:5005/users',{
+//       headers: {
+//     'Authorization': 'Bearer ' +  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMTUsImRhdGUiOiIyMDI0LTA0LTAxVDIzOjE3OjA2LjA1OFoiLCJpYXQiOjE3MTIwMTM0MjYsImV4cCI6MTcxMjAxNTIyNn0.1fi4LqhYq3NQNk9Z0xj2L19FU0Ky3hEECjRcvNPFWeA' 
+//     }
+//     })
+//       .then(response => response.json())
+//       .then(data => {console.log(data),
+//         users.value = data.users;})
+//       .catch(error => {
+//         console.error('Error fetching users:', error);
+//       });
 
 
 //  const data = async () => {

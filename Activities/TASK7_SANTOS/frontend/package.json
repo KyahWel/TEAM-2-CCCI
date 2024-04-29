@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@ant-design-vue/nuxt": "^1.4.1",
-    "@nuxtjs/tailwindcss": "^6.11.4"
+    "@nuxtjs/tailwindcss": "^6.11.4",
+    "@vue-email/nuxt": "^0.8.19"
   }
 }

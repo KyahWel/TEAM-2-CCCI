@@ -4,7 +4,7 @@
         <!-- Mascot -->
             <img src="/public/landingPageManPointingDown.webp" class="w-80 relative z-50 mb-72" />
             <!-- Landing Page: Card -->
-                <a-card :bordered="false" style="width: 475px;" class="text-center px-5 mx-5 mt-52 absolute card">
+                <a-card :bordered="false" style="width: 475px;" class="text-center px-5 mx-5 mt-52 absolute card border-white border-4">
                     <!-- Landing Page: User Type Option-->
                     <p class="pathFinderChoose">
                             <p class="italic font-bold text-3xl mt-5">Welcome to Pathfinder!</p>
@@ -41,7 +41,6 @@
                     <!-- Instructions -->
                         <p class="card mt-3 animate__animated animate__fadeIn animate__delay-1s">Please choose from the options to proceed </p>
                     </p>
-                    <NuxtLink to="/app"><a-button>BYPASS</a-button></NuxtLink>
                 </a-card>
         </div>
     </div>

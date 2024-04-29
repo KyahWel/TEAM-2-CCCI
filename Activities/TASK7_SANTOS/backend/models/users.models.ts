@@ -10,13 +10,17 @@ export default class Users extends Model{
     declare middleName: string;
     declare lastName: string;
     declare email: string;
+    declare username: string;
     declare password: string;
-    declare temporaryPassword: string;
     declare avatar: string;
-    declare token: string;
+    declare city: string;
+    declare state: string;
+    declare previousCompanyName: string;
+    declare previousWorkTitle: string;
+    declare previousWorkLocation: string;
+    declare isHired: boolean;
     declare lastLogin: Date;
     declare contactNo: string;
-    declare invalidAttempts: number;
     declare iamAdmin: boolean;
     declare loggedIn: boolean;
     declare active: boolean;
@@ -41,22 +45,21 @@ let options: InitOptions = {
 }
 
 let fields: ModelAttributes = {
-    id: {
+        id: {
       type: new DataTypes.NUMBER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    
-    firstName: {
+      firstName: {
       type: new DataTypes.STRING,
       allowNull: true,
     },
-    lastName: {
+    middleName: {
         type: new DataTypes.STRING,
         allowNull: true,
     },
-    middleName: {
+    lastName: {
         type: new DataTypes.STRING,
         allowNull: true,
     },
@@ -64,11 +67,15 @@ let fields: ModelAttributes = {
         type: new DataTypes.STRING,
         allowNull: true,
     },
-    password: {
+    contactNo: {
         type: new DataTypes.STRING,
         allowNull: true,
     },
-    temporaryPassword: {
+    username: {
+        type: new DataTypes.STRING,
+        allowNull: true,
+    },
+    password: {
         type: new DataTypes.STRING,
         allowNull: true,
     },
@@ -76,21 +83,33 @@ let fields: ModelAttributes = {
         type: new DataTypes.STRING,
         allowNull: true,
     },
-    token: {
+    city: {
+        type: new DataTypes.STRING,
+        allowNull: true,
+    },
+    state: {
+        type: new DataTypes.STRING,
+        allowNull: true,
+    },
+    previousCompanyName: {
+        type: new DataTypes.STRING,
+        allowNull: true,
+    },
+    previousWorkTitle: {
+        type: new DataTypes.STRING,
+        allowNull: true,
+    },
+    previousWorkLocation: {
+        type: new DataTypes.STRING,
+        allowNull: true,
+    },
+    isHired: {
         type: new DataTypes.STRING,
         allowNull: true,
     },
     lastLogin: {
         type: new DataTypes.DATE,
         allowNull: true,
-    },
-    contactNo: {
-        type: new DataTypes.STRING,
-        allowNull: true,
-    },
-    invalidAttempts: {
-        type: new DataTypes.NUMBER,
-        allowNull: true
     },
     iamAdmin: {
         type: new DataTypes.BOOLEAN,
@@ -111,7 +130,7 @@ let fields: ModelAttributes = {
     updatedAt: {
         type: new DataTypes.DATE,
         allowNull: true
-    }
+    },
 }
 
 Users.init(fields, options)

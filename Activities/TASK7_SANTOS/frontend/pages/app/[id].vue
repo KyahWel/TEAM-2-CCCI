@@ -78,7 +78,7 @@ definePageMeta({
 
 // Profile Fetch Data
 const { id } = useRoute().params
-const url = 'https://dummyjson.com/users/' + id
+const url = 'http://localhost:5005/users/' + id
 
 const { data: users } = await useFetch(url)
 

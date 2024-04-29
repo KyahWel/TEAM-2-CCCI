@@ -1,62 +1,73 @@
 <template>
       <div class="bg-gradient-to-r from-fuchsia-500 to-cyan-500 h-screen flex items-center justify-center w-full overflow-hidden">
-        <img src="/public/manSideViewPointingleft.webp" class="relative z-50 mt-56 animate__animated animate__slideInRight" style="width: 41%; margin-left:51%;"/>
+        <img src="/public/manSideViewPointingleft.webp" class="relative z-50 mt-96 animate__animated animate__slideInRight" style="width: 41%; margin-left:51%;"/>
     <a-card class="card absolute border-8 border-white animate__animated animate__slideInDown">
-        <p class="text-2xl font-bold italic text-center m-5"> Applicant Registration Form</p>
+        <p class="text-2xl font-bold italic text-center m-1"> Applicant Registration Form</p>
     <a-form
+      :model="form"
+      @submit="handleSubmit"
+      @finish="onFinish"
+      @finishFailed="onFinishFailed"
       :label-col="labelCol"
       :wrapper-col="wrapperCol"
       layout="horizontal"
-      style="max-width: 600px"
+      style="max-width: 800px"
+      class="flex flex-col justify-items-center items-center"
     >
-    <div class="flex w-full">
-      <a-form-item label="First Name">
-        <a-input />
+      <a-form-item 
+      label="First Name" 
+      :rules="[{ required: true, message: '*First Name Required' }]">
+        <a-input v-model:value="form.firstName" placeholder="Enter First Name" class="w-72"/>
       </a-form-item>
-      <a-form-item label="Last Name">
-        <a-input />
+      <a-form-item
+      label="Middle Name">
+        <a-input v-model:value="form.middleName" placeholder="Enter Middle Name" class="w-72"/>
       </a-form-item>
-    </div>
-
-      <a-form-item label="Birthdate">
-        <a-date-picker class="w-full"/>
-      </a-form-item>
-      <a-form-item label="Gender">
-        <a-radio-group v-model:value="radioValue">
-          <a-radio value="male">Male</a-radio>
-          <a-radio value="female">Female</a-radio>
-        </a-radio-group>
-      </a-form-item>
-      <div class="flex w-full">
-      <a-form-item label="Current City">
-        <a-input />
-      </a-form-item>
-      <a-form-item label="Current State">
-        <a-input />
-      </a-form-item>
-      </div>
-      <a-form-item label="Username">
-        <a-input />
+      <a-form-item 
+      label="Last Name"
+      :rules="[{ required: true, message: '*Last Name Required' }]">
+        <a-input v-model:value="form.lastName" placeholder="Enter Last Name" class="w-72"/>
       </a-form-item>
 
-      <div class="flex w-full">
-      <a-form-item label="Password">
-        <a-input-password />
+      <a-form-item 
+        label="Email Address"
+        :rules="[{ required: true, message: '*Email Required' }]">
+          <a-input v-model:value="form.email" placeholder="Email Address" class="w-72"/>
       </a-form-item>
-      <a-form-item label="Confirm Password">
-        <a-input-password />
+
+      <a-form-item 
+        label="Contact Number:"
+        :rules="[{ required: true, message: '*Contact Number Required' }]">
+          <a-input v-model:value="form.contactNo" placeholder="Contact Number" class="w-72"/>
       </a-form-item>
-      </div>
-      
-      <a-form-item label="Upload Display Image">
-        <a-upload action="/upload.do" list-type="picture-card">
-          <div>
-            <PlusOutlined />
-            <div style="margin-top: 8px">Upload</div>
-          </div>
-        </a-upload>
+
+      <a-form-item 
+        label="Current City"
+        :rules="[{ required: true, message: '*City Required' }]">
+        <a-input v-model:value="form.city" placeholder="City" class="w-72"/>
       </a-form-item>
-      <NuxtLink to="/"><a-button type="primary" class="w-full">Register Now</a-button></NuxtLink>
+      <a-form-item 
+        label="Current State"
+        :rules="[{ required: true, message: '*State Required' }]">
+        <a-input v-model:value="form.state" placeholder="State" class="w-72"/>
+      </a-form-item>
+
+      <a-form-item 
+        label="Username"
+        :rules="[{ required: true, message: '*Username Required' }]">
+        <a-input v-model:value="form.username" placeholder="Username" class="w-72"/>
+      </a-form-item> 
+
+      <a-form-item 
+        label="Password"
+        :rules="[{ required: true, message: '*Password Required' }]">
+        <a-input v-model:value="form.password" placeholder="Password" class="w-72"/>
+      </a-form-item>
+
+      <a-form-item>
+        <a-button :disabled="disabled" type="primary" html-type="submit" class="w-96">Register Now</a-button>
+      </a-form-item>
+
     </a-form>
     <div class="flex mt-3">
         <p>Already have an account?</p> 
@@ -66,12 +77,63 @@
 </a-card>
 </div>
   </template>
-  <script lang="ts" setup>
-  import { ref, reactive } from 'vue';
-  import { PlusOutlined } from '@ant-design/icons-vue';
-  import type { TreeSelectProps, CascaderProps } from 'ant-design-vue';
-  
+  <script setup>
   const labelCol = { style: { width: '150px' } };
   const wrapperCol = { span: 14 };
-  const radioValue = ref('apple');
+
+  import axios from 'axios';
+
+const router = useRouter();
+
+const form = reactive({
+  firstName: '',
+  middleName: '',
+  lastName: '',
+  email: '',
+  contactNo: '',
+  city: '',
+  state: '',
+  username: '',
+  password: ''
+
+});
+
+
+const onFinish = values => {
+  console.log(values);
+};
+
+const onFinishFailed = errorInfo => {
+  console.log(errorInfo);
+};
+
+const disabled = computed(() => {
+  return !(form.firstName && form.lastName && form.email && form.contactNo && form.city && form.state && form.username &&form.password);
+});
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  const { firstName, middleName, lastName, email, contactNo, city, state, username, password } = form;
+
+  try {
+    const response = await axios.post('http://localhost:5005/api/users', {
+      firstName,
+      middleName,
+      lastName,
+      email,
+      contactNo,
+      city,
+      state,
+      username,
+      password,
+    });
+
+    message.success('You have registered successfully!');
+    router.push('/');
+    
+  } catch (error) {
+    message.error('Registration Unsuccessful');
+    console.error(error);
+  }
+};
   </script>
