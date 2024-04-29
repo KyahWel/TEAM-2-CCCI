@@ -6,28 +6,26 @@
   <div class="w-96 backdrop-blur-lg bg-opacity-80 rounded-lg shadow-lg pb-5 pt-5 pr-0 pl-0 bg-gray-900 text-white">
     <h2 class="text-2xl font-bold pb-5 text-center">Sign In</h2>
     <a-form
-    :model="formState"
-    name="login" 
+    
+    name="Login" 
     v-bind="aformitemlayout"  
     autocomplete="on"
-    @finish="onFinish"
-    @finishFailed="onFinishFailed"
     style="color:white;"
     
   >
   <div class="px-20 pt-4  text-center align-center"> 
    
-    <a-form-item noStyle   style="color: white;" name="username"  :rules="[{ required: true, message: 'Please input your username!' }]" ><!-- Username-->
-    <label style="color:white" >Username</label>
+      <label for="username">Username</label> <!-- Username-->
   
-      <a-input noStyle class="text-black bg-yellow-400 my-2" v-model:value="formState.username" placeholder="Nigga" />
+      <input class="text-black bg-yellow-400 my-2 mx-2 py-2 px-2 rounded-lg w-full"  id="username" name="username" v-model="username" placeholder="Nigga" />
    
-    </a-form-item> 
+     
 
-    <a-form-item noStyle name="password" :rules="[{ required: true, message: 'Please input your password!' }]" >      <!-- Password-->
-    <label style="color:white">Password</label>
-      <a-input-password  class="text-black bg-yellow-400 my-2 "  v-model:value="formState.password" placeholder="Nigga"  />
-    </a-form-item>
+      <label for="password">Password</label><!-- Password-->
+
+      <input type="password" class="text-black bg-yellow-400 my-2 mx-2 py-2 px-2 rounded-lg w-full"  id="username" name="password" v-model="password"  placeholder="Nigga"  />
+
+
 
     
 
@@ -43,12 +41,12 @@
        
           type="submit"
           class="  relative lg:w-24 lg:mx-20  text-white bg-amber-500 hover:bg-amber-600 focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm  "
-          @click="$router.push('/app/dashboard')"
+          @click="loginHandler"
         >  <!-- Login Button-->
           Login
         </a-button>
   
-        {{ route }}
+        
         <div class=" flex text-sm lg:w-72 lg:pt-8 lg:mx-16  lg text-white"> <!-- Register Button-->
           <span>New here?</span>
           <p class="text-amber-500 hover:text-amber-600 underline cursor-pointer ml-1" @click="$router.push('/signin/signupuser')">Register</p>
@@ -71,29 +69,9 @@
 </div>
 </template>
 
-<script lang="ts" setup>
+<script >
+import axios from 'axios';
 const router = useRouter()
-
-import { reactive } from 'vue';
-
-interface FormState {
-  username: string;
-  password: string;
-  
-}
-
-const formState = reactive<FormState>({
-  username: '',
-  password: '',
-  
-});
-const onFinish = (values: any) => {
-  console.log('Success:', values);
-};
-
-const onFinishFailed = (errorInfo: any) => {
-  console.log('Failed:', errorInfo);
-};
 
 const aformitemlayout = {
   labelCol: { span: 8 },
@@ -105,6 +83,41 @@ const aformtaillayout = {
   wrapperCol: { span: 8, offset: 4 },
 };
 
+export default {
+    name: 'Login',
+    data() {
+        return {
+            username: null,
+            password: null
+        }
+    },
+    methods: {
+        async loginHandler() {
+            const loginData = {
+                username: this.username,
+                password: this.password
+            };
+
+            try {
+                const response = await axios.post('http://localhost:3001/users/login', loginData);
+               if (response.data.message === 'User login successful.'){
+                console.log('Welcome to User Dashboard');
+                router.push ('/user/home');
+               }
+               else if(response.data.message === 'Admin login successful.'){
+                console.log('Welcome to Admin Dashboard');
+                router.push ('/app/dashboard');
+               }
+               else{
+                console.log('Error Login Data of username or password');
+               }
+            } catch (error) {
+                console.error(error);
+                // Handle error, show error message, etc.
+            }
+        }
+    }
+};
 
 
 </script>

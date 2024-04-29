@@ -8,7 +8,7 @@
   
 </template>
 
-<script lang="ts" setup>
+<script >
 definePageMeta({
   layout: 'landinglayout' //layout to para kay taguro na landingpage ko
 })

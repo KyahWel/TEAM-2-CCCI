@@ -27,7 +27,7 @@ let options: InitOptions = {
 }
 
 let fields: ModelAttributes = {
-    id:{
+    _id:{
         type: new DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement:true,

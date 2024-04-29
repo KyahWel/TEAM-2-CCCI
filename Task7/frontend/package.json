@@ -28,6 +28,7 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
+    "@nuxtjs/auth-next": "5.0.0-1667386184.dfbbb54",
     "@pinia/nuxt": "^0.5.1",
     "@types/express": "^4.17.21",
     "@types/node": "^20.12.7",
