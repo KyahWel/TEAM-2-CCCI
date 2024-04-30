@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-import AppMainHeader from '~/components/AppMainHeader.vue';
+
 const contentstyle: CSSProperties = { //para po ito sa kulay ng aking malupit na sidebar
     backgroundColor:' #fffbeb',
   }

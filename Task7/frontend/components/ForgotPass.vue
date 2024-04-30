@@ -20,14 +20,14 @@
       <a-form-item noStyle   style="color: white;" name="username"  :rules="[{ required: true, message: 'Please input your username!' }]" ><!-- Username-->
       <label style="color:white" >Password</label>
     
-        <a-input noStyle class="text-black bg-yellow-400 my-2" v-model:value="formState.username" placeholder="Nigga" />
+        <a-input noStyle class="text-black bg-yellow-400 my-2" v-model="formState.username" placeholder="Nigga" />
      
       </a-form-item> 
   
       <a-form-item noStyle name="password" :rules="[{ required: true, message: 'Please input your password!' }]" >      <!-- Password-->
       <label style="color:white">Confirm Password</label>
 
-        <a-input-password  class="text-black bg-yellow-400 my-2 "  v-model:value="formState.password" placeholder="Nigga"  />
+        <a-input-password  class="text-black bg-yellow-400 my-2 "  v-model="formState.password" placeholder="Nigga"  />
 
       </a-form-item>
   

@@ -3,7 +3,16 @@ import Users from "../models/users.model";
 const bcrypt = require('bcrypt');
 const userRoute : Express = express()
 const jwt = require('jsonwebtoken');
+
 userRoute.get("/", async (req: Request, res: Response)=>{
+    try {
+        const response = await Users.findAll();
+        res.status(200).json(response)
+    } catch (error) {
+        res.status(500).json(error)
+    }
+})
+userRoute.get("/userprof", async (req: Request, res: Response)=>{
     try {
         const response = await Users.findAll({
             where: {

@@ -32,8 +32,8 @@
 </div> 
 
 
-    <a-form-item v-bind="aformtaillayout" class=" flex justify-center items-center text-sm w-auto  text-white">
-      <div class="w-36 mx-14 relative my-4">
+    <a-form-item v-bind="aformtaillayout" class=" flex justify-center text-sm w-auto  text-white .customitem" style="padding-left:64px; padding-right:64px">
+      <div class="w-36 mx-14 relative my-4 ">
       <p class="text-amber-500   relative  hover:text-amber-600 underline cursor-pointer text-center" @click="$router.push('/forgot/verifyemail')">Forgot Password?</p>
           {{ route }}
       </div>
@@ -47,7 +47,7 @@
         </a-button>
   
         
-        <div class=" flex text-sm lg:w-72 lg:pt-8 lg:mx-16  lg text-white"> <!-- Register Button-->
+        <div class=" flex text-sm lg:w-72 lg:pt-8 lg:mx-16  lg text-white " > <!-- Register Button-->
           <span>New here?</span>
           <p class="text-amber-500 hover:text-amber-600 underline cursor-pointer ml-1" @click="$router.push('/signin/signupuser')">Register</p>
           {{ route }}
@@ -132,7 +132,8 @@ background-color: yellow;
 @media (max-width: 1900px) {
     .customscreen {
         margin: 13.5rem;
-        
+    
     }
+   
 }
 </style>
