@@ -75,38 +75,31 @@ const login = async () => {
   try {
     const response = await axios.post('http://localhost:5005/api/login', formState);
     if (response.data.message === 'Login successful') {
-      console.log('Login successful');
-      message.success('Login successful!');
+      message.success('Login successful!', 1);
       router.push('/app/userHome');
     } else {
-      console.log('Unknown error');
       message.error('Unknown error');
       
     }
   } catch (error) {
     if (error.response) {
       if (error.response.status === 401) {
-        console.log('Invalid username or password');
-        message.error('Invalid username or password');
+        message.error('Invalid username or password', 1);
         formState.username = '';
         formState.password = '';
       } else if (error.response.status === 403) {
-        console.log('You do not have permission to log in as a non-admin user');
-        message.error('You do not have permission to log in as a non-admin user');
+        message.error('You do not have permission to log in as a non-admin user', 1);
         formState.username = '';
         formState.password = '';
       } else if (error.response.status === 404) {
-        console.log('Username does not exist');
-        message.error('Username does not exist');
+        message.error('Username does not exist', 1);
         formState.username = '';
         formState.password = '';
       } else {
-        console.log('Unknown error');
         message.error('Unknown error');
         
       }
     } else if (error.request) {
-      console.log('No response received from server');
       message.error('No response received from server');
     } else {
       console.log('Error making request', error.message);

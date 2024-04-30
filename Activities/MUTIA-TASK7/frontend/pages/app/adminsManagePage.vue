@@ -9,6 +9,9 @@
         :columns="columns" 
         bordered
         :style="{ 'min-height': '450px', 'overflow-y': 'auto' }"
+        :pagination="pagination" 
+        :loading="loading" 
+        @change="handleTableChange" 
         >
         <template #bodyCell="{ column, record }">
           <template v-if="column.key === 'action'">
@@ -88,38 +91,64 @@
         title: 'First Name',
         dataIndex: 'firstName',
         key: 'firstName',
+        width: 250,
       },
       {
         title: 'Last Name',
         dataIndex: 'lastName',
         key: 'lastName',
+        width: 250,
       },
       {
         title: 'Username',
         dataIndex: 'username',
         key: 'username',
+        width: 250,
       },
       {
         title: 'Contact',
         dataIndex: 'contactNo',
         key: 'contactNo',
+        width: 220,
       },
       {
         title: 'Email',
         dataIndex: 'email',
         key: 'email',
+        width: 350,
       },
       {
         title: 'Action',
         key: 'action',
+        width: 150,
       },
     ];
 
-    
+    const pagination = ref({
+      current: 1,
+      pageSize: 5,
+      total: 0,
+    });
 
-    const fetchUsers = async () => {
-      const response = await axios.get('http://localhost:5005/admins');
-      users.value = response.data;
+    const loading = ref(false);
+
+const handleTableChange = (newPagination) => {
+  pagination.value.current = newPagination.current;
+  pagination.value.pageSize = newPagination.pageSize;
+  fetchUsers();
+};
+
+const fetchUsers = async () => {
+      loading.value = true;
+      try {
+        const response = await axios.get(`http://localhost:5005/admins`);
+        users.value = response.data;
+       
+      } catch (error) {
+        console.error(error);
+      } finally {
+        loading.value = false;
+      }
     };
 
     onUpdated(() => {
@@ -129,12 +158,8 @@
     const deleteUser = async (id) => {
       await axios.delete(`http://localhost:5005/admin/${id}`);
       message.success('Deleted successfully'); 
+      await fetchUsers(); 
     };
-
-    
-    // const updateUser = (user) => {
-    //   // Open a modal or a form to update the user
-    // };
 
     const updateModalVisible = ref(false);
     const selectedUser = ref({});
@@ -173,7 +198,9 @@
       saving,
       updateUser,
       saveUserChanges,
-
+      pagination,
+      loading,
+      handleTableChange,
       
     };
   },

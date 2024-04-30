@@ -121,33 +121,40 @@
     });
 
     message.success('Account added successfully!');
-    // Redirect to home page after successful registration
-    router.push('/');
+    
     
   } catch (error) {
     if (error.response && error.response.status === 400) {
       if (error.response.data.message === 'Username already taken') {
-        message.error('Username already taken');
+        message.error('Username already taken', 1);
       } else if (error.response.data.message === 'Email already taken') {
-        message.error('Email already taken');
+        message.error('Email already taken', 1);
       } else if (error.response.data.message === 'Contact Number already taken') {
-        message.error('Contact Number already taken');
+        message.error('Contact Number already taken', 1);
       } else {
-        message.error('Account Invalid');
+        message.error('Account Invalid', 1);
       }
     } else {
-      message.error('Account Invalid');
-    }
-    form.firstName = '';
+      message.error('Account Invalid', 1);
+    } 
+  }
+  form.firstName = '';
     form.lastName = '';
     form.username = '';
     form.contactNo = '';
     form.email = '';
     form.password = '';
     console.error(error);
-  }
 };
-
+ 
+const clear = () => {
+  form.firstName = '';
+  form.lastName = '';
+  form.username = '';
+  form.contactNo = '';
+  form.email = '';
+  form.password = '';
+}
   
   </script>
   

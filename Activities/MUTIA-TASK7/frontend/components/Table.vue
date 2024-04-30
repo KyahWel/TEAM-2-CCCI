@@ -7,6 +7,9 @@
         @click="showModal"
         bordered
         :style="{ 'min-height': '555px', 'overflow-y': 'auto' }"
+        :pagination="pagination" 
+        :loading="loading" 
+        @change="handleTableChange" 
         >
         <template #bodyCell="{ column, record}">
           <template v-if="column.key === 'action'">
@@ -42,36 +45,64 @@
         title: 'First Name',
         dataIndex: 'firstName',
         key: 'firstName',
+        width: 250,
       },
       {
         title: 'Last Name',
         dataIndex: 'lastName',
         key: 'lastName',
+        width: 220,
       },
       {
         title: 'Username',
         dataIndex: 'username',
         key: 'username',
+        width: 180,
       },
       {
         title: 'Contact',
         dataIndex: 'contactNo',
         key: 'contactNo',
+        width: 110,
       },
       {
         title: 'Email',
         dataIndex: 'email',
         key: 'email',
+        width: 280,
       },
       {
         title: 'Action',
         key: 'action',
+        width: 70,
       },
     ];
 
+    const pagination = ref({
+      current: 1,
+      pageSize: 9,
+      total: 0,
+    });
+
+    const loading = ref(false);
+
+const handleTableChange = (newPagination) => {
+  pagination.value.current = newPagination.current;
+  pagination.value.pageSize = newPagination.pageSize;
+  fetchUsers();
+};
+
     const fetchUsers = async () => {
-      const response = await axios.get('http://localhost:5005/users');
+      loading.value = true;
+      try{
+        const response = await axios.get('http://localhost:5005/users');
       users.value = response.data;
+      } catch (error) {
+        console.error(error);
+      } finally {
+        loading.value = false;
+      }
+      
     }; 
       
 
@@ -83,12 +114,9 @@
 
     fetchUsers();
 
-    // const pagination = {
-    // current: 1,
-    // pageSize: 10,
-    // filter: {},
-    // sortedInfo: {},
-    // };
+
+
+   
 
     
     
@@ -98,6 +126,9 @@
       showModal,
       modalVisible,
       selectedUser,
+      pagination,
+      loading,
+      handleTableChange,
       
     };
   },

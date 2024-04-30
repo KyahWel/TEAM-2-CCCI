@@ -79,6 +79,8 @@ app.post('/api/users', async (req: Request, res: Response) => {
     res.status(500).json(error);
   }
 });
+
+
 // login users
 app.post('/api/login', async (req: Request, res: Response) => {
   try {
@@ -88,15 +90,15 @@ app.post('/api/login', async (req: Request, res: Response) => {
     const user = await Users.findOne({ where: { username } });
     console.log('user:', user);
     if (!user) {
-      return res.status(404).json({ message: 'Username does not exist' });
+      return res.status(404).json();
     }
     if (user.isAdmin) {
-      return res.status(403).json({ message: 'You do not have permission to log in as a non-admin user' });
+      return res.status(403).json();
     }
     const isValid = await bcrypt.compare(password, user.password);
     if (!isValid) {
       console.log('Invalid password');
-      return res.status(401).json({ message: 'Invalid username or password' });
+      return res.status(401).json();
     }
     console.log('Login successful');
     res.status(200).json({ message: 'Login successful' });
@@ -127,6 +129,25 @@ app.post('/api/admins', async (req: Request, res: Response) => {
   try {
     const { firstName, lastName, username,email,contactNo, password } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Check if contact number already exists
+    const existingContact = await Users.findOne({ where: { contactNo } });
+    if (existingContact) {
+      return res.status(400).json({ message: 'Contact Number already taken' });
+    }
+
+    // Check if username already exists
+    const existingUsername = await Users.findOne({ where: { username } });
+    if (existingUsername) {
+      return res.status(400).json({ message: 'Username already taken' });
+    }
+
+    // Check if email already exists
+    const existingEmail = await Users.findOne({ where: { email } });
+    if (existingEmail) {
+      return res.status(400).json({ message: 'Email already taken' });
+    }
+
     const admin = await Users.create({
       firstName,
       lastName,
@@ -151,15 +172,15 @@ app.post('/api/login-admin', async (req: Request, res: Response) => {
     const admin = await Users.findOne({ where: { username } });
     console.log('admin:', admin);
     if (!admin) {
-      return res.status(401).json({ message: 'Invalid username or password' });
+      return res.status(401).json();
     }
     if (!admin.isAdmin) {
-      return res.status(403).json({ message: 'You do not have permission to log in as an admin' });
+      return res.status(403).json();
     }
     const isValid = await bcrypt.compare(password, admin.password);
     if (!isValid) {
       console.log('Invalid password');
-      return res.status(401).json({ message: 'Invalid username or password' });
+      return res.status(401).json();
     }
     console.log('Login successful');
     res.status(200).json({ message: 'Login successful' });

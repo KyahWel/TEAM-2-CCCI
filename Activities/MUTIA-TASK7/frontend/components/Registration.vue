@@ -127,13 +127,13 @@ const handleSubmit = async (e) => {
   } catch (error) {
     if (error.response && error.response.status === 400) {
       if (error.response.data.message === 'Username already taken') {
-        message.error('Username already taken');
+        message.error('Username already taken', 1);
       } else if (error.response.data.message === 'Email already taken') {
-        message.error('Email already taken');
+        message.error('Email already taken', 1);
       } else if (error.response.data.message === 'Contact Number already taken') {
-        message.error('Contact Number already taken');
+        message.error('Contact Number is already taken', 1);
       } else {
-        message.error('Account Invalid');
+        message.error('Account Invalid', 1);
       }
     } else {
       message.error('Account Invalid');

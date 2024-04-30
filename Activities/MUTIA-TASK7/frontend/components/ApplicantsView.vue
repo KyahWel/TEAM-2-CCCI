@@ -35,6 +35,7 @@
 <script>
 import ApplicantCard from './ApplicantCard.vue';
 
+
 export default {
   components: {
     ApplicantCard
@@ -90,7 +91,8 @@ export default {
       modalVisible,
       selectedUser,
       showModal,
-      pageSize
+      pageSize,
+      fetchUsers
     };
   }
 }

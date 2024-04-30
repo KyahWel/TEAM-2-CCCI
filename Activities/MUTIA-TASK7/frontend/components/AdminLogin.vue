@@ -72,20 +72,35 @@
   try {
     const response = await axios.post('http://localhost:5005/api/login-admin', formState);
     if (response.data.message === 'Login successful') {
-      console.log('Login successful');
       message.success('Login successful!', 1);
       router.push('/app/homePage');
     } else {
-      console.log('Invalid username or password');
-      message.error('Invalid username or password! Please Try Again');
-      formState.username = '';
-    formState.password = '';
+      message.error('Invalid username or password', 1);
     }
   } catch (error) {
-    console.error(error);
-    message.error('Invalid username or password! Please Try Again! ');
-    formState.username = '';
-    formState.password = '';
+    if (error.response) {
+      if (error.response.status === 401) {
+        message.error('Invalid username or password', 1);
+        formState.username = '';
+        formState.password = '';
+      } else if (error.response.status === 403) {
+        message.error('You do not have permission to log in as an admin user', 2);
+        formState.username = '';
+        formState.password = '';
+      } else if (error.response.status === 404) {
+        message.error('Username does not exist', 1);
+        formState.username = '';
+        formState.password = '';
+      } else {
+        message.error('Unknown error');
+        
+      }
+    } else if (error.request) {
+      message.error('No response received from server');
+    } else {
+      console.log('Error making request', error.message);
+      message.error('Internal server error');
+    }
   }
 };
   </script>
