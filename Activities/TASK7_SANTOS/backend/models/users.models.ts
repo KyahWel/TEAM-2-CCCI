@@ -41,7 +41,8 @@ let options: InitOptions = {
         password:process.env.PASSWORD,
     }),
     tableName: Users.modelName,
-    schema:'public'
+    schema:'public',
+    paranoid: true,
 }
 
 let fields: ModelAttributes = {

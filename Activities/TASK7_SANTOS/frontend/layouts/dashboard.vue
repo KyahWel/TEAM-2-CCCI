@@ -16,10 +16,16 @@
           <a-menu-item key="2">
             <user-outlined />
             <NuxtLink to="/app/applicants">
-              <span v-if="!collapsed"> Applicants</span>
+              <span v-if="!collapsed"> Applicants List</span>
             </NuxtLink>
           </a-menu-item>
           <a-menu-item key="3">
+            <FormOutlined />
+            <NuxtLink to="/app/adminManageAdmin">
+              <span v-if="!collapsed"> Manage Admin</span>
+            </NuxtLink>
+          </a-menu-item>
+          <a-menu-item key="4">
             <logout-outlined />
             <NuxtLink to="/">
               <span v-if="!collapsed"> Logout</span>

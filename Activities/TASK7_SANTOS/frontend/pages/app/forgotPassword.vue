@@ -14,9 +14,40 @@
 </template>
 
 <script setup>
-definePageMeta({
-    layout: 'dashboardApplicants'
-})
+const nodemailer = require('nodemailer');
+
+// Create a transporter
+const transporter = nodemailer.createTransport({
+  service: 'Gmail',
+  auth: {
+    user: 'josean@gmail.com',
+    pass: 'msmc utaw ggeu ifne'
+  }
+});
+
+// Function to send an email
+const sendEmail = async (to, subject, text, html) => {
+  try {
+    // Send mail with defined transport object
+    await transporter.sendMail({
+      from: 'joseantoniorogelsantos@gmail.com',
+      to: 'santosjoseantoniorogel@gmail.com',
+      subject: 'Nuxt Test',
+      text: 'Test',
+      html
+    });
+    console.log('Email sent successfully');
+  } catch (error) {
+    console.error('Error sending email:', error);
+  }
+};
+
+module.exports = {
+  sendEmail
+};
+
+
+
 </script>
 
 <style>
