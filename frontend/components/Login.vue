@@ -84,15 +84,15 @@ const login = async () => {
     const response = await axios.post('http://localhost:5005/api/login', formState);
     if (response.data.message === 'Login successful') {
       console.log('Login successful');
-      
+      message.success('Login successful');
       router.push('/app/usersPage');
     } else {
       console.log('Invalid username or password');
-      
+      message.error('Invalid username or password');
     }
   } catch (error) {
     console.error(error);
-    
+    message.error('Invalid username or password');
   }
 };
 </script>

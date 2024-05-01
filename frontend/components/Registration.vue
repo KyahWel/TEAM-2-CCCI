@@ -117,12 +117,12 @@ const handleSubmit = async (e) => {
       contactNo,
     });
 
-    
+    message.success('Register successful');
     // Redirect to home page after successful registration
     router.push('/');
     
   } catch (error) {
-    
+    message.error('Invalid registration');
     console.error(error);
   }
 };

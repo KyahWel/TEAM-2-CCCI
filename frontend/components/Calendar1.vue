@@ -1,110 +1,82 @@
 <template>
-    <a-calendar v-model:value="value">
-      <template #dateCellRender="{ current }">
-        <ul class="events">
-          <li v-for="item in getListData(current)" :key="item.content">
-            <a-badge :status="item.type" :text="item.content" />
-          </li>
-        </ul>
-      </template>
-      <template #monthCellRender="{ current }">
-        <div v-if="getMonthData(current)" class="notes-month">
-          <section>{{ getMonthData(current) }}</section>
-          <span>Backlog number</span>
+  <div style="width: 300px; border: 1px solid #d9d9d9; border-radius: 4px">
+    <a-calendar v-model:value="value" :fullscreen="false" @panelChange="onPanelChange">
+      <template #headerRender="{ value: current, type, onChange, onTypeChange }">
+        <div style="padding: 10px">
+          <a-row type="flex" justify="space-between">
+            <a-col>
+              <a-radio-group size="small" :value="type" @change="e => onTypeChange(e.target.value)">
+                <a-radio-button value="month">Month</a-radio-button>
+                <a-radio-button value="year">Year</a-radio-button>
+              </a-radio-group>
+            </a-col>
+            <a-col>
+              <a-select
+                size="small"
+                :dropdown-match-select-width="false"
+                class="my-year-select"
+                :value="String(current.year())"
+                @change="
+                  newYear => {
+                    onChange(current.year(+newYear));
+                  }
+                "
+              >
+                <a-select-option
+                  v-for="val in getYears(current)"
+                  :key="String(val)"
+                  class="year-item"
+                >
+                  {{ val }}
+                </a-select-option>
+              </a-select>
+            </a-col>
+            <a-col>
+              <a-select
+                size="small"
+                :dropdown-match-select-width="false"
+                :value="String(current.month())"
+                @change="
+                  selectedMonth => {
+                    onChange(current.month(parseInt(String(selectedMonth), 10)));
+                  }
+                "
+              >
+                <a-select-option
+                  v-for="(val, index) in getMonths(current)"
+                  :key="String(index)"
+                  class="month-item"
+                >
+                  {{ val }}
+                </a-select-option>
+              </a-select>
+            </a-col>
+          </a-row>
         </div>
       </template>
     </a-calendar>
-  </template>
-  <script setup>
-  import { ref } from 'vue';
-  const value = ref();
-  const getListData = value => {
-    let listData;
-    switch (value.date()) {
-      case 8:
-        listData = [
-          {
-            type: 'warning',
-            content: 'This is warning event.',
-          },
-          {
-            type: 'success',
-            content: 'This is usual event.',
-          },
-        ];
-        break;
-      case 10:
-        listData = [
-          {
-            type: 'warning',
-            content: 'This is warning event.',
-          },
-          {
-            type: 'success',
-            content: 'This is usual event.',
-          },
-          {
-            type: 'error',
-            content: 'This is error event.',
-          },
-        ];
-        break;
-      case 15:
-        listData = [
-          {
-            type: 'warning',
-            content: 'This is warning event',
-          },
-          {
-            type: 'success',
-            content: 'This is very long usual event。。....',
-          },
-          {
-            type: 'error',
-            content: 'This is error event 1.',
-          },
-          {
-            type: 'error',
-            content: 'This is error event 2.',
-          },
-          {
-            type: 'error',
-            content: 'This is error event 3.',
-          },
-          {
-            type: 'error',
-            content: 'This is error event 4.',
-          },
-        ];
-        break;
-      default:
-    }
-    return listData || [];
-  };
-  const getMonthData = value => {
-    if (value.month() === 8) {
-      return 1394;
-    }
-  };
-  </script>
-  <style scoped>
-  .events {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  </div>
+</template>
+<script setup>
+import { ref } from 'vue';
+const value = ref();
+const onPanelChange = (value, mode) => {
+  console.log(value, mode);
+};
+const getMonths = value => {
+  const localeData = value.localeData();
+  const months = [];
+  for (let i = 0; i < 12; i++) {
+    months.push(localeData.monthsShort(value.month(i)));
   }
-  .events .ant-badge-status {
-    overflow: hidden;
-    white-space: nowrap;
-    width: 100%;
-    text-overflow: ellipsis;
-    font-size: 12px;
+  return months;
+};
+const getYears = value => {
+  const year = value.year();
+  const years = [];
+  for (let i = year - 10; i < year + 10; i += 1) {
+    years.push(i);
   }
-  .notes-month {
-    text-align: center;
-    font-size: 28px;
-  }
-  .notes-month section {
-    font-size: 28px;
-  }
-  </style>
+  return years;
+};
+</script>
