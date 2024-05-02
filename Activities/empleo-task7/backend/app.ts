@@ -131,6 +131,62 @@ app.get("/applicants", async (req: Request, res: Response)=>{
   }
 });
 
+app.put("/admin/:id", async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const updatedUserData = req.body;
+    const response = await users.update(updatedUserData, {
+      where: { id },
+    });
+    res.status(200).json(response);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
+app.delete("/admin/:id", async (req: Request, res: Response)=>{
+  try {
+      const {params: {id}} = req
+      const response = await users.destroy({where: {id}});
+      res.status(200).json(response);
+  } catch (error) {
+      res.status(500).json(error);
+  }
+});
+
+app.get("/admins", async (req: Request, res: Response)=>{
+  try {
+      const response = await users.findAll({
+        where: {
+          iamAdmin: true
+        }
+      });
+      res.status(200).json(response);
+  } catch (error) {
+      res.status(500).json(error);
+  }
+});
+
+app.post('/api/adminRegister', async (req: Request, res: Response) => {
+  try {
+    const { firstName, middleName, lastName, email, contactNo, city, state, password} = req.body;
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const user = await users.create({
+      firstName,
+      middleName,
+      lastName,
+      email,
+      contactNo,
+      city,
+      state,
+      password: hashedPassword,
+      iamAdmin: true,
+    });
+    res.status(201).json(user);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 }
 
 

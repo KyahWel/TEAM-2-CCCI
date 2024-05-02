@@ -9,19 +9,19 @@
         <a-menu style="background: #FAF8ED"  mode="inline" v-model:selectedKeys="selectedKeys">
           <a-menu-item key="1">
             <dashboard-outlined />
-            <NuxtLink to ='/app'> <span v-if="!collapsed">Dashboard</span> </NuxtLink>
+            <NuxtLink to ='/app'> <span v-if="!collapsed"> Dashboard</span> </NuxtLink>
           </a-menu-item>
           <a-menu-item key="2">
             <user-outlined />
-            <NuxtLink to ='/app/applicants'><span v-if="!collapsed">Applicants</span></NuxtLink>
+            <NuxtLink to ='/app/applicants'><span v-if="!collapsed"> Applicants</span></NuxtLink>
           </a-menu-item>
           <a-menu-item key="3">
             <setting-outlined />
-            <NuxtLink to ='/app/manageusers'><span v-if="!collapsed">Manage Users</span></NuxtLink>
+            <NuxtLink to ='/app/manageusers'><span v-if="!collapsed"> Manage Users</span></NuxtLink>
           </a-menu-item>
           <a-menu-item key="4">
             <logout-outlined />
-            <NuxtLink to ='/'><span v-if="!collapsed">Logout</span></NuxtLink>
+            <NuxtLink to ='/'><span v-if="!collapsed"> Logout</span></NuxtLink>
           </a-menu-item>
         </a-menu>
       </a-layout-sider>

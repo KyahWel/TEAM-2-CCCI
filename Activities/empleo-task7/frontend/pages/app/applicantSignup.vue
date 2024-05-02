@@ -1,11 +1,11 @@
 <template>
 
     <div class="bg-[url('/landingbgpic.png')] bg-cover landingpage h-screen flex items-center justify-center w-full p-44 flex-col">
-            <p class="text-base tagline font-light">Your success starts here!</p> 
-        <div class="bg-white w-full p-28 rounded-lg flex flex-col items-center justify-center" style="width: 1000px;">
+            <p class="text-base tagline font-light">Your success starts here! Register below</p> 
+        <div class="bg-white w-full m-5 p-28 rounded-lg flex flex-col items-center justify-center" style="width: 800px;">
             
             <a-form
-                style="max-width: 700px"
+                style="max-width: 900px"
                 :model="form"
                 @submit="handleSubmit"
                 @finish="onFinish"
@@ -16,23 +16,23 @@
             >
 
                 <a-form-item :rules="[{ required: true, message: '*First Name Required' }]"> 
-                <a-input v-model:value="form.firstName" placeholder="First Name" />
+                <a-input class="w-96" v-model:value="form.firstName" placeholder="First Name" />
                 </a-form-item>
            
                 <a-form-item :rules="[{ required: true, message: '*Last Name Required' }]"> 
-                <a-input v-model:value="form.lastName" placeholder="Last Name" />
+                <a-input class="w-96" v-model:value="form.lastName" placeholder="Last Name" />
                 </a-form-item>
 
                 <a-form-item :rules="[{ required: true, message: '*Email Required' }]"> 
-                <a-input v-model:value="form.email" placeholder="Email" />
+                <a-input class="w-96" v-model:value="form.email" placeholder="Email" />
                 </a-form-item>
 
                 <a-form-item :rules="[{ required: true, message: '*Contact Required' }]"> 
-                <a-input v-model:value="form.contactNo" placeholder="Contact Number" />
+                <a-input class="w-96" v-model:value="form.contactNo" placeholder="Contact Number" />
                 </a-form-item>
 
                 <a-form-item :rules="[{ required: true, message: '*Passssword Required' }]"> 
-                <a-input v-model:value="form.password" placeholder="Password" />
+                <a-input class="w-96" v-model:value="form.password" placeholder="Password" />
                 </a-form-item>
                
                 <!-- <p class="font-semibold p-5">Recent Work Experience</p>
@@ -56,12 +56,18 @@
                     </div>
                 </a-upload>
                 </a-form-item> -->
-
-                <NuxtLink to="/" class="font-thin text-base p-8" >back</NuxtLink>
-                <a-form-item>
-                <a-button :disabled="disabled" type="primary" html-type="submit" class="w-full">Register Now</a-button>
-                </a-form-item>
+                <a-row>
+                  <a-col>
+                  <NuxtLink to="/" class="font-thin text-base p-4" >back</NuxtLink>
+                  </a-col> 
+                  <a-col>
+                  <a-form-item>
+                  <a-button :disabled="disabled" type="primary" html-type="submit" class="w-80">Register Now</a-button>
+                  </a-form-item>
+                  </a-col>
+                </a-row>
                 </a-form>
+  
         </div>
     
 

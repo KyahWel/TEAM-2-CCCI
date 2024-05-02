@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col items-center justify-center">
+    <div class="flex flex-col items-center justify-center h-screen">
         <a-row :gutter="[16,16]" class="justify-center animate__animated animate__zoomIn">
             <a-col v-for="applicant in paginatedUsers" :key="applicant.id" :xs="24" :sm="12" :md="12" :lg="6" :xl="6" class="mt-5">
             <div class="w-full rounded-md bg-orange-500 p-1 border-1 rounded-xl shadow-xl">

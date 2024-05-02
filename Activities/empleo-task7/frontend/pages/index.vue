@@ -9,7 +9,7 @@
 
      <div class="bg-white w-full p-28 rounded-lg flex flex-col items-center justify-center" style="width: 800px;">
      <a-row :gutter="[16,16]" class="">
-        <a-col :span="8" class="">
+        <a-col :span="8" class="p-8">
          <div >
            <a-space direction="vertical" :size="32">
               <a-space wrap :size="16">
@@ -53,8 +53,6 @@
            </template>
        </a-input-password>
        </a-form-item>
-            
-               <br>
 
                <a-form-item>
                <a-button  type="primary" html-type="submit" class="w-full login-form-button">

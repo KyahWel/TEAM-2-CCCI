@@ -24,6 +24,7 @@ export default class Users extends Model{
     declare active: boolean;
     declare createdAt: Date;
     declare updatedAt: Date;
+    declare deletedAt: Date;
 
 
     static associate() {
@@ -41,7 +42,8 @@ let options: InitOptions = {
         password:process.env.PASSWORD,
       }),
       tableName: Users.modelName,
-      schema: 'public'
+      schema: 'public',
+      paranoid: true
 }
 
 let fields: ModelAttributes = {
@@ -114,7 +116,11 @@ let fields: ModelAttributes = {
     updatedAt: {
       type: new DataTypes.DATE,
       allowNull: true,
-  }
+    },
+    deletedAt: {
+        type: new DataTypes.DATE,
+        allowNull: true,
+    }
 }
 
 Users.init(fields, options)
