@@ -1,5 +1,6 @@
 <template>
   <div class="admin-container">
+    <!-- Form for admin login -->
     <a-form
       :model="formState"
       name="normal_login"
@@ -7,6 +8,7 @@
       @finish="onFinish"
       @finishFailed="onFinishFailed"
     >
+      <!-- Username input field -->
       <a-form-item
         label="Username"
         name="username"
@@ -14,11 +16,13 @@
       >
         <a-input v-model:value="formState.username" placeholder="" style="border-radius: 10px;">
           <template #prefix>
+            <!-- Username icon -->
             <UserOutlined class="site-form-item-icon" />
           </template>
         </a-input>
       </a-form-item>
   
+      <!-- Password input field -->
       <a-form-item
         label="Password"
         name="password"
@@ -26,13 +30,15 @@
       >
         <a-input-password v-model:value="formState.password" placeholder="" style="border-radius: 10px;">
           <template #prefix>
+            <!-- Password icon -->
             <LockOutlined class="site-form-item-icon" />
           </template>
         </a-input-password>
       </a-form-item>
   
+      <!-- Forgot password link -->
       <a-form-item>
-        
+
         <a class="login-form-forgot" @click="router.push('/app/forgotPassPage')">Forgot Password?</a>
       </a-form-item>
   

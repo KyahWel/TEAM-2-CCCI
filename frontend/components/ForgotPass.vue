@@ -1,16 +1,14 @@
 <template>
     <div class="form-container">
+      <h1 class="form-title">Forgot Password</h1>
       <a-form
         :model="formState"
-        name="forgot_pass"
-        class="forgotpass-form"
-        @finish="onFinish"
-        @finishFailed="onFinishFailed"
+        @submit.prevent="handleSubmit"
       >
         <!-- Other form items -->
-
+        
         <a-form-item
-        name="Email"
+        name="email"
         :rules="[{ required: true, message: 'Please input your email!' }]"
       >
         <a-input v-model:value="formState.email" placeholder="Enter email">
@@ -36,28 +34,49 @@
   </template>
   
   <script setup>
+  import axios from 'axios';
+
   const router = useRouter();
   
-  import { useRouter } from 'vue-router';
-  import { reactive, computed } from 'vue';
   
   const formState = reactive({
-    username: '',
-    password: '',
-    remember: true,
+   email: ''
   });
-  
-  const onFinish = values => {
-    console.log('Success:', values);
-  };
-  
-  const onFinishFailed = errorInfo => {
-    console.log('Failed:', errorInfo);
-  };
   
   const disabled = computed(() => {
-    return !(formState.username && formState.password);
+    return !(formState.email);
   });
+
+  const handleSubmit = async () => {
+  try {
+  
+      const response = await axios.post('http://localhost:5005/api/check-email', {
+      email: formState.email
+    });
+ 
+    if (response.data.exists) {
+ 
+      const response2 = await axios.post('http://localhost:5005/api/send-verification-code', {
+      email: formState.email
+    });
+ 
+    if (response2.data.success) {
+      message.success("We've sent a verification code to your email.", 2);
+      router.push('/app/verificationPage');
+    } else {
+      message.error("Failed to send verification code. Please try again.", 2);
+    }
+    } else {
+      message.destroy();
+      message.error("Email does not exist. Please try again.", 2);
+      form.email = '';
+    }
+  } catch (error) {
+    console.error(error);
+    message.error("Failed to send verification code. Please try again.", 2);
+    form.email = '';
+  }
+};
   </script>
   
   <style scoped>
@@ -65,15 +84,25 @@
     float: right;
   }
   .login-form-button {
+    margin-top: 10px;
     width: 100%;
     background-color: #1399ad;
     color: #ffffff;
   }
   
+  .form-title{
+    margin-bottom: 22px;
+    font-size: 22px;
+    font-weight: normal;
+    font-family: sans-serif;
+    text-align: center;
+  }
+  
   .form-container {
   background-color: #b3ddff93;
-  padding: 50px;
-  width: 110%; /* Adjust the width for the landing page */
+  padding: 30px;
+  width: 410px; /* Adjust the width for the landing page */
+  height: 243px;
   border-radius: 15px;
   }
   

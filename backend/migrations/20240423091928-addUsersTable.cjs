@@ -1,8 +1,12 @@
 'use strict';
- 
-/** @type {import('sequelize-cli').Migration} */
+
+/** 
+ * Define the migration module
+ * @type {import('sequelize-cli').Migration} 
+ */
 module.exports = {
   async up (queryInterface, Sequelize) {
+    // Create the 'users' table
     await queryInterface.createTable('users', {
       id:{
         type: new Sequelize.INTEGER,
@@ -54,6 +58,10 @@ module.exports = {
         type: new Sequelize.INTEGER,
         allowNull: true,
     },
+    code: {
+      type: new Sequelize.INTEGER,
+      allowNull: true,
+  },
     iamAdmin: {
       type: new Sequelize.BOOLEAN,
       allowNull: true,

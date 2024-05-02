@@ -22,14 +22,14 @@
 
       <a-col>
         <a-card class="container-experience">
-         <a-card class="card-experience"><h1 class="exp-title">Experience</h1>
+         <a-card class="card-experience"><h1 class="exp-title">EXPERIENCE</h1>
           
   <a-timeline>
-    <a-timeline-item>Create a services site 2015-09-01</a-timeline-item>
-    <a-timeline-item>Solve initial network problems 2015-09-01</a-timeline-item>
-    <a-timeline-item>Technical testing 2015-09-01</a-timeline-item>
-    <a-timeline-item>Network problems being solved 2015-09-01</a-timeline-item>
-    <a-timeline-item>Network problems being solved 2015-09-01</a-timeline-item>
+    <a-timeline-item>Full Stack Development Intern at Centralized Cloud Computing International, Inc. - 2024-2024</a-timeline-item>
+    <a-timeline-item>IT Consulting Intern at Amazon Web Services (AWS) - 2022-2023</a-timeline-item>
+    <a-timeline-item>Network Engineering Intern at Cisco Systems - 2021-2022</a-timeline-item>
+    <a-timeline-item>Cybersecurity Intern at Fujitsu Philippines - 2020-2021</a-timeline-item>
+    <a-timeline-item>Freelance UI Developer - 2018-2020</a-timeline-item>
   </a-timeline>
 
         </a-card>
@@ -97,20 +97,21 @@ definePageMeta({
   .container-experience{
     background-image: url('/assets/images/1.png');
     margin-top: 10px;
-    margin-left: 10px;
-    width: 180%;
+    margin-left: 5px;
+    width: 101%;
     height: 95%;
   }
   .card-experience{
-    margin-left: 17px;
+    margin-left: 1px;
     margin-top: 12px;
-    width: 95%;
-    height: 320px;
+    width: 100%;
+    height: 370px;
   }
   .exp-title{
     font-weight: bold;
-    margin-bottom: 10px;
-    font-size: 15px;
+    margin-bottom: 25px;
+    font-size: 16px;
+    text-align: center;
   }
 
 </style>

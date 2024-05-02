@@ -1,9 +1,12 @@
 import { Request, Response, NextFunction } from "express";
 import dotenv from 'dotenv'
 
+// Load environment variables from .env file
 dotenv.config()
 
+// Define a class for router middleware
 export default class RouterMiddleware {
+    // Define static method for router middleware
     static routerMiddleware(req: Request, res: Response, next: NextFunction) {
         try {
             // Extract HTTP request type (GET, POST, etc.) and URL
@@ -17,6 +20,7 @@ export default class RouterMiddleware {
             // Check if bearer token exists and matches the expected access token
             if (bearerToken.length && bearerToken[0] == "Bearer") {
                 if (bearerToken[1] === process.env.ACCESS_TOKEN) {
+                    // Token is valid
                     console.log('Authorized Request');
                 } else {
                     // Return 401 Unauthorized if token is invalid

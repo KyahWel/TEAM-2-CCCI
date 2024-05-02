@@ -4,8 +4,9 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import bcrypt from 'bcrypt';
+const nodemailer = require('nodemailer');
 
-dotenv.config();
+dotenv.config(); // Load environment variables from .env file
 const port: number = 5005; // Define the port number
 const app: Application = express(); // Create an Express application instance
 
@@ -25,7 +26,23 @@ app.use(bodyParser.urlencoded({ extended: true }));
             res.status(500).json(error);
         }
     });
-          // Display all users
+
+    // UPDATE PASSWORD
+app.put('/api/reset-password', async (req: Request, res: Response) => {
+  const { email, password} = req.body;
+  const user = await Users.findOne({ where: { email } });
+  if (user) {
+    const salt = await bcrypt.genSalt(10); 
+    const hashedPassword = await bcrypt.hash(password, salt); 
+    user.password = hashedPassword; 
+    await user.save(); 
+    res.json({ success: true });
+  } else {
+    res.status(404).json({ success: false, error: 'User not found' });
+  }
+});
+
+          // GET route to display all users
     app.get('/users', async (req, res) => {
         try {
           const users = await Users.findAll({
@@ -38,6 +55,89 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
           console.error(error);
           res.status(500).json({ message: 'Error fetching users' });
+        }
+      });
+
+      // Check if email exists
+      app.post('/api/check-email', async (req: Request, res: Response) => {
+        try {
+          const { email } = req.body;
+          const existingEmail = await Users.findOne({ where: { email } });
+          if (existingEmail) {
+            res.json({ exists: true });
+          } else {
+            res.json({ exists: false });
+          }
+        } catch (error) {
+          console.error(error);
+          res.status(500).json({ message: 'Internal server error' });
+        }
+      });
+      
+      // Verify code
+      app.post('/api/verify-code', async (req: Request, res: Response) => {
+        const { code } = req.body;
+        const user = await Users.findOne({ where: { code } });
+      
+        if (user) {
+          res.json({ success: true });
+        } else {
+          res.json({ success: false });
+        }
+      });
+
+      // Sending Email with verification code
+      app.post('/api/send-verification-code', async (req: Request, res: Response) => {
+        const { email } = req.body;
+      
+        // Generate a random verification code
+        const verificationCode = Math.floor(100000 + Math.random() * 900000);
+      
+        // Create a transporter object using Nodemailer
+        const transporter = nodemailer.createTransport({
+          host: 'smtp.gmail.com',
+          port: 465,
+          secure: true,
+          auth: {
+            user: 'cessheartfilia@gmail.com',
+            pass: 'ftxd znsi ykik hghl'
+          }
+        });
+      
+        // Define the email message
+        const mailOptions = {
+          from: 'your-email-address@gmail.com',
+          to: email,
+          subject: 'Verification Code',
+          text: `Your verification code is: ${verificationCode}`
+        };
+      
+        // Send the email
+        try {
+          await transporter.sendMail(mailOptions);
+      
+          // Update the user's token in the database
+          const user = await Users.findOne({ where: { email } });
+          if (user) {
+            user.code = verificationCode;
+            await user.save();
+          }
+      
+          res.json({ success: true });
+        } catch (error) {
+          console.error(error);
+          res.json({ success: false });
+        }
+      });
+
+      // Check if user exists by email
+      app.get('/api/users/:email', async (req: Request, res: Response) => {
+        const email = req.params.email;
+        const user = await Users.findOne({ where: { email } }); // Replace with your database query
+        if (user) {
+          res.json({ exists: true });
+        } else {
+          res.json({ exists: false });
         }
       });
 
