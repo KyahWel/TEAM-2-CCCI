@@ -41,6 +41,9 @@ userRoute.get("/admin", async (req: Request, res: Response)=>{
 userRoute.post("/register", async (req: Request, res: Response)=>{
     try {
         const { accountType, firstName, lastName, middleName,email,username, password  } = req.body;
+       if (!accountType || !firstName || !lastName || !middleName || !email || !username || !password){
+        return res.status(400).json({message: "Please fill required data"})
+       }
         const hashedPassword = await bcrypt.hash(password, 10);
         const response = await Users.create({
             accountType,
