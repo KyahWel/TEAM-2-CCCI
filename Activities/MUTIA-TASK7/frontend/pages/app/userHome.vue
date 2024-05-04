@@ -1,29 +1,28 @@
 <template>
   <a-layout>
-  <div class="container"> 
-    <a-row >
-      <a-col :span="19" >
-        
+    <div class="container"> 
+      <a-row >
+        <a-col :span="19" >
+
         <a-card class="flex items-center justify-center ">
           <a-avatar :size="84" class="avatar">
-          <template #icon><UserOutlined /></template>
-        </a-avatar>
-        <div class="text-center">
-          <h1 class="text-2xl font-bold">Clarisse B. Mutia</h1>
-          <p>clarissemutia@gmail.com</p>
-        </div>
-        
-      </a-card> 
+            <template #icon><UserOutlined /></template>
+          </a-avatar>
 
-      <a-card class="info-container">
-        <div >
+          <div class="text-center">
+            <h1 class="text-2xl font-bold" >{{ userStore.user.firstName }} {{ userStore.user.lastName }}</h1>
+            <p >{{ userStore.user.email }}</p>
+          </div>
+        </a-card> 
+
+        <a-card class="info-container">
+          <div >
             <a-tabs v-model:activeKey="activeKey" centered>
               <a-tab-pane key="1" tab="My Application">Active Job Application</a-tab-pane>
               <a-tab-pane key="2" tab="Info And Alerts" force-render>Info And Alerts</a-tab-pane>
             </a-tabs> 
-    </div>
-    </a-card> 
-        
+          </div>
+        </a-card>  
       </a-col>
 
       <a-col :span="5">                                   
@@ -43,15 +42,14 @@
         
       </a-col>
     </a-row>
-
   </div>
-  </a-layout>
+</a-layout>
 </template>
 
 <script setup>
+import { useUserStore } from '../stores/user'
 
-const activeKey = ref('1');
-//Define data in the cards
+const userStore = useUserStore()
 
 definePageMeta({
   layout: 'user'
@@ -59,11 +57,9 @@ definePageMeta({
 </script>
 
 <style scoped>
-
 .container{
   background-color: #a9e3ed77; 
   padding: 20px;
-  
 }
 .avatar {
   display: block;
@@ -89,7 +85,5 @@ definePageMeta({
 .info-container{
   margin-top: 10px;
   height: 68%;
-
 }
-
 </style>

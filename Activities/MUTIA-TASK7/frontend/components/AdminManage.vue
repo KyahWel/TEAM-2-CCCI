@@ -1,4 +1,5 @@
-  <template>
+<template>
+  <!--Registration Form for Admin-->
       <div class="form-container">
         <a-form
           :model="form"
@@ -12,7 +13,6 @@
           :rules="[{ required: true, message: 'Please input your firstame!' }]">
         <a-input v-model:value="form.firstName"
           placeholder="First Name">
-    
           </a-input>
         </a-form-item>
     
@@ -21,7 +21,6 @@
           :rules="[{ required: true, message: 'Please input your lastname!' }]">
         <a-input v-model:value="form.lastName"
           placeholder="Last Name">
-    
           </a-input>
         </a-form-item>
     
@@ -30,7 +29,6 @@
           :rules="[{ required: true, message: 'Please input your username!' }]">
         <a-input v-model:value="form.username"
           placeholder="Username">
-    
           </a-input>
         </a-form-item>
 
@@ -39,7 +37,6 @@
           :rules="[{ required: true, message: 'Please input your contact no.!' }]">
         <a-input v-model:value="form.contactNo"
           placeholder="Contact No.">
-    
           </a-input>
         </a-form-item>
     
@@ -48,7 +45,6 @@
           :rules="[{ required: true, message: 'Please input your Email!' }]">
           <a-input v-model:value="form.email"
             placeholder="Email">
-    
             </a-input>
         </a-form-item>
     
@@ -56,7 +52,6 @@
           name="password"
           :rules="[{ required: true, message: 'Please input your password!' }]">
           <a-input-password v-model:value="form.password" placeholder="Password">
-    
           </a-input-password>
         </a-form-item>
     
@@ -65,22 +60,18 @@
           <a-button :disabled="disabled" type="primary" html-type="submit" class="register-form-button">
             Register
           </a-button>
-
           <a-button type="primary" @click="clear" class="clear-button">
             Clear
           </a-button>
-    
         </a-form-item>
     
         </a-form>
       </div>
-    </template>
+</template>
   
-  <script setup>
-  import axios from 'axios';
-  
+<script setup>
+  import axios from 'axios';      // For making HTTP requests
 
-  
   const form = reactive({
     firstName: '',
     lastName: '',
@@ -91,7 +82,7 @@
   
   });
   
-
+  // To handle form submission
   const onFinish = values => {
     console.log('Success:', values);
   };
@@ -103,14 +94,15 @@
   const disabled = computed(() => {
     return !(form.firstName && form.lastName &&  form.username && form.contactNo && form.password && form.email);
   });
-  
 
+
+  // Register Function for Admin
   const handleSubmit = async (e) => {
   e.preventDefault();
   const { firstName, lastName, contactNo, username, email, password } = form;
 
   try {
-    // Make a POST request to the backend server to register a new user
+    // POST request to the backend server to register a new admin
     const response = await axios.post('http://localhost:5005/api/admins', {
       firstName,
       contactNo,
@@ -119,26 +111,24 @@
       email,
       password,
     });
+    message.success('Account Added Successfully!');
 
-    message.success('Account added successfully!');
-    
-    
   } catch (error) {
     if (error.response && error.response.status === 400) {
-      if (error.response.data.message === 'Username already taken') {
-        message.error('Username already taken', 1);
-      } else if (error.response.data.message === 'Email already taken') {
-        message.error('Email already taken', 1);
-      } else if (error.response.data.message === 'Contact Number already taken') {
-        message.error('Contact Number already taken', 1);
+      if (error.response.data.message === 'Username is already taken') {
+        message.error('Username is already taken', 1);
+      } else if (error.response.data.message === 'Email is already taken') {
+        message.error('Email is already taken', 1);
+      } else if (error.response.data.message === 'Contact Number is already taken') {
+        message.error('Contact Number is already taken', 1);
       } else {
-        message.error('Account Invalid', 1);
+        message.error('Account is Invalid', 1);
       }
     } else {
-      message.error('Account Invalid', 1);
+      message.error('Account is Invalid', 1);
     } 
   }
-  form.firstName = '';
+    form.firstName = '';
     form.lastName = '';
     form.username = '';
     form.contactNo = '';
@@ -146,7 +136,8 @@
     form.password = '';
     console.error(error);
 };
- 
+
+// Clear Function 
 const clear = () => {
   form.firstName = '';
   form.lastName = '';
@@ -156,9 +147,9 @@ const clear = () => {
   form.password = '';
 }
   
-  </script>
+</script>
   
-  <style scoped>
+<style scoped>
   .register-form-button {
     background-color: rgb(78, 135, 185);
     width: 75%;
@@ -179,5 +170,4 @@ const clear = () => {
     width: 160%;
   }
 
-  
-  </style>
+</style>

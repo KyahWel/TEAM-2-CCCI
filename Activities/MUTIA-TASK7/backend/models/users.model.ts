@@ -20,6 +20,13 @@ export default class Users extends Model{
     declare active: boolean;
     declare createdAt: Date;
     declare updatedAt: Date;
+    declare code: number;
+    declare codeExpiresAt: Date;
+    declare position: string;
+    declare gender: string;
+    declare birthday: Date;
+    declare age: number;
+    declare address: string;
     
 
     static associate() {
@@ -113,7 +120,35 @@ let fields: ModelAttributes = {
     deletedAt:{
       type: new DataTypes.DATE,
       allowNull: true
-    } 
+    },
+    code: {
+      type: new DataTypes.NUMBER,
+      allowNull: true,
+  },
+  codeExpiresAt:{
+    type: new DataTypes.DATE,
+    allowNull: true
+  },
+  position: {
+    type: new DataTypes.STRING,
+    allowNull: true,
+  },
+  gender: {
+    type: new DataTypes.STRING,
+    allowNull: true,
+  },
+  birthday: {
+    type: new DataTypes.DATE,
+    allowNull: true,
+  },
+  age: {
+    type: new DataTypes.NUMBER,
+    allowNull: true,
+  },
+  address: {
+    type: new DataTypes.STRING,
+    allowNull: true,
+  },
 }
 
 

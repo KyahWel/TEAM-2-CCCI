@@ -2,15 +2,10 @@
     <div class="container">
       <h1  class="text-black text-lg text-center font-bold">
         List of Applicants  </h1>
-
-
         <!-- Container for the applicant cards -->
         <div class="cards-container">
           <ApplicantsView/>
         </div>
-          
-  
-    
     </div>
   </template>
   

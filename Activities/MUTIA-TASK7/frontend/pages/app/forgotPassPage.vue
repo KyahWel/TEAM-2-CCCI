@@ -5,39 +5,29 @@
         <p>Please provide your email for verification code.</p>
         <a-form
           :model="form"
-          @submit.prevent="handleSubmit"
-        >
-    
-        
+          @submit.prevent="handleSubmit" >
     
         <a-form-item
           name="email"
           :rules="[{ required: true, message: 'Please input your Email!' }]">
-          <a-input v-model:value="form.email"
-            placeholder="Email">
-    
-            </a-input>
+          <a-input v-model:value="form.email" placeholder="Email"></a-input>
         </a-form-item>
     
-    
-        <a-form-item >
-          <a-button :disabled="disabled" type="primary" html-type="submit" class="forgot-form-button">
-            Submit
-          </a-button>
-    
-          
-        </a-form-item>
-        <a-button type="link" style="color:#404040; float: left" @click="router.push('/')"><ArrowLeftOutlined /></a-button>
-        </a-form>
-      </a-card>
-    </div>
+        <a-button :disabled="disabled" type="primary" html-type="submit" class="forgot-form-button">
+          Submit
+        </a-button>
 
+        <a-button type="link" style="color:#404040; float: left" @click="router.push('/')">
+          <ArrowLeftOutlined />
+        </a-button>
+
+      </a-form>
+    </a-card>
+  </div>
 </template>
 
 <script setup>
-import { message } from 'ant-design-vue';
-
-
+import axios from 'axios';
 
 definePageMeta({
   layout: 'landing'
@@ -50,20 +40,47 @@ const form = reactive({
 });
 
 const disabled = computed(() => {
-  return !(form.email);
+  return!(form.email);
 });
 
-const handleSubmit = () => {
-  // You can add validation logic here if needed
-  //...
-  message.info("We've sent a verification code to your email.");
-  router.push('/app/verificationPage');
+//handleSubmit function to handle form submission
+const handleSubmit = async () => {
+  try {
+      // POST request to check if the email exists
+      const response = await axios.post('http://localhost:5005/api/check-email', {
+      email: form.email
+    });
+
+    if (response.data.exists) {
+      message.destroy();
+      message.loading('Sending verification code...',0); 
+      
+      // POST request to send the verification code
+      const response2 = await axios.post('http://localhost:5005/api/send-verification-code', {
+      email: form.email
+    });
+
+    if (response2.data.success) {
+      message.destroy();
+      message.success("We've sent a verification code to your email.", 2);
+      router.push('/app/verificationPage');
+    } else {
+      message.error("Failed to send verification code. Please try again.", 2);
+    }
+    } else {
+      message.destroy(); 
+      message.error("Email does not exist. Please try again.", 2);
+      form.email = '';
+    }
+  } catch (error) {
+    console.error(error);
+    message.error("Failed to send verification code. Please try again.", 2);
+    form.email = '';
+  }
 };
 </script>
 
 <style scoped>                                                                
-
-
 .container {
   margin-top: 20%;
   margin-left: 17%;
@@ -72,9 +89,7 @@ const handleSubmit = () => {
   justify-content: center;
   flex-direction: column;
   width: 70%;
- 
 
- 
 }
 .forgot-form-button {
   width: 100%;
@@ -89,7 +104,6 @@ const handleSubmit = () => {
   padding: 15px;
   background-color: azure;
   width: 90%;
- 
 }
 
 .form-title{

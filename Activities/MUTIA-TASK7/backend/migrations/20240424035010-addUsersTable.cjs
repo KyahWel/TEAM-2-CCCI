@@ -73,7 +73,35 @@ module.exports = {
     deletedAt:{
       type: new Sequelize.DATE,
       allowNull: true
-    } 
+    },
+    code: {
+      type: new Sequelize.INTEGER,
+      allowNull: true,
+    },
+    codeExpiresAt:{
+      type: new Sequelize.DATE,
+      allowNull: true
+    },
+    position: {
+      type: new Sequelize.STRING,
+      allowNull: true,
+    },
+    gender: {
+      type: new Sequelize.STRING,
+      allowNull: true,
+    },
+    birthday: {
+      type: new Sequelize.DATE,
+      allowNull: true,
+    },
+    age: {
+      type: new Sequelize.INTEGER,
+      allowNull: true,
+    },
+    address: {
+      type: new Sequelize.STRING,
+      allowNull: true,
+    },
      });
     /**
      * Add altering commands here.

@@ -8,7 +8,7 @@
           <div class="logo-container">
             <img class="logo-main"  src="/assets/images/main-logo.png">
           </div>
-          <h1>RECRUITMENT <br>SYSTEM</h1>
+          <h1>Talent <br>Acquisition Portal</h1>
           </a-col>
   
   

@@ -57,7 +57,7 @@ export default {
       modalVisible.value = true;
     };
 
-    // Make API call to backend server to fetch users
+    // API call to backend server to fetch users
     async function fetchUsers() {
       try {
         const response = await fetch('http://localhost:5005/users');

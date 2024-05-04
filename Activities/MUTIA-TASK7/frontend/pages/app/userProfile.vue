@@ -8,8 +8,8 @@
                   </a-avatar>
                 </div>
                 <div class="text-center">
-                  <h1 class="text-3xl font-bold">Clarisse B. Mutia</h1>
-                  <p>clarissemutia@gmail.com</p>
+                  <h1 class="text-3xl font-bold" >{{ userStore.user.firstName }} {{ userStore.user.lastName }}</h1>
+                  <p >{{ userStore.user.email }}</p>
                   <p class="mt-2">Web Developer</p>
                   <p>Pasig City</p>
                 </div>
@@ -17,18 +17,21 @@
         </a-col>
 
         <a-col :span="14" class="ml-4">
-            <a-card class="items-center justify-center" style="height: 625px; width: 105%;">
-                <h1 class="text-2xl font-bold">Personal Information</h1>
-                <Divider/>
+            <a-card class="items-center justify-center" style="height: 625px; width: 105%; overflow-y: auto;">
+                <h1 class="text-2xl font-bold">Personal Information  <a-button type="button" size="large" style="padding: 0; margin-left:65%;" @click="router.push('/app/editUserPage')">
+                  <EditOutlined />
+                </a-button></h1>
+                <Divider class="personal-divider"/>
                 <a-row>
-                  <a-col :span="12">
-                  <h2>First Name:</h2>
-                  <h2>Last Name:</h2>
-                  <h2>Birthday:</h2>
+                  <a-col :span="15">
+                  <h2>Name: <span style="font-weight: bold" >{{ userStore.user.firstName }}  {{ userStore.user.lastName }}</span></h2>
+                   <h2>Position:</h2>
+                   <h2>Birthday:</h2>
                   <h2>Address:</h2>
                 </a-col>
 
                 <a-col>
+                  <h2>Contact No.: <span style="font-weight: bold" > {{ userStore.user.contactNo }}</span></h2>
                   <h2>Gender:</h2>
                   <h2>Age:</h2>
                 </a-col>
@@ -55,24 +58,27 @@
             <h1 class="text-xl font-bold">Skills</h1>
             <div class="progress-container">
               <a-progress :percent="100" showInfo :format="percent => `HTML/CSS: ${percent}%`"/>
-                <a-progress :percent="80" showInfo :format="percent => `JavaScript: ${percent}%`"/>
-                <a-progress :percent="60" :format="percent => `php: ${percent}%`"/>  
-              
-              <a-progress :percent="50" :format="percent => `Vue: ${percent}%`"/>
-              
-               
+              <a-progress :percent="80" status="active" showInfo :format="percent => `JavaScript: ${percent}%`"/>
+                <a-progress :percent="65" status="active" showInfo :format="percent => `php: ${percent}%`"/>
+              <a-progress :percent="50" status="active" :format="percent => `Vue: ${percent}%`"/>
             </div>
-            
-            <Divider/>
 
+            <Divider/>
+            <h1 class="text-xl font-bold">Certificates</h1>
+            
             </a-card> 
         </a-col>
-        
     </a-row>
 </template>
 
 <script setup>
 import { Divider } from 'ant-design-vue';
+import { useUserStore } from '../stores/user'
+
+
+const userStore = useUserStore()
+const router = useRouter();
+
 
 definePageMeta({
   layout: 'user'
@@ -90,5 +96,8 @@ definePageMeta({
 .col-experience{
  padding: 10px;
  height: 130px;
+}
+.personal-divider{
+  margin: 15px;
 }
 </style>
