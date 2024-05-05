@@ -6,12 +6,12 @@
       :loading="pending"
       style="width: 100%; background: #fef3c7; header: #fef3c7;"
     >
-    <template #bodyCell="{ column }">
-      <template v-if="column.key === 'operation'">
-        <a-button @click="editUser(record)">Edit</a-button>
-        <a-button @click="deleteUser(record)">Delete</a-button>
+      <template #bodyCell="{ column, record }">
+        <template v-if="column.key === 'operation'">
+          
+          <a-button @click="deleteUser(record._id)" class="bg-amber-500 text-white">Delete</a-button>
+        </template>
       </template>
-    </template>
     </a-table>
   </div>
 </template>
@@ -19,6 +19,7 @@
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
+import { type } from '../.nuxt/types/imports';
 
 
 const columns = [
@@ -77,29 +78,23 @@ const editUser = async (user: UserData): Promise<void> => {
   // Implementation of editUser function
 };
 
-const deleteConfirm = ref<UserData | null>(null);
 
-const confirmDelete = (user: UserData): void => {
-  deleteConfirm.value = user;
-};
 
-const deleteUser = async (): Promise<void> => {
-  if (deleteConfirm.value) {
-    const userId = deleteConfirm.value._id;
-    try {
-      const response = await axios.delete(`localhost//:3001/users/${userId}`);
-      console.log(response)
-      deleteConfirm.value = null; // Reset the deleteConfirm value
-    } catch (error) {
-      // Handle error
-    }
+const deleteUser = async (_id: string) => {
+  try {
+    const response = await axios.delete(`http://localhost:3001/users/${_id}`);
+    console.log(response.data);
+    // Add code to update your table after successful deletion
+  } catch (error) {
+    console.error(error);
+    // Add error handling code if needed
   }
 };
 
 onMounted(async () => {
   pending.value = true;
   try {
-    const response = await axios.get('http://localhost:3001/users/');
+    const response = await axios.get('http://localhost:3001/users/userprof');
     data.value = response.data;
   } catch (error) {
     console.error('Error fetching data:', error);

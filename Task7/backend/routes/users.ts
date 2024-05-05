@@ -25,6 +25,52 @@ userRoute.get("/userprof", async (req: Request, res: Response)=>{
     }
 })
 
+userRoute.get("/usercount", async (req: Request, res: Response) => {
+    try {
+      const response = await Users.findAll({
+        where: {
+          accountType: 'User'
+        },
+        attributes: ['createdAt'] // Include createdAt field in the response
+      });
+  
+      res.status(200).json(response);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  });
+
+  userRoute.get("/userpie", async (req: Request, res: Response) => {
+    try {
+      const response = await Users.findAll({
+        where: {
+          accountType: 'User'
+        },
+        attributes: ['createdAt'] // Include createdAt field in the response
+      });
+  
+      res.status(200).json(response);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  });
+
+userRoute.get("/adminname", async (req: Request, res: Response) => {
+    try {
+        const response = await Users.findAll({
+            attributes: ['firstName', 'middleName', 'lastName'], // Project only these fields
+            where: {
+                accountType: 'Admin'
+            }
+        });
+
+        res.status(200).json(response);
+    } catch (error) {
+        res.status(500).json(error);
+    }
+});
+
+
 userRoute.get("/admin", async (req: Request, res: Response)=>{
     try {
         const response = await Users.findAll({
@@ -94,7 +140,7 @@ userRoute.post("/login", async (req: Request, res: Response) => {
 });
   
 
-userRoute.put("/:id", async (req: Request, res: Response)=>{
+userRoute.put("/:_id", async (req: Request, res: Response)=>{
     try {
        
         const { body, params } = req
@@ -109,14 +155,16 @@ userRoute.put("/:id", async (req: Request, res: Response)=>{
     }
 })
 
-userRoute.delete("/:id", async (req: Request, res: Response)=>{
+userRoute.delete("/:userId", async (req: Request, res: Response) => {
     try {
-        const params = req.params
-        const response = await Users.destroy({where: params})
-        res.status(200).json(response)
+        const userId = req.params.userId;
+        const response = await Users.destroy({ where: { _id: userId } }); 
+        console.log(response)
+        res.status(200).json({ message: 'User deleted successfully' });
     } catch (error) {
-        res.status(500).json(error)
+        console.error(error);
+        res.status(500).json({ error: 'Internal server error' });
     }
-})
+});
 
 export default userRoute

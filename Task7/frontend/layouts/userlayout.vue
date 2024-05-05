@@ -2,7 +2,7 @@
   <a-layout >
       <Userheader></Userheader>
       <a-layout-content>
-        <div class=" w-screen bg-amber-300" style="height:32rem">
+        <div style="min-height: 85vh ">
          <slot/>
         </div>
       </a-layout-content>

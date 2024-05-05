@@ -1,91 +1,87 @@
 <template>
-    <a-menu
-    v-model:openKeys="state.openKeys"
-    v-model:selectedKeys="state.selectedKeys"
-    style="display: flex; justify-content: flex-end;"
-    
-    :mode="state.mode"
-    :items="items"
-    :theme="state.theme"
-    @click="handleMenuClick"
->
-    <a-menu-item style="display: flex; align-items: center;" >
-        <img src="~/assets/images/logo.png" alt="Logo" style="width: 40px; height: 40px; margin-right: 10px;">
-        Logo
-    </a-menu-item>
-    
-    <a-divider style="margin: 0 1em;"></a-divider>
-    
-    <a-menu-item style="display: flex; align-items: center;">
+  <a-layout-header  >
+    <a-menu  :theme="state.theme" mode="horizontal"  style="display: flex; justify-content: flex-end;"  @click="handleMenuClick" >
+      <a-menu-item key="1">
+        <a-button :class="{ 'light-theme': state.theme === 'light', 'dark-theme': state.theme === 'dark' }"><HomeOutlined /> Home</a-button>
+      </a-menu-item>
+      <a-menu-item key="2">
+        <a-button :class="{ 'light-theme': state.theme === 'light', 'dark-theme': state.theme === 'dark' }"><FolderViewOutlined /> Job</a-button>
+      </a-menu-item>
+      <a-menu-item >
+        <a-dropdown>
+      <template #overlay>
+        <a-menu  @click="handleMenuClick" >
+          <a-menu-item key="3.1" >
+            <UserOutlined />
+           Profile
+          </a-menu-item>
+          <a-menu-item key="3.2">
+            <PoweroffOutlined />
+           Logout
+          </a-menu-item>
+         
+        </a-menu>
+      </template>
+      <a-button :class="{ 'light-theme': state.theme === 'light', 'dark-theme': state.theme === 'dark' }">
+        Mandoe123
+        <DownOutlined />
+      </a-button>
+    </a-dropdown>
+      </a-menu-item>
+      <a-menu-item>
         <a-switch :checked="state.theme === 'dark'" @change="changeTheme" />
-        Change Theme
-    </a-menu-item>
-</a-menu>
+      </a-menu-item>
+    </a-menu>
+  </a-layout-header>
+</template>
 
-  </template>
-  
-  <script lang="ts" setup>
-  import { h, reactive } from 'vue';
-  import {
-    MailOutlined,
-    CalendarOutlined,
-    PoweroffOutlined,
-    
-  } from '@ant-design/icons-vue';
-  import type { MenuMode, MenuTheme } from 'ant-design-vue';
-  import { ItemType } from 'ant-design-vue';
-  import { useRouter } from 'vue-router';
-  const router = useRouter();
-  
-  const state = reactive({
-    mode: 'horizontal' as MenuMode,
-    theme: 'light' as MenuTheme,
-    selectedKeys: ['1'],
-    
-  });
-  
-  function getItem(
-    label: string,
-    key: string,
-    icon?: any,
-    children?: ItemType[],
-    type?: 'group',
-  ): ItemType {
-    return {
-      key,
-      icon,
-      children,
-      label,
-      type,
-    } as ItemType;
-  }
-  
-  const items: ItemType[] = reactive([
-    getItem('Home', '1', h(MailOutlined)),
-    getItem('Job', '2', h(CalendarOutlined)),
-    getItem('Logout', '3', h(PoweroffOutlined)),
-  ]);
-  
-  
-  const changeTheme = (checked: boolean) => {
+<script setup lang="ts">
+import { ref } from 'vue';
+import type { MenuTheme } from 'ant-design-vue';
+import { useRouter } from 'vue-router';
+const router = useRouter();
+
+const state = reactive({
+
+  theme: 'light' as MenuTheme, 
+ }
+)
+
+const changeTheme = (checked: boolean) => {
     state.theme = checked ? 'dark' : 'light';
   };
 
-  const handleMenuClick = ({ key }: { key: string }) => {
-  switch (key) {
-    case '1':
-      router.push('/user/home');
-      break;
-    case '2':
-      router.push('/user/job');
-      break;
-    case '3':
-      router.push('/');
-      break;
-    default:
-      break;
-  }
+
+
+const handleMenuClick = ({ key }: { key: string }) => {
+    switch (key) {
+        case '1':
+            router.push('/user/home');
+            break;
+        case '2':
+            router.push('/user/job');
+            break;
+        case '3.1':
+            router.push('/user/profile');
+            break;
+        case '3.2':
+            router.push('/');
+            break;
+        default:
+            break;
+    }
 };
-  </script>
-  
-  
+
+</script>
+
+<style>
+.light-theme {
+  background-color: papayawhip;
+  color: black;
+}
+
+.dark-theme {
+  background-color: darkkhaki;
+  color: white;
+}
+</style>

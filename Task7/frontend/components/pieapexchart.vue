@@ -7,7 +7,8 @@
  <script>
  import { defineComponent, ref, watch } from 'vue'
  import VueApexCharts from 'vue3-apexcharts'
- 
+ import axios from 'axios'
+
  export default defineComponent({
    components: {
      apexchart: VueApexCharts,
@@ -21,6 +22,28 @@
        chartWidth.value = newWidth < 500 ? 200 : 380
      })
  
+     const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:3001/users/userpie');
+        const userData = response.data;
+
+        const today = new Date();
+        const oneWeekAgo = new Date();
+        oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+
+        const existingApplicants = userData.filter(user => new Date(user.createdAt) < oneWeekAgo).length;
+        const newApplicants = userData.filter(user => new Date(user.createdAt) >= oneWeekAgo).length;
+
+        ApplicantBatch.value = [existingApplicants, newApplicants];
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    onMounted(() => {
+      fetchData();
+    });
+
      const chartOptions = {     //Configuration Apex Chart
        chart: {
          type: 'donut',
